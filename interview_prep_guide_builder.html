@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interview Prep Guide Builder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --navy:#0f2d3d;
+    --blue:#1b6fa8;
+    --teal:#0f9b8e;
+    --bg:#f4f7f9;
+    --card:#ffffff;
+    --border:#d7e0e5;
+    --text:#1c2b33;
+    --muted:#5b6b73;
+    --tag-bg:#e7f1f7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  header{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    padding:24px 32px;
+  }
+  header h1{margin:0 0 4px 0;font-size:22px;}
+  header p{margin:0;opacity:.85;font-size:14px;}
+  .wrap{
+    display:flex;
+    gap:24px;
+    padding:24px;
+    max-width:1400px;
+    margin:0 auto;
+    align-items:flex-start;
+  }
+  .col{flex:1;min-width:0;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px 22px;
+    margin-bottom:18px;
+  }
+  fieldset{
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin:0 0 18px 0;
+    padding:14px 16px 16px 16px;
+  }
+  legend{font-weight:600;color:var(--navy);padding:0 6px;font-size:14px;}
+  .field{margin-bottom:14px;}
+  label{
+    display:block;
+    font-weight:600;
+    font-size:13.5px;
+    margin-bottom:5px;
+    color:var(--navy);
+  }
+  .tag{
+    background:var(--tag-bg);
+    color:var(--blue);
+    font-size:10.5px;
+    font-weight:600;
+    padding:2px 7px;
+    border-radius:10px;
+    margin-left:6px;
+    text-transform:uppercase;
+    letter-spacing:.3px;
+  }
+  .hint{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;}
+  input[type=text], textarea, select{
+    width:100%;
+    padding:9px 10px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    font-size:14px;
+    font-family:inherit;
+    background:#fcfdfe;
+  }
+  textarea{resize:vertical;min-height:64px;}
+  .radio-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:2px;}
+  .radio-opt{display:flex;align-items:center;gap:6px;font-size:13.5px;}
+  .radio-opt input{width:auto;}
+  #outputPanel{position:sticky;top:24px;}
+  #promptText{
+    white-space:pre-wrap;
+    font-family:"SFMono-Regular",Consolas,Menlo,monospace;
+    font-size:12.5px;
+    background:#0f2d3d;
+    color:#dff1ec;
+    padding:16px;
+    border-radius:8px;
+    max-height:560px;
+    overflow-y:auto;
+    line-height:1.5;
+  }
+  .btn-row{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+  button{
+    cursor:pointer;
+    border:none;
+    border-radius:6px;
+    padding:9px 16px;
+    font-size:13.5px;
+    font-weight:600;
+    font-family:inherit;
+  }
+  .btn-primary{background:var(--teal);color:#fff;}
+  .btn-primary:hover{background:#0c8579;}
+  .btn-secondary{background:var(--tag-bg);color:var(--blue);}
+  .btn-secondary:hover{background:#d9e9f2;}
+  #placeholder{color:var(--muted);font-style:italic;font-size:13.5px;}
+  .banner{
+    background:#fff7e0;
+    border:1px solid #f0d98c;
+    border-radius:8px;
+    padding:12px 14px;
+    font-size:12.5px;
+    color:#5b4a1a;
+    line-height:1.5;
+    margin-bottom:18px;
+  }
+  .banner b{color:#3d3113;}
+  .paired-row{display:flex;gap:6px;margin-bottom:6px;align-items:center;flex-wrap:wrap;}
+  .paired-row input{flex:1;min-width:120px;padding:6px 8px;font-size:12.5px;border:1px solid var(--border);border-radius:5px;}
+  .paired-row select{flex:1.2;min-width:150px;padding:6px 8px;font-size:12.5px;border:1px solid var(--border);border-radius:5px;}
+  .paired-row button{background:#fbeaea;color:#b23b3b;border:none;border-radius:5px;padding:6px 10px;cursor:pointer;font-size:13px;flex:0 0 auto;}
+  .mode-toggle{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    padding:12px 16px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    margin-bottom:18px;
+  }
+  .mode-toggle-label{font-weight:600;font-size:13.5px;color:var(--navy);}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Interview Prep Guide Builder</h1>
+  <p>Turns your resume, the job description, and (optionally) who you're meeting with into a real, grounded prep guide — not generic interview advice.</p>
+</header>
+
+<div class="wrap">
+  <div class="col">
+
+    <div class="banner">
+      <b>Where this fits.</b> The Target Company Prompt Builder researches and ranks companies. The Job Posting Finder checks who's actively hiring. Resume &amp; Cover Letter Tailoring fits your documents to a posting. This tool picks up once you've actually landed an interview — and afterward, the specific things you discuss become your Context Notes for a genuinely grounded thank-you message in the Outreach Message Builder.
+    </div>
+
+    <div class="mode-toggle" id="modeToggle">
+      <span class="mode-toggle-label">Prepping for:</span>
+      <label class="radio-opt"><input type="radio" name="prepMode" value="recruiter" checked> Recruiter Screen</label>
+      <label class="radio-opt"><input type="radio" name="prepMode" value="hiring_manager"> Hiring Manager Interview</label>
+      <label class="radio-opt"><input type="radio" name="prepMode" value="general"> General / Other (technical, panel, final round)</label>
+    </div>
+
+    <div class="card">
+      <fieldset>
+        <legend>1 &middot; The Role &amp; Company</legend>
+
+        <div class="field">
+          <label for="company">Company</label>
+          <input type="text" id="company" placeholder="e.g. Schneider Electric">
+        </div>
+
+        <div class="field">
+          <label for="role">Role / job title</label>
+          <input type="text" id="role" placeholder="e.g. Director, OT Cybersecurity Advisory">
+        </div>
+
+        <div class="field">
+          <label for="jobDescription">Job description</label>
+          <textarea id="jobDescription" placeholder="Paste the full job description text here" style="min-height:120px;"></textarea>
+          <p class="hint">No text handy? Skip this box and attach the job posting file directly when you paste the generated prompt into Claude.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 &middot; Your Background</legend>
+
+        <div class="field">
+          <label for="resume">Your resume</label>
+          <textarea id="resume" placeholder="Paste your resume text here" style="min-height:140px;"></textarea>
+          <p class="hint">Same option as above — attach your resume file directly to the Claude message instead if that's easier than pasting text.</p>
+        </div>
+
+        <div class="field">
+          <label for="worryAreas">Areas you're less confident about <span class="tag">optional</span></label>
+          <textarea id="worryAreas" placeholder="e.g. limited hands-on experience with a specific tool named in the JD, a career pivot"></textarea>
+          <p class="hint">Naming these directly gets you real prep for the question you're actually worried about, instead of pretending it won't come up.</p>
+        </div>
+      </fieldset>
+
+      <fieldset id="recruiterFields">
+        <legend>3 &middot; Recruiter Screen Specifics</legend>
+
+        <div class="field">
+          <label for="location">Location <span class="tag">for salary research</span></label>
+          <input type="text" id="location" placeholder="e.g. Dallas, TX or Remote (US)">
+          <p class="hint">Compensation varies heavily by location — this grounds the salary range research below in something realistic.</p>
+        </div>
+
+        <div class="field">
+          <label for="reasonGap">Why you're not currently working / leaving your current role <span class="tag">optional</span></label>
+          <textarea id="reasonGap" placeholder="Your actual reason, in your own words"></textarea>
+          <p class="hint">Left blank, the guide gives you general guidance on structuring this kind of answer instead of inventing a reason for you.</p>
+        </div>
+
+        <div class="field">
+          <label for="targetSalary">Your target salary range, if you have one <span class="tag">optional</span></label>
+          <input type="text" id="targetSalary" placeholder="e.g. $150K-$170K base">
+          <p class="hint">The guide researches real market data either way — this just gets checked against it rather than replacing it.</p>
+        </div>
+      </fieldset>
+
+      <fieldset id="hiringManagerFields" style="display:none;">
+        <legend>3 &middot; Call Details</legend>
+
+        <div class="field">
+          <label for="callLength">Call length (minutes)</label>
+          <input type="text" id="callLength" value="60" placeholder="60">
+        </div>
+
+        <div class="field">
+          <label for="platform">Platform</label>
+          <select id="platform">
+            <option value="Microsoft Teams" selected>Microsoft Teams</option>
+            <option value="Zoom">Zoom</option>
+            <option value="Google Meet">Google Meet</option>
+            <option value="phone">Phone call</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="hmBulkPaste">Interviewer(s) — bulk paste, Name and Role one pair per line <span class="tag">optional</span></label>
+          <textarea id="hmBulkPaste" placeholder="Paste as Name [tab] Role, one per line"></textarea>
+          <button class="btn-secondary" id="hmParseBulkBtn" type="button" style="margin-top:8px;">Parse rows</button>
+        </div>
+        <div class="field" id="hmPairedPreviewField" style="display:none;">
+          <label>Interviewers — check these before generating your prompt</label>
+          <div id="hmPairedPreview"></div>
+          <button class="btn-secondary" id="hmAddPairBtn" type="button" style="margin-top:8px;">+ Add interviewer manually</button>
+        </div>
+        <p class="hint">No names given is fine — the guide still builds from the role/company/resume alone, it just skips interviewer-specific research.</p>
+      </fieldset>
+
+      <fieldset id="generalFields" style="display:none;">
+        <legend>3 &middot; Stage &amp; Interviewers</legend>
+
+        <div class="field">
+          <label>Interview stage</label>
+          <div class="radio-row">
+            <label class="radio-opt"><input type="radio" name="stage" value="technical" checked> Technical / skills round</label>
+            <label class="radio-opt"><input type="radio" name="stage" value="panel"> Panel (multiple interviewers)</label>
+            <label class="radio-opt"><input type="radio" name="stage" value="final"> Onsite / final round</label>
+            <label class="radio-opt"><input type="radio" name="stage" value="unsure"> Not sure — prep generally</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="genBulkPaste">Interviewer(s) — bulk paste, Name and Role one pair per line <span class="tag">optional</span></label>
+          <textarea id="genBulkPaste" placeholder="Paste as Name [tab] Role, one per line"></textarea>
+          <button class="btn-secondary" id="genParseBulkBtn" type="button" style="margin-top:8px;">Parse rows</button>
+        </div>
+        <div class="field" id="genPairedPreviewField" style="display:none;">
+          <label>Interviewers — check these before generating your prompt</label>
+          <div id="genPairedPreview"></div>
+          <button class="btn-secondary" id="genAddPairBtn" type="button" style="margin-top:8px;">+ Add interviewer manually</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4 &middot; Output</legend>
+        <div class="field">
+          <label>Output format</label>
+          <div class="radio-row">
+            <label class="radio-opt"><input type="radio" name="outputFormat" value="docx" checked> Downloadable Word document</label>
+            <label class="radio-opt"><input type="radio" name="outputFormat" value="table"> Table in chat</label>
+          </div>
+          <p class="hint">A downloadable doc defaults on here specifically — this is a reference guide you'll want on hand right before walking in, not just something to skim once in the chat.</p>
+        </div>
+      </fieldset>
+
+      <div class="banner" id="storyGuardrailBanner">
+        <b>Never a scripted answer:</b> for behavioral questions, the guide points you to the specific resume bullet that's your strongest match and prompts you to structure it with STAR — it does not write the story for you. Claude doesn't know what actually happened in your work beyond what your resume states, and inventing specifics on your behalf risks putting words in your mouth you'd have to walk back live.
+      </div>
+      <div class="banner" id="secondaryGuardrailBanner">
+        <b>Interviewer research stays evidence-based:</b> if a named interviewer has little or no public footprint, the guide says so plainly and falls back to role-based prep instead of inventing a personality or interests to seem more personalized.
+      </div>
+    </div>
+  </div>
+
+  <div class="col" id="outputPanel">
+    <div class="card">
+      <div class="btn-row">
+        <button class="btn-primary" id="copyBtn">Copy prompt</button>
+        <button class="btn-secondary" id="downloadBtn">Download .txt</button>
+      </div>
+      <div id="promptText"><span id="placeholder">Fill in at least the company or the job description to see your prompt appear here.</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const promptTextEl = document.getElementById('promptText');
+let hmInterviewerRows = [];
+let genInterviewerRows = [];
+
+function val(id){ return document.getElementById(id).value.trim(); }
+function radioVal(name){
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : '';
+}
+function currentMode(){ return radioVal('prepMode') || 'recruiter'; }
+
+const ROLE_OPTIONS = [
+  { value: '', label: '(not sure)' },
+  { value: 'recruiter', label: 'Recruiter / HR screener' },
+  { value: 'hiring_manager', label: 'Hiring Manager' },
+  { value: 'peer', label: 'Peer / team member' },
+  { value: 'skip_level', label: 'Skip-level / executive' },
+  { value: 'cross_functional', label: 'Cross-functional partner' },
+];
+function roleLabel(v){
+  const found = ROLE_OPTIONS.find(o => o.value === v);
+  return found && found.value ? found.label : '';
+}
+
+function makeInterviewerMachinery(rowsArray, bulkTextareaId, parseBtnId, previewFieldId, previewListId, addBtnId){
+  function parseBulkPaste(){
+    const raw = document.getElementById(bulkTextareaId).value;
+    if(!raw.trim()) return;
+    const lines = raw.split(/\n/).map(l => l.trim()).filter(Boolean);
+    lines.forEach(line => {
+      const cells = line.split('\t').map(c => c.trim());
+      if(!cells[0]) return;
+      if(cells[0].toLowerCase() === 'name') return;
+      rowsArray.push({ name: cells[0] || '', role: '', roleNote: cells[1] || '' });
+    });
+    document.getElementById(bulkTextareaId).value = '';
+    renderPreview();
+    render();
+  }
+  function renderPreview(){
+    const container = document.getElementById(previewListId);
+    const field = document.getElementById(previewFieldId);
+    if(rowsArray.length === 0){
+      field.style.display = 'none';
+      container.innerHTML = '';
+      return;
+    }
+    field.style.display = 'block';
+    container.innerHTML = '';
+    rowsArray.forEach((row, idx) => {
+      const div = document.createElement('div');
+      div.className = 'paired-row';
+      const roleOptionsHtml = ROLE_OPTIONS.map(opt =>
+        `<option value="${opt.value}" ${row.role === opt.value ? 'selected' : ''}>${opt.label}</option>`
+      ).join('');
+      div.innerHTML = `
+        <input type="text" data-idx="${idx}" data-field="name" value="${row.name.replace(/"/g,'&quot;')}" placeholder="Name">
+        <input type="text" data-idx="${idx}" data-field="roleNote" value="${(row.roleNote||'').replace(/"/g,'&quot;')}" placeholder="Their title, as given (optional)">
+        <select data-idx="${idx}" data-field="role">${roleOptionsHtml}</select>
+        <button type="button" data-remove="${idx}">\u00d7</button>
+      `;
+      container.appendChild(div);
+    });
+    container.querySelectorAll('input').forEach(el => {
+      el.addEventListener('input', (e) => {
+        const idx = parseInt(e.target.dataset.idx);
+        rowsArray[idx][e.target.dataset.field] = e.target.value;
+        render();
+      });
+    });
+    container.querySelectorAll('select').forEach(el => {
+      el.addEventListener('change', (e) => {
+        const idx = parseInt(e.target.dataset.idx);
+        rowsArray[idx][e.target.dataset.field] = e.target.value;
+        render();
+      });
+    });
+    container.querySelectorAll('button[data-remove]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idx = parseInt(e.target.dataset.remove);
+        rowsArray.splice(idx, 1);
+        renderPreview();
+        render();
+      });
+    });
+  }
+  document.getElementById(parseBtnId).addEventListener('click', parseBulkPaste);
+  document.getElementById(addBtnId).addEventListener('click', () => {
+    rowsArray.push({ name: '', role: '', roleNote: '' });
+    renderPreview();
+  });
+  return { renderPreview };
+}
+
+const hmMachinery = makeInterviewerMachinery(hmInterviewerRows, 'hmBulkPaste', 'hmParseBulkBtn', 'hmPairedPreviewField', 'hmPairedPreview', 'hmAddPairBtn');
+const genMachinery = makeInterviewerMachinery(genInterviewerRows, 'genBulkPaste', 'genParseBulkBtn', 'genPairedPreviewField', 'genPairedPreview', 'genAddPairBtn');
+
+function applyMode(){
+  const mode = currentMode();
+  document.getElementById('recruiterFields').style.display = mode === 'recruiter' ? 'block' : 'none';
+  document.getElementById('hiringManagerFields').style.display = mode === 'hiring_manager' ? 'block' : 'none';
+  document.getElementById('generalFields').style.display = mode === 'general' ? 'block' : 'none';
+  document.getElementById('storyGuardrailBanner').style.display = mode === 'recruiter' ? 'none' : 'block';
+  document.getElementById('secondaryGuardrailBanner').style.display = mode === 'recruiter' ? 'none' : 'block';
+  render();
+}
+document.querySelectorAll('input[name="prepMode"]').forEach(el => {
+  el.addEventListener('change', applyMode);
+});
+
+function stageLabel(v){
+  if(v === 'panel') return 'Panel (multiple interviewers)';
+  if(v === 'final') return 'Onsite / final round';
+  if(v === 'unsure') return 'Not sure — prep generally';
+  return 'Technical / skills round';
+}
+
+function commonPreamble(){
+  return [
+    `Please execute this task directly — research and build the actual interview prep guide now, rather than first describing your plan, summarizing what you're about to do, or asking me clarifying questions before starting. If a genuine capability limitation prevents you from completing part of this (e.g., no web search available, or no file-creation tool for the Word document output), say so plainly and do as much as you actually can — but don't pause to ask permission, outline an approach, or check in before starting the real work.`,
+    ``,
+  ];
+}
+
+function commonFacts(company, role, jobDescription, resume, worryAreas){
+  let lines = [];
+  if(company) lines.push(`- Company: ${company}`);
+  if(role) lines.push(`- Role: ${role}`);
+  if(jobDescription){
+    lines.push(`- Job description:`);
+    lines.push(jobDescription);
+  } else {
+    lines.push(`- Job description: not pasted here — check whether I've attached it as a file to this message instead. If neither, work from the Company/Role given above and say plainly that deeper JD-specific prep wasn't possible.`);
+  }
+  if(resume){
+    lines.push(`- My resume:`);
+    lines.push(resume);
+  } else {
+    lines.push(`- My resume: not pasted here — check whether I've attached it as a file to this message instead. If neither, skip the resume-dependent sections below and say plainly why.`);
+  }
+  if(worryAreas) lines.push(`- Areas I'm less confident about: ${worryAreas}`);
+  return lines;
+}
+
+function outputFormatLines(outputFormat, docxNote, tableNote){
+  if(outputFormat === 'docx'){
+    return [`Format the result as a downloadable Word document (.docx) with clear section headings matching the structure above. ${docxNote}`];
+  }
+  return [`Present the result directly in your response, organized under the section headings above. ${tableNote}`];
+}
+
+function buildRecruiterPrompt(){
+  const company = val('company');
+  const role = val('role');
+  const jobDescription = val('jobDescription');
+  const resume = val('resume');
+  const worryAreas = val('worryAreas');
+  const location = val('location');
+  const reasonGap = val('reasonGap');
+  const targetSalary = val('targetSalary');
+  const outputFormat = radioVal('outputFormat');
+
+  let lines = commonPreamble();
+  lines.push(`I have an upcoming recruiter screen and want a real prep guide built from my actual resume and the actual job description — not generic interview advice.`);
+  lines.push(``);
+  lines = lines.concat(commonFacts(company, role, jobDescription, resume, worryAreas));
+  lines.push(`- Interview type: Recruiter / phone screen`);
+  if(location) lines.push(`- Location (for salary research): ${location}`);
+  lines.push(`- Reason I'm not currently working / leaving my current role, if applicable: ${reasonGap || 'not given — see instructions below, do not invent one'}`);
+  lines.push(`- My own target salary range, if I have one: ${targetSalary || 'not given — search for market data instead'}`);
+
+  lines.push(``);
+  lines.push(`Build the guide in this structure:`);
+  lines.push(``);
+  lines.push(`1. Tight "Tell Me About Yourself" Script — a 60-90 second spoken narrative arc built ONLY from facts actually in my resume (career chronology, why each move happened where evident, what I'm looking for next). Do not invent motivations, passions, or personal narrative details that aren't evidenced in my resume — keep it factual and professional, not a fabricated origin story.`);
+  lines.push(``);
+  lines.push(`2. Qualifications T-Chart — a two-column table: left column is a specific requirement or qualification pulled directly from the job description, right column is the specific matching evidence from my resume for that exact requirement, one row per major requirement. This needs to be genuinely scannable in the 30 seconds before the call.`);
+  lines.push(``);
+  lines.push(`3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this — no more than 2-3 sentences, no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role — so I can apply it to my own actual situation.`}`);
+  lines.push(``);
+  lines.push(`4. The Salary Question — research real, current market compensation data for this role, seniority level, and location, using actual sources (e.g. levels.fyi, Glassdoor, Payscale, Bureau of Labor Statistics data, comparable job postings with disclosed ranges) rather than a guessed number. Present a specific researched range and note your sources.${targetSalary ? ` I have my own target range in mind (given above) — compare it against what you find and flag plainly if it looks notably out of step with the market data in either direction, rather than just validating it.` : ''} Then coach the delivery: a "state a range with flexibility, don't negotiate yet" framing — e.g. "Based on my research and experience, I'm targeting $X-$Y, though I'd want to understand the full scope and comp structure before locking in a number." Make clear this is a stated-range moment, not a negotiation — that comes later, once there's an offer.`);
+  lines.push(``);
+  lines.push(`5. Standard Logistics Questions to Expect — list the standard questions a recruiter screen almost always includes (notice period/availability, work authorization, location/remote flexibility, willingness to travel, other interviews currently in process and their stage). For each, note that I'll need to supply my own actual answer — don't invent specifics like a notice period or immigration status on my behalf, just prompt me for what I need to have ready.`);
+  lines.push(``);
+  lines.push(`6. Keep It Tight — a short coaching note that recruiter screens reward concise, confident answers over deep technical detail — that depth is for the hiring-manager round, not this one.`);
+  lines.push(``);
+  lines.push(`7. Questions to Ask the Recruiter — 3-4 specific questions appropriate for a recruiter screen: process/timeline for next steps, what's the top priority for this hire in the first 90 days, comp band confirmation. Skip deep team/strategy questions — save those for later rounds.`);
+  lines.push(``);
+  lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
+  lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
+  lines.push(`- Never invent my notice period, work authorization status, or any other personal/logistics fact — prompt me to supply my own.`);
+  lines.push(`- Ground the salary range in real search results with sources noted, never a guessed number.`);
+  lines.push(``);
+  lines = lines.concat(outputFormatLines(outputFormat,
+    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer — so I have something skimmable right before the call.`,
+    `Include a short "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer.`
+  ));
+
+  return lines.join("\n");
+}
+
+function buildHiringManagerPrompt(){
+  const company = val('company');
+  const role = val('role');
+  const jobDescription = val('jobDescription');
+  const resume = val('resume');
+  const worryAreas = val('worryAreas');
+  const callLength = val('callLength') || '60';
+  const platform = document.getElementById('platform').value;
+  const outputFormat = radioVal('outputFormat');
+  const interviewers = hmInterviewerRows.filter(r => r.name);
+
+  let lines = commonPreamble();
+  lines.push(`I have an upcoming hiring manager interview and want a real prep guide built from my actual resume, the actual job description, and — where I've given you names — real research on the actual people interviewing me. Not generic interview advice.`);
+  lines.push(``);
+  lines = lines.concat(commonFacts(company, role, jobDescription, resume, worryAreas));
+  lines.push(`- Interview type: Hiring Manager interview, video call via ${platform}, approximately ${callLength} minutes`);
+  if(interviewers.length){
+    lines.push(`- Interviewers I'm meeting with:`);
+    interviewers.forEach(iv => {
+      const roleTag = roleLabel(iv.role) || iv.roleNote || 'role not specified';
+      lines.push(`    ${iv.name} — ${roleTag}`);
+    });
+  }
+
+  lines.push(``);
+  lines.push(`Build the guide in this structure:`);
+  lines.push(``);
+  lines.push(`1. Company & Role Snapshot — research ${company || 'the company'} directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.`);
+  lines.push(``);
+  lines.push(`2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
+  lines.push(``);
+  if(interviewers.length){
+    lines.push(`3. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly ("no strong public signal found for [Name] — prepared based on their stated role instead") rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category — a Hiring Manager is more likely to probe team fit and day-to-day operating style than a peer or executive would.`);
+  } else {
+    lines.push(`3. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
+  }
+  lines.push(``);
+  lines.push(`4. Video Call Logistics Checklist — test ${platform} audio/video ahead of time, confirm lighting and background on camera, close notification-generating apps, have a backup dial-in number ready if one exists, look at the camera (not the screen) when speaking, keep water nearby.`);
+  lines.push(``);
+  lines.push(`5. Time-Boxing for a ${callLength}-Minute Call — propose a realistic cadence scaled to ${callLength} minutes (roughly: a few minutes of rapport/intro, the bulk of the time on their questions, a meaningful block reserved for my questions, and a few minutes for wrap-up/next steps), and a coaching note to keep individual answers to 90 seconds-2 minutes unless I'm explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a tightly time-boxed call.`);
+  lines.push(``);
+  lines.push(`6. My Top 3-4 Stories, Not a Long List — given the time limit, identify the 3-4 resume experiences most likely to be useful across the likely questions below, and for each, prompt me to structure it with STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. Point me to the story and the structure, don't write my professional history for me.`);
+  lines.push(``);
+  lines.push(`7. Likely Questions — a realistically sized set (not exhaustive, given the time limit) across: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific JD requirements), Culture/values (grounded in the company's actual stated values, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
+  lines.push(``);
+  lines.push(`8. Questions to Ask the Hiring Manager — team structure and day-to-day, how success is measured in the first 90 days, current team priorities/challenges, management style. Tailor these using the interviewer research above where applicable, and skip generic questions like "what's the culture like."`);
+  lines.push(``);
+  lines.push(`9. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.`);
+  lines.push(``);
+  lines.push(`CRITICAL — grounding guardrails, both non-negotiable:`);
+  lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
+  lines.push(`- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.`);
+  lines.push(``);
+  lines = lines.concat(outputFormatLines(outputFormat,
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`,
+    `Include a short "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, and the 3 strongest resume-to-role matches.`
+  ));
+
+  return lines.join("\n");
+}
+
+function buildGeneralPrompt(){
+  const company = val('company');
+  const role = val('role');
+  const jobDescription = val('jobDescription');
+  const resume = val('resume');
+  const worryAreas = val('worryAreas');
+  const stage = radioVal('stage');
+  const outputFormat = radioVal('outputFormat');
+  const interviewers = genInterviewerRows.filter(r => r.name);
+
+  let lines = commonPreamble();
+  lines.push(`I have an upcoming interview and want a real prep guide built from my actual resume, the actual job description, and — where I've given you names — real research on the actual people interviewing me. Not generic interview advice.`);
+  lines.push(``);
+  lines = lines.concat(commonFacts(company, role, jobDescription, resume, worryAreas));
+  lines.push(`- Interview stage: ${stageLabel(stage)}`);
+  if(interviewers.length){
+    lines.push(`- Interviewers I'm meeting with:`);
+    interviewers.forEach(iv => {
+      const roleTag = roleLabel(iv.role) || iv.roleNote || 'role not specified';
+      lines.push(`    ${iv.name} — ${roleTag}`);
+    });
+  }
+
+  lines.push(``);
+  lines.push(`Build the guide in this structure:`);
+  lines.push(``);
+  lines.push(`1. Company & Role Snapshot — research ${company || 'the company'} directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.`);
+  lines.push(``);
+  lines.push(`2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
+  lines.push(``);
+  if(interviewers.length){
+    lines.push(`3. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category where known.`);
+  } else {
+    lines.push(`3. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
+  }
+  lines.push(``);
+  lines.push(`4. Likely Questions — generate a realistic set across these categories, pulling specifically from the job description, the company snapshot, and the gap map above, not a generic interview-question list that could apply to any company: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific requirements stated in the JD), Culture/values (grounded in the company's actual stated values or mission, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
+  lines.push(``);
+  lines.push(`5. Story Scaffolding — NOT Scripted Answers. For each behavioral question above, point me to the SPECIFIC resume bullet or experience that's the strongest match, and prompt me to structure it using STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. If a resume bullet is thin, say so and suggest what kind of detail I should be ready to add, rather than inventing that detail yourself.`);
+  lines.push(``);
+  if(interviewers.length){
+    lines.push(`6. Questions to Ask Them — for each interviewer, suggest 2-3 specific, non-generic questions grounded in the actual company/role research above, tailored to that person's likely role and vantage point. Skip "what's the culture like" and similar generic questions entirely.`);
+  } else {
+    lines.push(`6. Questions to Ask Them — since no specific interviewers were named, suggest 4-5 specific, non-generic questions grounded in the actual company/role research above rather than a generic list.`);
+  }
+  lines.push(``);
+  lines.push(`7. Logistics Checklist — a short practical checklist: what to bring or have ready (portfolio links, references, questions written down), and a one-line reminder of the interview stage given above.`);
+  lines.push(``);
+  lines.push(`CRITICAL — grounding guardrails, both non-negotiable:`);
+  lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
+  lines.push(`- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.`);
+  lines.push(``);
+  lines = lines.concat(outputFormatLines(outputFormat,
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`,
+    `Include a short "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, and the 3 strongest resume-to-role matches.`
+  ));
+
+  return lines.join("\n");
+}
+
+function buildPrompt(){
+  const company = val('company');
+  const role = val('role');
+  const jobDescription = val('jobDescription');
+  if(!company && !jobDescription && !role){
+    return null;
+  }
+  const mode = currentMode();
+  if(mode === 'recruiter') return buildRecruiterPrompt();
+  if(mode === 'hiring_manager') return buildHiringManagerPrompt();
+  return buildGeneralPrompt();
+}
+
+function render(){
+  const prompt = buildPrompt();
+  if(prompt === null){
+    promptTextEl.innerHTML = '<span id="placeholder">Fill in at least the company or the job description to see your prompt appear here.</span>';
+  } else {
+    promptTextEl.textContent = prompt;
+  }
+}
+
+document.querySelectorAll('input, textarea, select').forEach(el => {
+  el.addEventListener('input', render);
+  el.addEventListener('change', render);
+});
+
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const prompt = buildPrompt();
+  if(!prompt) return;
+  navigator.clipboard.writeText(prompt).then(() => {
+    const btn = document.getElementById('copyBtn');
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = original, 1500);
+  }).catch(() => {
+    alert('Clipboard blocked by your browser — use the Download .txt button instead.');
+  });
+});
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  const prompt = buildPrompt();
+  if(!prompt) return;
+  const blob = new Blob([prompt], {type: 'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'interview_prep_prompt.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+applyMode();
+render();
+</script>
+</body>
+</html>

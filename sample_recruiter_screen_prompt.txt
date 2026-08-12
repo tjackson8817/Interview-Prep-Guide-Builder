@@ -1,0 +1,44 @@
+Please execute this task directly — research and build the actual interview prep guide now, rather than first describing your plan, summarizing what you're about to do, or asking me clarifying questions before starting. If a genuine capability limitation prevents you from completing part of this (e.g., no web search available, or no file-creation tool for the Word document output), say so plainly and do as much as you actually can — but don't pause to ask permission, outline an approach, or check in before starting the real work.
+
+I have an upcoming recruiter screen and want a real prep guide built from my actual resume and the actual job description — not generic interview advice.
+
+- Company: Schneider Electric
+- Role: Director, OT Cybersecurity Advisory
+- Job description:
+Director, OT Cybersecurity Advisory
+We are seeking a Director to lead our OT cybersecurity advisory practice, working directly with industrial and critical-infrastructure clients on IEC 62443 assessments, segmentation strategy, and incident response readiness. Requires 10+ years OT/ICS security experience, prior practice-building or P&L ownership, and hands-on familiarity with leading OT security platforms.
+- My resume:
+Tom Jackson
+15+ years in OT (Operational Technology) cybersecurity consulting and practice-building.
+- EY (2016-2020): Founded and scaled EY's global OT cybersecurity practice from zero to a $10-30M pipeline.
+- Schneider Electric (2014-2016): Principal Consultant, later Director with full P&L accountability over Schneider's global OT cybersecurity advisory practice.
+- Accenture (2021-2022): Built and scaled Accenture's global OT cybersecurity capability; hands-on deployment experience with Dragos, Nozomi Networks, and Claroty platforms.
+- Booz Allen Hamilton (2025-2026): Senior Manager, OT Cybersecurity / Health & Life Sciences.
+Certifications: CISSP, GICSP.
+- Interview type: Recruiter / phone screen
+- Location (for salary research): Dallas, TX
+- Reason I'm not currently working / leaving my current role, if applicable: Currently employed at Booz Allen Hamilton; open to this because the role offers more OT-specific practice leadership scope
+- My own target salary range, if I have one: not given — search for market data instead
+
+Build the guide in this structure:
+
+1. Tight "Tell Me About Yourself" Script — a 60-90 second spoken narrative arc built ONLY from facts actually in my resume (career chronology, why each move happened where evident, what I'm looking for next). Do not invent motivations, passions, or personal narrative details that aren't evidenced in my resume — keep it factual and professional, not a fabricated origin story.
+
+2. Qualifications T-Chart — a two-column table: left column is a specific requirement or qualification pulled directly from the job description, right column is the specific matching evidence from my resume for that exact requirement, one row per major requirement. This needs to be genuinely scannable in the 30 seconds before the call.
+
+3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer — using the reason I gave above, draft a brief, honest, forward-looking way to phrase this — no more than 2-3 sentences, no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company.
+
+4. The Salary Question — research real, current market compensation data for this role, seniority level, and location, using actual sources (e.g. levels.fyi, Glassdoor, Payscale, Bureau of Labor Statistics data, comparable job postings with disclosed ranges) rather than a guessed number. Present a specific researched range and note your sources. Then coach the delivery: a "state a range with flexibility, don't negotiate yet" framing — e.g. "Based on my research and experience, I'm targeting $X-$Y, though I'd want to understand the full scope and comp structure before locking in a number." Make clear this is a stated-range moment, not a negotiation — that comes later, once there's an offer.
+
+5. Standard Logistics Questions to Expect — list the standard questions a recruiter screen almost always includes (notice period/availability, work authorization, location/remote flexibility, willingness to travel, other interviews currently in process and their stage). For each, note that I'll need to supply my own actual answer — don't invent specifics like a notice period or immigration status on my behalf, just prompt me for what I need to have ready.
+
+6. Keep It Tight — a short coaching note that recruiter screens reward concise, confident answers over deep technical detail — that depth is for the hiring-manager round, not this one.
+
+7. Questions to Ask the Recruiter — 3-4 specific questions appropriate for a recruiter screen: process/timeline for next steps, what's the top priority for this hire in the first 90 days, comp band confirmation. Skip deep team/strategy questions — save those for later rounds.
+
+CRITICAL — grounding guardrails, all non-negotiable:
+- Never invent a reason for a gap or departure I didn't give you.
+- Never invent my notice period, work authorization status, or any other personal/logistics fact — prompt me to supply my own.
+- Ground the salary range in real search results with sources noted, never a guessed number.
+
+Format the result as a downloadable Word document (.docx) with clear section headings matching the structure above. Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer — so I have something skimmable right before the call.

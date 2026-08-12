@@ -1,0 +1,47 @@
+Please execute this task directly — research and build the actual interview prep guide now, rather than first describing your plan, summarizing what you're about to do, or asking me clarifying questions before starting. If a genuine capability limitation prevents you from completing part of this (e.g., no web search available, or no file-creation tool for the Word document output), say so plainly and do as much as you actually can — but don't pause to ask permission, outline an approach, or check in before starting the real work.
+
+I have an upcoming hiring manager interview and want a real prep guide built from my actual resume, the actual job description, and — where I've given you names — real research on the actual people interviewing me. Not generic interview advice.
+
+- Company: Schneider Electric
+- Role: Director, OT Cybersecurity Advisory
+- Job description:
+Director, OT Cybersecurity Advisory
+We are seeking a Director to lead our OT cybersecurity advisory practice, working directly with industrial and critical-infrastructure clients on IEC 62443 assessments, segmentation strategy, and incident response readiness. Requires 10+ years OT/ICS security experience, prior practice-building or P&L ownership, and hands-on familiarity with leading OT security platforms.
+- My resume:
+Tom Jackson
+15+ years in OT (Operational Technology) cybersecurity consulting and practice-building.
+- EY (2016-2020): Founded and scaled EY's global OT cybersecurity practice from zero to a $10-30M pipeline.
+- Schneider Electric (2014-2016): Principal Consultant, later Director with full P&L accountability over Schneider's global OT cybersecurity advisory practice.
+- Accenture (2021-2022): Built and scaled Accenture's global OT cybersecurity capability; hands-on deployment experience with Dragos, Nozomi Networks, and Claroty platforms.
+- Booz Allen Hamilton (2025-2026): Senior Manager, OT Cybersecurity / Health & Life Sciences.
+Certifications: CISSP, GICSP.
+- Areas I'm less confident about: Limited direct hands-on time with Claroty specifically compared to Dragos/Nozomi
+- Interview type: Hiring Manager interview, video call via Microsoft Teams, approximately 60 minutes
+- Interviewers I'm meeting with:
+    Jane Doe — Hiring Manager
+
+Build the guide in this structure:
+
+1. Company & Role Snapshot — research Schneider Electric directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.
+
+2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.
+
+3. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at Schneider Electric, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly ("no strong public signal found for [Name] — prepared based on their stated role instead") rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category — a Hiring Manager is more likely to probe team fit and day-to-day operating style than a peer or executive would.
+
+4. Video Call Logistics Checklist — test Microsoft Teams audio/video ahead of time, confirm lighting and background on camera, close notification-generating apps, have a backup dial-in number ready if one exists, look at the camera (not the screen) when speaking, keep water nearby.
+
+5. Time-Boxing for a 60-Minute Call — propose a realistic cadence scaled to 60 minutes (roughly: a few minutes of rapport/intro, the bulk of the time on their questions, a meaningful block reserved for my questions, and a few minutes for wrap-up/next steps), and a coaching note to keep individual answers to 90 seconds-2 minutes unless I'm explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a tightly time-boxed call.
+
+6. My Top 3-4 Stories, Not a Long List — given the time limit, identify the 3-4 resume experiences most likely to be useful across the likely questions below, and for each, prompt me to structure it with STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. Point me to the story and the structure, don't write my professional history for me.
+
+7. Likely Questions — a realistically sized set (not exhaustive, given the time limit) across: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific JD requirements), Culture/values (grounded in the company's actual stated values, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).
+
+8. Questions to Ask the Hiring Manager — team structure and day-to-day, how success is measured in the first 90 days, current team priorities/challenges, management style. Tailor these using the interviewer research above where applicable, and skip generic questions like "what's the culture like."
+
+9. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.
+
+CRITICAL — grounding guardrails, both non-negotiable:
+- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.
+- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.
+
+Format the result as a downloadable Word document (.docx) with clear section headings matching the structure above. Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.
