@@ -199,6 +199,12 @@
           <textarea id="worryAreas" placeholder="e.g. limited hands-on experience with a specific tool named in the JD, a career pivot"></textarea>
           <p class="hint">Naming these directly gets you real prep for the question you're actually worried about, instead of pretending it won't come up.</p>
         </div>
+
+        <div class="field">
+          <label for="reasonGap">Why you're not currently working / leaving your current role <span class="tag">optional</span></label>
+          <textarea id="reasonGap" placeholder="Your actual reason, in your own words — e.g. layoff/RIF, government contract funding cut, company restructuring, personal reasons"></textarea>
+          <p class="hint">This comes up in recruiter screens, hiring-manager rounds, and panel interviews alike — not just phone screens. Left blank, the guide gives you general guidance on structuring this kind of answer instead of inventing a reason for you.</p>
+        </div>
       </fieldset>
 
       <fieldset id="recruiterFields">
@@ -208,12 +214,6 @@
           <label for="location">Location <span class="tag">for salary research</span></label>
           <input type="text" id="location" placeholder="e.g. Dallas, TX or Remote (US)">
           <p class="hint">Compensation varies heavily by location — this grounds the salary range research below in something realistic.</p>
-        </div>
-
-        <div class="field">
-          <label for="reasonGap">Why you're not currently working / leaving your current role <span class="tag">optional</span></label>
-          <textarea id="reasonGap" placeholder="Your actual reason, in your own words"></textarea>
-          <p class="hint">Left blank, the guide gives you general guidance on structuring this kind of answer instead of inventing a reason for you.</p>
         </div>
 
         <div class="field">
@@ -520,6 +520,7 @@ function buildHiringManagerPrompt(){
   const jobDescription = val('jobDescription');
   const resume = val('resume');
   const worryAreas = val('worryAreas');
+  const reasonGap = val('reasonGap');
   const callLength = val('callLength') || '60';
   const platform = document.getElementById('platform').value;
   const outputFormat = radioVal('outputFormat');
@@ -530,6 +531,7 @@ function buildHiringManagerPrompt(){
   lines.push(``);
   lines = lines.concat(commonFacts(company, role, jobDescription, resume, worryAreas));
   lines.push(`- Interview type: Hiring Manager interview, video call via ${platform}, approximately ${callLength} minutes`);
+  lines.push(`- Reason I'm not currently working / leaving my current role, if applicable: ${reasonGap || 'not given — see instructions below, do not invent one'}`);
   if(interviewers.length){
     lines.push(`- Interviewers I'm meeting with:`);
     interviewers.forEach(iv => {
@@ -545,31 +547,34 @@ function buildHiringManagerPrompt(){
   lines.push(``);
   lines.push(`2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
   lines.push(``);
+  lines.push(`3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this if it comes up — no more than 2-3 sentences, no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company. Hiring managers often probe a bit deeper on this than a recruiter screen does, so make it ready to hold up under one natural follow-up question.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer if it comes up — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role — so I can apply it to my own actual situation.`}`);
+  lines.push(``);
   if(interviewers.length){
-    lines.push(`3. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly ("no strong public signal found for [Name] — prepared based on their stated role instead") rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category — a Hiring Manager is more likely to probe team fit and day-to-day operating style than a peer or executive would.`);
+    lines.push(`4. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly ("no strong public signal found for [Name] — prepared based on their stated role instead") rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category — a Hiring Manager is more likely to probe team fit and day-to-day operating style than a peer or executive would.`);
   } else {
-    lines.push(`3. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
+    lines.push(`4. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
   }
   lines.push(``);
-  lines.push(`4. Video Call Logistics Checklist — test ${platform} audio/video ahead of time, confirm lighting and background on camera, close notification-generating apps, have a backup dial-in number ready if one exists, look at the camera (not the screen) when speaking, keep water nearby.`);
+  lines.push(`5. Video Call Logistics Checklist — test ${platform} audio/video ahead of time, confirm lighting and background on camera, close notification-generating apps, have a backup dial-in number ready if one exists, look at the camera (not the screen) when speaking, keep water nearby.`);
   lines.push(``);
-  lines.push(`5. Time-Boxing for a ${callLength}-Minute Call — propose a realistic cadence scaled to ${callLength} minutes (roughly: a few minutes of rapport/intro, the bulk of the time on their questions, a meaningful block reserved for my questions, and a few minutes for wrap-up/next steps), and a coaching note to keep individual answers to 90 seconds-2 minutes unless I'm explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a tightly time-boxed call.`);
+  lines.push(`6. Time-Boxing for a ${callLength}-Minute Call — propose a realistic cadence scaled to ${callLength} minutes (roughly: a few minutes of rapport/intro, the bulk of the time on their questions, a meaningful block reserved for my questions, and a few minutes for wrap-up/next steps), and a coaching note to keep individual answers to 90 seconds-2 minutes unless I'm explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a tightly time-boxed call.`);
   lines.push(``);
-  lines.push(`6. My Top 3-4 Stories, Not a Long List — given the time limit, identify the 3-4 resume experiences most likely to be useful across the likely questions below, and for each, prompt me to structure it with STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. Point me to the story and the structure, don't write my professional history for me.`);
+  lines.push(`7. My Top 3-4 Stories, Not a Long List — given the time limit, identify the 3-4 resume experiences most likely to be useful across the likely questions below, and for each, prompt me to structure it with STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. Point me to the story and the structure, don't write my professional history for me.`);
   lines.push(``);
-  lines.push(`7. Likely Questions — a realistically sized set (not exhaustive, given the time limit) across: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific JD requirements), Culture/values (grounded in the company's actual stated values, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
+  lines.push(`8. Likely Questions — a realistically sized set (not exhaustive, given the time limit) across: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific JD requirements), Culture/values (grounded in the company's actual stated values, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
   lines.push(``);
-  lines.push(`8. Questions to Ask the Hiring Manager — team structure and day-to-day, how success is measured in the first 90 days, current team priorities/challenges, management style. Tailor these using the interviewer research above where applicable, and skip generic questions like "what's the culture like."`);
+  lines.push(`9. Questions to Ask the Hiring Manager — team structure and day-to-day, how success is measured in the first 90 days, current team priorities/challenges, management style. Tailor these using the interviewer research above where applicable, and skip generic questions like "what's the culture like."`);
   lines.push(``);
-  lines.push(`9. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.`);
+  lines.push(`10. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.`);
   lines.push(``);
-  lines.push(`CRITICAL — grounding guardrails, both non-negotiable:`);
+  lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
   lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
   lines.push(`- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.`);
+  lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(outputFormat,
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`,
-    `Include a short "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, and the 3 strongest resume-to-role matches.`
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`,
+    `Include a short "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches.`
   ));
 
   return lines.join("\n");
@@ -581,6 +586,7 @@ function buildGeneralPrompt(){
   const jobDescription = val('jobDescription');
   const resume = val('resume');
   const worryAreas = val('worryAreas');
+  const reasonGap = val('reasonGap');
   const stage = radioVal('stage');
   const outputFormat = radioVal('outputFormat');
   const interviewers = genInterviewerRows.filter(r => r.name);
@@ -590,6 +596,7 @@ function buildGeneralPrompt(){
   lines.push(``);
   lines = lines.concat(commonFacts(company, role, jobDescription, resume, worryAreas));
   lines.push(`- Interview stage: ${stageLabel(stage)}`);
+  lines.push(`- Reason I'm not currently working / leaving my current role, if applicable: ${reasonGap || 'not given — see instructions below, do not invent one'}`);
   if(interviewers.length){
     lines.push(`- Interviewers I'm meeting with:`);
     interviewers.forEach(iv => {
@@ -605,31 +612,34 @@ function buildGeneralPrompt(){
   lines.push(``);
   lines.push(`2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
   lines.push(``);
-  if(interviewers.length){
-    lines.push(`3. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category where known.`);
-  } else {
-    lines.push(`3. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
-  }
-  lines.push(``);
-  lines.push(`4. Likely Questions — generate a realistic set across these categories, pulling specifically from the job description, the company snapshot, and the gap map above, not a generic interview-question list that could apply to any company: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific requirements stated in the JD), Culture/values (grounded in the company's actual stated values or mission, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
-  lines.push(``);
-  lines.push(`5. Story Scaffolding — NOT Scripted Answers. For each behavioral question above, point me to the SPECIFIC resume bullet or experience that's the strongest match, and prompt me to structure it using STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. If a resume bullet is thin, say so and suggest what kind of detail I should be ready to add, rather than inventing that detail yourself.`);
+  lines.push(`3. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this if it comes up — no more than 2-3 sentences, no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer if it comes up — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role — so I can apply it to my own actual situation.`}`);
   lines.push(``);
   if(interviewers.length){
-    lines.push(`6. Questions to Ask Them — for each interviewer, suggest 2-3 specific, non-generic questions grounded in the actual company/role research above, tailored to that person's likely role and vantage point. Skip "what's the culture like" and similar generic questions entirely.`);
+    lines.push(`4. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category where known.`);
   } else {
-    lines.push(`6. Questions to Ask Them — since no specific interviewers were named, suggest 4-5 specific, non-generic questions grounded in the actual company/role research above rather than a generic list.`);
+    lines.push(`4. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
   }
   lines.push(``);
-  lines.push(`7. Logistics Checklist — a short practical checklist: what to bring or have ready (portfolio links, references, questions written down), and a one-line reminder of the interview stage given above.`);
+  lines.push(`5. Likely Questions — generate a realistic set across these categories, pulling specifically from the job description, the company snapshot, and the gap map above, not a generic interview-question list that could apply to any company: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific requirements stated in the JD), Culture/values (grounded in the company's actual stated values or mission, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
+  lines.push(``);
+  lines.push(`6. Story Scaffolding — NOT Scripted Answers. For each behavioral question above, point me to the SPECIFIC resume bullet or experience that's the strongest match, and prompt me to structure it using STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. If a resume bullet is thin, say so and suggest what kind of detail I should be ready to add, rather than inventing that detail yourself.`);
+  lines.push(``);
+  if(interviewers.length){
+    lines.push(`7. Questions to Ask Them — for each interviewer, suggest 2-3 specific, non-generic questions grounded in the actual company/role research above, tailored to that person's likely role and vantage point. Skip "what's the culture like" and similar generic questions entirely.`);
+  } else {
+    lines.push(`7. Questions to Ask Them — since no specific interviewers were named, suggest 4-5 specific, non-generic questions grounded in the actual company/role research above rather than a generic list.`);
+  }
+  lines.push(``);
+  lines.push(`8. Logistics Checklist — a short practical checklist: what to bring or have ready (portfolio links, references, questions written down), and a one-line reminder of the interview stage given above.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, both non-negotiable:`);
   lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
   lines.push(`- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.`);
+  lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(outputFormat,
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`,
-    `Include a short "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, and the 3 strongest resume-to-role matches.`
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`,
+    `Include a short "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches.`
   ));
 
   return lines.join("\n");
