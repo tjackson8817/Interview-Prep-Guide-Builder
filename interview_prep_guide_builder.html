@@ -154,7 +154,7 @@
   <div class="col">
 
     <div class="banner">
-      <b>Where this fits.</b> The Target Company Prompt Builder researches and ranks companies. The Job Posting Finder checks who's actively hiring. Resume &amp; Cover Letter Tailoring fits your documents to a posting. This tool picks up once you've actually landed an interview — and afterward, the specific things you discuss become your Context Notes for a genuinely grounded thank-you message in the Outreach Message Builder.
+      <b>Where this fits.</b> Not sure what to target yet? Career Path Discovery helps you figure that out first. Once you know your direction: the Target Company Prompt Builder researches and ranks companies. The Job Posting Finder checks who's actively hiring. Resume &amp; Cover Letter Tailoring fits your documents to a posting. This tool picks up once you've actually landed an interview — and afterward, the specific things you discuss become your Context Notes for a genuinely grounded thank-you message in the Outreach Message Builder.
     </div>
 
     <div class="mode-toggle" id="modeToggle">
@@ -195,9 +195,9 @@
         </div>
 
         <div class="field">
-          <label for="worryAreas">Areas you're less confident about <span class="tag">optional</span></label>
-          <textarea id="worryAreas" placeholder="e.g. limited hands-on experience with a specific tool named in the JD, a career pivot"></textarea>
-          <p class="hint">Naming these directly gets you real prep for the question you're actually worried about, instead of pretending it won't come up.</p>
+          <label for="worryAreas">Things you're worried a hiring manager will hold against you <span class="tag">optional</span></label>
+          <textarea id="worryAreas" placeholder="e.g. limited hands-on experience with a specific tool named in the JD, a career pivot, several short tenures, numerous industries, being overqualified, a non-traditional background for this role"></textarea>
+          <p class="hint">These get built into a dedicated reframing section below — not just noted in passing. Naming these directly gets you real, specific talking points for the thing you're actually worried about, instead of generic prep that pretends it won't come up.</p>
         </div>
 
         <div class="field">
@@ -457,6 +457,13 @@ function commonFacts(company, role, jobDescription, resume, worryAreas){
   return lines;
 }
 
+function objectionSectionLines(sectionNum, worryAreas){
+  return [
+    `${sectionNum}. Objection Reframing${worryAreas ? '' : ' (general guidance only, since I did not name any specific concerns)'} — ${worryAreas ? `for each concern I named above (${worryAreas}), give me a short, honest way to address it if it comes up: 2-3 spoken-ready sentences per concern, framed as neutral or as a genuine advantage wherever my actual background actually supports that framing — not spin, not a dodge. Ground every reframe in something real from my resume; if a concern I named genuinely doesn't have a strong answer, say so plainly rather than manufacturing one.` : `I didn't name any specific concerns above, so give me general guidance on how to reframe common ones if they come up — things like industry breadth, short tenures, a career pivot, title changes, or perceived overqualification — so I can apply the approach to whatever actually applies to me.`}`,
+    ``,
+  ];
+}
+
 function outputFormatLines(outputFormat, docxNote, tableNote){
   if(outputFormat === 'docx'){
     return [`Format the result as a downloadable Word document (.docx) with clear section headings matching the structure above. ${docxNote}`];
@@ -493,18 +500,20 @@ function buildRecruiterPrompt(){
   lines.push(``);
   lines.push(`3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this — no more than 2-3 sentences, no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role — so I can apply it to my own actual situation.`}`);
   lines.push(``);
-  lines.push(`4. The Salary Question — research real, current market compensation data for this role, seniority level, and location, using actual sources (e.g. levels.fyi, Glassdoor, Payscale, Bureau of Labor Statistics data, comparable job postings with disclosed ranges) rather than a guessed number. Present a specific researched range and note your sources.${targetSalary ? ` I have my own target range in mind (given above) — compare it against what you find and flag plainly if it looks notably out of step with the market data in either direction, rather than just validating it.` : ''} Then coach the delivery: a "state a range with flexibility, don't negotiate yet" framing — e.g. "Based on my research and experience, I'm targeting $X-$Y, though I'd want to understand the full scope and comp structure before locking in a number." Make clear this is a stated-range moment, not a negotiation — that comes later, once there's an offer.`);
+  lines = lines.concat(objectionSectionLines(4, worryAreas));
+  lines.push(`5. The Salary Question — research real, current market compensation data for this role, seniority level, and location, using actual sources (e.g. levels.fyi, Glassdoor, Payscale, Bureau of Labor Statistics data, comparable job postings with disclosed ranges) rather than a guessed number. Present a specific researched range and note your sources.${targetSalary ? ` I have my own target range in mind (given above) — compare it against what you find and flag plainly if it looks notably out of step with the market data in either direction, rather than just validating it.` : ''} Then coach the delivery: a "state a range with flexibility, don't negotiate yet" framing — e.g. "Based on my research and experience, I'm targeting $X-$Y, though I'd want to understand the full scope and comp structure before locking in a number." Make clear this is a stated-range moment, not a negotiation — that comes later, once there's an offer.`);
   lines.push(``);
-  lines.push(`5. Standard Logistics Questions to Expect — list the standard questions a recruiter screen almost always includes (notice period/availability, work authorization, location/remote flexibility, willingness to travel, other interviews currently in process and their stage). For each, note that I'll need to supply my own actual answer — don't invent specifics like a notice period or immigration status on my behalf, just prompt me for what I need to have ready.`);
+  lines.push(`6. Standard Logistics Questions to Expect — list the standard questions a recruiter screen almost always includes (notice period/availability, work authorization, location/remote flexibility, willingness to travel, other interviews currently in process and their stage). For each, note that I'll need to supply my own actual answer — don't invent specifics like a notice period or immigration status on my behalf, just prompt me for what I need to have ready.`);
   lines.push(``);
-  lines.push(`6. Keep It Tight — a short coaching note that recruiter screens reward concise, confident answers over deep technical detail — that depth is for the hiring-manager round, not this one.`);
+  lines.push(`7. Keep It Tight — a short coaching note that recruiter screens reward concise, confident answers over deep technical detail — that depth is for the hiring-manager round, not this one.`);
   lines.push(``);
-  lines.push(`7. Questions to Ask the Recruiter — 3-4 specific questions appropriate for a recruiter screen: process/timeline for next steps, what's the top priority for this hire in the first 90 days, comp band confirmation. Skip deep team/strategy questions — save those for later rounds.`);
+  lines.push(`8. Questions to Ask the Recruiter — 3-4 specific questions appropriate for a recruiter screen: process/timeline for next steps, what's the top priority for this hire in the first 90 days, comp band confirmation. Skip deep team/strategy questions — save those for later rounds.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
   lines.push(`- Never invent my notice period, work authorization status, or any other personal/logistics fact — prompt me to supply my own.`);
   lines.push(`- Ground the salary range in real search results with sources noted, never a guessed number.`);
+  lines.push(`- Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(outputFormat,
     `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer — so I have something skimmable right before the call.`,
@@ -549,28 +558,30 @@ function buildHiringManagerPrompt(){
   lines.push(``);
   lines.push(`3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this if it comes up — no more than 2-3 sentences, no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company. Hiring managers often probe a bit deeper on this than a recruiter screen does, so make it ready to hold up under one natural follow-up question.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer if it comes up — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role — so I can apply it to my own actual situation.`}`);
   lines.push(``);
+  lines = lines.concat(objectionSectionLines(4, worryAreas));
   if(interviewers.length){
-    lines.push(`4. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly ("no strong public signal found for [Name] — prepared based on their stated role instead") rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category — a Hiring Manager is more likely to probe team fit and day-to-day operating style than a peer or executive would.`);
+    lines.push(`5. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly ("no strong public signal found for [Name] — prepared based on their stated role instead") rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category — a Hiring Manager is more likely to probe team fit and day-to-day operating style than a peer or executive would.`);
   } else {
-    lines.push(`4. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
+    lines.push(`5. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
   }
   lines.push(``);
-  lines.push(`5. Video Call Logistics Checklist — test ${platform} audio/video ahead of time, confirm lighting and background on camera, close notification-generating apps, have a backup dial-in number ready if one exists, look at the camera (not the screen) when speaking, keep water nearby.`);
+  lines.push(`6. Video Call Logistics Checklist — test ${platform} audio/video ahead of time, confirm lighting and background on camera, close notification-generating apps, have a backup dial-in number ready if one exists, look at the camera (not the screen) when speaking, keep water nearby.`);
   lines.push(``);
-  lines.push(`6. Time-Boxing for a ${callLength}-Minute Call — propose a realistic cadence scaled to ${callLength} minutes (roughly: a few minutes of rapport/intro, the bulk of the time on their questions, a meaningful block reserved for my questions, and a few minutes for wrap-up/next steps), and a coaching note to keep individual answers to 90 seconds-2 minutes unless I'm explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a tightly time-boxed call.`);
+  lines.push(`7. Time-Boxing for a ${callLength}-Minute Call — propose a realistic cadence scaled to ${callLength} minutes (roughly: a few minutes of rapport/intro, the bulk of the time on their questions, a meaningful block reserved for my questions, and a few minutes for wrap-up/next steps), and a coaching note to keep individual answers to 90 seconds-2 minutes unless I'm explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a tightly time-boxed call.`);
   lines.push(``);
-  lines.push(`7. My Top 3-4 Stories, Not a Long List — given the time limit, identify the 3-4 resume experiences most likely to be useful across the likely questions below, and for each, prompt me to structure it with STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. Point me to the story and the structure, don't write my professional history for me.`);
+  lines.push(`8. My Top 3-4 Stories, Not a Long List — given the time limit, identify the 3-4 resume experiences most likely to be useful across the likely questions below, and for each, prompt me to structure it with STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. Point me to the story and the structure, don't write my professional history for me.`);
   lines.push(``);
-  lines.push(`8. Likely Questions — a realistically sized set (not exhaustive, given the time limit) across: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific JD requirements), Culture/values (grounded in the company's actual stated values, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
+  lines.push(`9. Likely Questions — a realistically sized set (not exhaustive, given the time limit) across: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific JD requirements), Culture/values (grounded in the company's actual stated values, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
   lines.push(``);
-  lines.push(`9. Questions to Ask the Hiring Manager — team structure and day-to-day, how success is measured in the first 90 days, current team priorities/challenges, management style. Tailor these using the interviewer research above where applicable, and skip generic questions like "what's the culture like."`);
+  lines.push(`10. Questions to Ask the Hiring Manager — team structure and day-to-day, how success is measured in the first 90 days, current team priorities/challenges, management style. Tailor these using the interviewer research above where applicable, and skip generic questions like "what's the culture like."`);
   lines.push(``);
-  lines.push(`10. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.`);
+  lines.push(`11. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
   lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
   lines.push(`- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.`);
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
+  lines.push(`- Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(outputFormat,
     `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`,
@@ -614,28 +625,30 @@ function buildGeneralPrompt(){
   lines.push(``);
   lines.push(`3. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this if it comes up — no more than 2-3 sentences, no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer if it comes up — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role — so I can apply it to my own actual situation.`}`);
   lines.push(``);
+  lines = lines.concat(objectionSectionLines(4, worryAreas));
   if(interviewers.length){
-    lines.push(`4. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category where known.`);
+    lines.push(`5. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category where known.`);
   } else {
-    lines.push(`4. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
+    lines.push(`5. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
   }
   lines.push(``);
-  lines.push(`5. Likely Questions — generate a realistic set across these categories, pulling specifically from the job description, the company snapshot, and the gap map above, not a generic interview-question list that could apply to any company: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific requirements stated in the JD), Culture/values (grounded in the company's actual stated values or mission, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
+  lines.push(`6. Likely Questions — generate a realistic set across these categories, pulling specifically from the job description, the company snapshot, and the gap map above, not a generic interview-question list that could apply to any company: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific requirements stated in the JD), Culture/values (grounded in the company's actual stated values or mission, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
   lines.push(``);
-  lines.push(`6. Story Scaffolding — NOT Scripted Answers. For each behavioral question above, point me to the SPECIFIC resume bullet or experience that's the strongest match, and prompt me to structure it using STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. If a resume bullet is thin, say so and suggest what kind of detail I should be ready to add, rather than inventing that detail yourself.`);
+  lines.push(`7. Story Scaffolding — NOT Scripted Answers. For each behavioral question above, point me to the SPECIFIC resume bullet or experience that's the strongest match, and prompt me to structure it using STAR (Situation, Task, Action, Result). CRITICAL: do not write the actual story, invent details of what happened, or fabricate outcomes or metrics on my behalf — you don't know what actually happened in my work, only what my resume states at a high level. If a resume bullet is thin, say so and suggest what kind of detail I should be ready to add, rather than inventing that detail yourself.`);
   lines.push(``);
   if(interviewers.length){
-    lines.push(`7. Questions to Ask Them — for each interviewer, suggest 2-3 specific, non-generic questions grounded in the actual company/role research above, tailored to that person's likely role and vantage point. Skip "what's the culture like" and similar generic questions entirely.`);
+    lines.push(`8. Questions to Ask Them — for each interviewer, suggest 2-3 specific, non-generic questions grounded in the actual company/role research above, tailored to that person's likely role and vantage point. Skip "what's the culture like" and similar generic questions entirely.`);
   } else {
-    lines.push(`7. Questions to Ask Them — since no specific interviewers were named, suggest 4-5 specific, non-generic questions grounded in the actual company/role research above rather than a generic list.`);
+    lines.push(`8. Questions to Ask Them — since no specific interviewers were named, suggest 4-5 specific, non-generic questions grounded in the actual company/role research above rather than a generic list.`);
   }
   lines.push(``);
-  lines.push(`8. Logistics Checklist — a short practical checklist: what to bring or have ready (portfolio links, references, questions written down), and a one-line reminder of the interview stage given above.`);
+  lines.push(`9. Logistics Checklist — a short practical checklist: what to bring or have ready (portfolio links, references, questions written down), and a one-line reminder of the interview stage given above.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, both non-negotiable:`);
   lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
   lines.push(`- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.`);
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
+  lines.push(`- Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(outputFormat,
     `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`,
