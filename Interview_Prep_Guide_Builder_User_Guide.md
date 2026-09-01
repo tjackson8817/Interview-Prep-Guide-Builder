@@ -9,7 +9,7 @@ MARKETING AND CONSULTING
 **Live Tool:** [https://tjackson8817.github.io/Interview-Prep-Guide-Builder/interview_prep_guide_builder.html](https://tjackson8817.github.io/Interview-Prep-Guide-Builder/interview_prep_guide_builder.html)
 
 Created By: Tom Jackson
-August 12, 2026 (Objection Reframing section and the worry-areas field updated August 17, 2026)
+August 12, 2026 (Objection Reframing section and the worry-areas field updated August 17, 2026; Candidate SWOT Analysis and the optional STAR Stories field added September 1, 2026)
 
 This tool is a single web page (interview_prep_guide_builder.html) that turns your resume, the job description, and (optionally) who you're meeting with into a real, grounded interview prep guide. Like the other tools in this family, it runs entirely in your browser: no install, no account, nothing sent anywhere until you copy the prompt and paste it into a Claude chat yourself.
 
@@ -43,6 +43,7 @@ Switching modes doesn't carry your interviewer list between Hiring Manager and G
 | Job description | Paste the full text, or skip it and attach the posting file directly when you paste the prompt into Claude. |
 | Your resume | Paste the full text, or attach the file directly instead. |
 | Things you're worried a hiring manager will hold against you (optional) | A gap, a career pivot, several short tenures, being overqualified, a tool named in the JD you're light on. These get built into a dedicated Objection Reframing section, not just noted in passing — naming the actual thing gets you real, specific talking points instead of generic prep. |
+| STAR Stories — up to 3 (optional, Hiring Manager and General/Other modes only) | Write out your own Situation / Task / Action / Result for up to three stories if you already know which ones you want to use. The guide uses these exactly as written instead of just pointing you to a resume bullet — see Section 5 (Hiring Manager) or Section 6 (General/Other) below. Leave all three blank and the guide falls back to its usual behavior: identifying the strongest resume bullets and prompting you to structure them yourself. Not shown in Recruiter Screen mode, since that mode doesn't use behavioral/STAR-style questions. |
 
 ## 4. Recruiter Screen Mode
 
@@ -77,12 +78,13 @@ Switching modes doesn't carry your interviewer list between Hiring Manager and G
 2. **Resume-to-JD Gap Map** — where you map cleanly (named specifically as your strongest talking points) and where there's a real gap, framed constructively as what the interviewer may probe and why — never softened away, never manufactured where it doesn't exist.
 3. **Objection Reframing** — if you named specific worries, a short, honest, spoken-ready way to address each one if it comes up: 2-3 sentences per concern, framed as neutral or as a genuine advantage wherever your actual background supports that — never spin, never a fabricated accomplishment used to explain a concern away. If you left the field blank, general guidance on reframing common concerns (industry breadth, short tenures, a pivot, overqualification) instead.
 4. **Interviewer Research** — for each named interviewer, real search for their public professional background. If little or nothing turns up for someone, the guide says so plainly rather than inventing a personality or interests to seem more personalized, and falls back to role-based prep instead.
-5. **Video Call Logistics Checklist** — tied to your actual platform: test audio/video ahead of time, check lighting and background, close notifications, have a backup dial-in if one exists, look at the camera not the screen.
-6. **Time-Boxing** — a realistic cadence scaled to your actual call length, plus a coaching note to keep individual answers to 90 seconds-2 minutes unless explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a short call.
-7. **Your Top 3-4 Stories** — not an exhaustive list. The 3-4 resume experiences most likely to be useful, each prompted for STAR structure. Same rule as always: the guide points you to the story, it never writes the story or invents outcomes on your behalf.
-8. **Likely Questions** — behavioral, role/technical, culture/values, and gap-probe, sized realistically for the time you actually have rather than an exhaustive list you won't get through.
-9. **Questions to Ask the Hiring Manager** — team structure and day-to-day, how success is measured in the first 90 days, current priorities, management style. Tailored using the interviewer research where applicable.
-10. **Logistics Checklist** — video-call-appropriate: notes visible off-camera but out of the way, your own questions written down, the platform link confirmed ahead of time.
+5. **Candidate SWOT Analysis** — a Strengths/Weaknesses/Opportunities/Threats breakdown of your candidacy for this specific role, grounded in the Company & Role Snapshot, the Resume-to-JD Gap Map, and the Interviewer Research above (not a generic SWOT template). Strengths and Weaknesses draw directly from the gap map; Opportunities and Threats draw from the actual company situation and role/interviewer context. Directly under the Weaknesses list, the guide gives 1-2 short talking points for how to address each weakness if it comes up — same guardrail as Objection Reframing: grounded in something real from your resume, never a fabricated accomplishment used to explain a gap away.
+6. **Video Call Logistics Checklist** — tied to your actual platform: test audio/video ahead of time, check lighting and background, close notifications, have a backup dial-in if one exists, look at the camera not the screen.
+7. **Time-Boxing** — a realistic cadence scaled to your actual call length, plus a coaching note to keep individual answers to 90 seconds-2 minutes unless explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a short call.
+8. **Your Top 3-4 Stories** — not an exhaustive list. If you wrote your own STAR Stories in the field described in Section 3, the guide uses those exactly as written (tightened for spoken delivery if needed) rather than pointing you to a resume bullet, and fills in any remaining slot up to 3-4 by pointing you to the strongest resume experiences the same way it always has. If you left the STAR Stories field blank, same rule as always: the guide points you to the story, it never writes the story or invents outcomes on your behalf.
+9. **Likely Questions** — behavioral, role/technical, culture/values, and gap-probe, sized realistically for the time you actually have rather than an exhaustive list you won't get through.
+10. **Questions to Ask the Hiring Manager** — team structure and day-to-day, how success is measured in the first 90 days, current priorities, management style. Tailored using the interviewer research where applicable.
+11. **Logistics Checklist** — video-call-appropriate: notes visible off-camera but out of the way, your own questions written down, the platform link confirmed ahead of time.
 
 ## 6. General / Other Mode
 
@@ -91,14 +93,15 @@ The fallback for technical rounds, panels, and final rounds — the fuller origi
 - **Interview stage** — Technical/skills round, Panel, Onsite/final round, or Not sure.
 - **Interviewers** (optional) — same bulk-paste/manual mechanism as Hiring Manager mode, but tracked as its own separate list.
 
-Builds: Company & Role Snapshot, Resume-to-JD Gap Map, Objection Reframing (grounded in your named worries, or general guidance if you left that field blank), Interviewer Research (or a plain statement that it's skipped if no names given), Likely Questions across the same four categories, Story Scaffolding via STAR, Questions to Ask Them, and a Logistics Checklist.
+Builds: Company & Role Snapshot, Resume-to-JD Gap Map, Objection Reframing (grounded in your named worries, or general guidance if you left that field blank), Interviewer Research (or a plain statement that it's skipped if no names given), a Candidate SWOT Analysis with weakness-mitigation talking points (same shape and guardrails as in Hiring Manager mode, see Section 5), Likely Questions across the same four categories, Story Scaffolding via STAR (using your own STAR Stories from Section 3 as written if you filled them in, otherwise pointing you to resume bullets as always), Questions to Ask Them, and a Logistics Checklist.
 
 ## 7. The Two Non-Negotiable Guardrails
 
 These apply in Hiring Manager and General/Other modes (Recruiter Screen mode has its own parallel guardrails, in Section 4):
 
-- **Never a fabricated story.** The guide points you to the specific resume bullet that's your strongest match and prompts STAR structure — it never writes the actual story, invents what happened, or fabricates outcomes or metrics. Claude doesn't know what actually happened in your work beyond what your resume states, and inventing specifics risks putting words in your mouth you'd have to walk back live.
+- **Never a fabricated story.** If you filled in the STAR Stories field, the guide uses those stories exactly as written and never adds, embellishes, or invents detail beyond what you gave it. Where a slot is unfilled, the guide points you to the specific resume bullet that's your strongest match and prompts STAR structure — it never writes the actual story, invents what happened, or fabricates outcomes or metrics. Claude doesn't know what actually happened in your work beyond what your resume states (or what you wrote yourself in a STAR Story), and inventing specifics risks putting words in your mouth you'd have to walk back live.
 - **Interviewer research stays evidence-based.** A thin or empty search result for a named person is a valid, expected outcome — the guide reports it as such rather than filling the gap with a plausible-sounding personality profile.
+- **SWOT weaknesses stay honest.** A real weakness in the Candidate SWOT Analysis is never softened into a non-weakness, and its mitigation talking point is never a fabricated accomplishment used to explain the gap away — same standard as Objection Reframing. The SWOT is only built in Hiring Manager and General/Other modes, since Recruiter Screen mode stays deliberately brief and checklist-oriented.
 
 ## 8. Output Format
 
@@ -125,4 +128,6 @@ These apply in Hiring Manager and General/Other modes (Recruiter Screen mode has
 | The guide didn't address my actual gap/leaving reason | Check that you actually filled in that field — left blank, the guide intentionally gives general guidance rather than inventing your situation. |
 | Interviewer research came back thin for someone | That's an expected, honest outcome, not a bug — the guide falls back to role-based prep rather than inventing detail about a real person. |
 | The objection reframing feels generic | Name the specific thing you're actually worried about in the field, rather than leaving it blank — a named concern gets a grounded, specific reframe; a blank field only gets general guidance. |
+| My STAR Stories fields aren't showing | Expected in Recruiter Screen mode — that mode doesn't use behavioral/STAR-style questions, so the field is hidden there. Switch to Hiring Manager or General/Other mode to see it. |
+| The story section still points me to a resume bullet instead of using my story | Check that you actually filled in at least one field (Situation, Task, Action, or Result) for that story — a fully blank story block is treated the same as not providing one. |
 | In ChatGPT, it asks clarifying questions instead of running the task | The prompt opens with an explicit "execute this directly" instruction — restate it more bluntly as a follow-up if needed. |
