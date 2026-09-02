@@ -19,23 +19,25 @@ This tool picks up once you've actually landed an interview — the stage none o
 
 Pick a mode at the top of the page — it switches the entire field set and the entire generated guide, not just a couple of options:
 
-- **Recruiter Screen** — a qualifications T-chart, a tight "tell me about yourself" script, coached answers for the gap/leaving question and the salary question (grounded in real market research, framed as a range, not a negotiation), standard logistics questions, and recruiter-appropriate questions to ask.
-- **Hiring Manager Interview** — built for a real, time-boxed video call: company/role research, a resume-to-JD gap map, interviewer research (if named), a video-call logistics checklist tied to your actual platform, pacing scaled to your actual call length, your top 3-4 STAR-structured stories (not an exhaustive list), and HM-appropriate questions to ask.
-- **General / Other** — the fuller original structure (company snapshot, gap map, interviewer research, four categories of likely questions, STAR story scaffolding, questions to ask) as a fallback for technical rounds, panels, and final rounds.
+- **Recruiter Screen** — a qualifications T-chart, a tight "tell me about yourself" script, coached answers for the gap/leaving question and the salary question (grounded in real market research, framed as a range, not a negotiation), honest objection reframing for any concerns you name, standard logistics questions, and recruiter-appropriate questions to ask.
+- **Hiring Manager Interview** — built for a real, time-boxed video call: company/role research, a resume-to-JD gap map, objection reframing, interviewer research (if named), a Candidate SWOT Analysis with honest weakness-mitigation talking points, a video-call logistics checklist tied to your actual platform, pacing scaled to your actual call length, your top 3-4 STAR-structured stories (not an exhaustive list — uses your own STAR Stories as-written if you supply them, otherwise points you to the right resume bullets), and HM-appropriate questions to ask.
+- **General / Other** — the fuller original structure (company snapshot, gap map, objection reframing, interviewer research, the same Candidate SWOT Analysis, four categories of likely questions, STAR story scaffolding, questions to ask) as a fallback for technical rounds, panels, and final rounds.
 
 ## Quick start
 
 1. Open `interview_prep_guide_builder.html` (via GitHub Pages, or download and double-click it).
 2. Pick your mode: Recruiter Screen, Hiring Manager Interview, or General/Other.
 3. Fill in the company, role, job description, and your resume (paste text, or plan to attach the files directly when you paste the prompt into Claude).
-4. Fill in whatever's specific to your mode — location and salary context for a recruiter screen; call length, platform, and interviewers for a hiring-manager call; stage and interviewers for anything else.
+4. Fill in whatever's specific to your mode — location and salary context for a recruiter screen; call length, platform, and interviewers for a hiring-manager call; stage and interviewers for anything else. Optionally name any concerns you're worried will come up (a gap, a pivot, short tenures) and, in Hiring Manager or General/Other mode, write your own STAR Stories if you already know which ones you want to use.
 5. Copy the generated prompt and paste it into a new Claude chat.
 6. Review the guide — especially anything it flagged as needing your own input (a gap reason, an interviewer with no public footprint) — before your interview.
 
 ## What makes this different from generic interview advice
 
-- **Never a scripted answer.** For behavioral questions, the guide points you to the specific resume bullet that's your strongest match and prompts STAR structure — it does not write the story for you. Claude doesn't know what actually happened in your work beyond what your resume states, and inventing specifics risks putting words in your mouth you'd have to walk back live.
+- **Never a scripted answer.** If you filled in the optional STAR Stories field, the guide uses those stories exactly as you wrote them and never embellishes them. Where a slot is unfilled, it points you to the specific resume bullet that's your strongest match and prompts STAR structure — it does not write the story for you. Claude doesn't know what actually happened in your work beyond what your resume states (or what you wrote yourself), and inventing specifics risks putting words in your mouth you'd have to walk back live.
 - **Interviewer research stays evidence-based.** If a named interviewer has little or no public footprint, the guide says so plainly and falls back to role-based prep instead of inventing a personality or interests to seem more personalized.
+- **SWOT weaknesses stay honest.** In Hiring Manager and General/Other modes, a real weakness in the Candidate SWOT Analysis is never softened into a non-weakness, and its mitigation talking point is never a fabricated accomplishment used to explain the gap away — same standard as objection reframing.
+- **Objection reframing stays honest, not spin.** Every reframe for a named concern is grounded in something real from your resume — if a concern genuinely doesn't have a strong answer, the guide says so rather than manufacturing one.
 - **The salary question is grounded in real search, not a guess.** Recruiter Screen mode requires actual market-data research (levels.fyi, Glassdoor, Payscale, BLS data, comparable postings with disclosed ranges) with sources noted — never a number pulled from nowhere.
 - **Sensitive personal facts stay yours to supply.** The reason for a gap or departure, your notice period, work authorization status — the guide never invents these. Left blank, it gives you general guidance on how to structure the answer instead.
 
@@ -49,6 +51,8 @@ Pick a mode at the top of the page — it switches the entire field set and the 
 | `sample_recruiter_screen_prompt.txt` | Real example of Recruiter Screen mode's generated prompt. |
 | `sample_hiring_manager_prompt.txt` | Real example of Hiring Manager mode's generated prompt. |
 | `sample_general_prompt.txt` | Real example of General/Other mode's generated prompt. |
+| `sample_prompt_objection_reframing.txt` | Real example of Hiring Manager mode's generated prompt with objection reframing and STAR Stories filled in. |
+| `interview_sample_output.md` / `.docx` | The actual guide Claude returns when the prompt above is run — shows the Candidate SWOT Analysis and STAR Stories sections in context. |
 
 ## Notes
 
