@@ -73,6 +73,19 @@
     letter-spacing:.3px;
   }
   .hint{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;}
+  .quick-picks{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .chip-btn{
+    background:var(--tag-bg);
+    color:var(--blue);
+    border:1px solid var(--border);
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:14px;
+    cursor:pointer;
+    line-height:1.3;
+  }
+  .chip-btn:hover{background:#d9e9f2;}
+  .chip-btn.picked{background:var(--teal);color:#fff;border-color:var(--teal);}
   input[type=text], textarea, select{
     width:100%;
     padding:9px 10px;
@@ -200,13 +213,15 @@
         <div class="field">
           <label for="worryAreas">Things you're worried a hiring manager will hold against you <span class="tag">optional</span></label>
           <textarea id="worryAreas" placeholder="e.g. limited hands-on experience with a specific tool named in the JD, a career pivot, several short tenures, numerous industries, being overqualified, a non-traditional background for this role"></textarea>
-          <p class="hint">These get built into a dedicated reframing section below — not just noted in passing. Naming these directly gets you real, specific talking points for the thing you're actually worried about, instead of generic prep that pretends it won't come up. Kept short by design: 1 sentence per concern where possible, with a couple of variants to pick from.</p>
+          <div class="quick-picks" id="worryQuickPicks"></div>
+          <p class="hint">These get built into a dedicated reframing section below — not just noted in passing. Naming these directly gets you real, specific talking points for the thing you're actually worried about, instead of generic prep that pretends it won't come up. Kept short by design: 1 sentence per concern where possible, with a couple of variants to pick from. Click a quick pick below to add it, or just type your own — these are common starting points, not the only options.</p>
         </div>
 
         <div class="field">
           <label for="reasonGap">Why you're not currently working / leaving your current role <span class="tag">optional</span></label>
           <textarea id="reasonGap" placeholder="Your actual reason, in your own words — e.g. layoff/RIF, government contract funding cut, company restructuring, personal reasons"></textarea>
-          <p class="hint">This comes up in recruiter screens, hiring-manager rounds, and panel interviews alike — not just phone screens. Left blank, the guide gives you general guidance on structuring this kind of answer instead of inventing a reason for you. Kept short by design: 1 sentence where it genuinely fits, with a couple of variants to pick from.</p>
+          <div class="quick-picks" id="reasonQuickPicks"></div>
+          <p class="hint">This comes up in recruiter screens, hiring-manager rounds, and panel interviews alike — not just phone screens. Left blank, the guide gives you general guidance on structuring this kind of answer instead of inventing a reason for you. Kept short by design: 1 sentence where it genuinely fits, with a couple of variants to pick from. Click a quick pick below as a starting point, then edit it to match what actually happened — these are common categories, not your actual story.</p>
         </div>
       </fieldset>
 
@@ -355,6 +370,56 @@ function radioVal(name){
   return el ? el.value : '';
 }
 function currentMode(){ return radioVal('prepMode') || 'recruiter'; }
+
+const WORRY_QUICK_PICKS = [
+  'Employment gap on my resume',
+  'Career pivot / changing industries',
+  'Several short tenures in a row',
+  'Overqualified for this role',
+  'Missing a specific tool or system named in the JD',
+  'Non-traditional background for this role'
+];
+
+const REASON_QUICK_PICKS = [
+  'Laid off / role eliminated (RIF)',
+  'Company or team restructuring',
+  'Contract or project ended',
+  'Currently employed, open to the right opportunity',
+  'Relocated',
+  'Personal / family reasons'
+];
+
+function setupQuickPicks(textareaId, containerId, options){
+  const container = document.getElementById(containerId);
+  const textarea = document.getElementById(textareaId);
+  options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'chip-btn';
+    btn.textContent = opt;
+    btn.addEventListener('click', () => {
+      const current = textarea.value.trim();
+      const parts = current ? current.split(/;\s*/).filter(Boolean) : [];
+      const idx = parts.indexOf(opt);
+      if(idx === -1){
+        parts.push(opt);
+      } else {
+        parts.splice(idx, 1);
+      }
+      textarea.value = parts.join('; ');
+      btn.classList.toggle('picked', idx === -1);
+      render();
+    });
+    container.appendChild(btn);
+  });
+  // keep chip highlight in sync if the person edits the textarea by hand
+  textarea.addEventListener('input', () => {
+    const parts = textarea.value.split(/;\s*/).map(s => s.trim());
+    container.querySelectorAll('.chip-btn').forEach(btn => {
+      btn.classList.toggle('picked', parts.includes(btn.textContent));
+    });
+  });
+}
 
 const ROLE_OPTIONS = [
   { value: '', label: '(not sure)' },
@@ -803,6 +868,8 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
 });
 
 applyMode();
+setupQuickPicks('worryAreas', 'worryQuickPicks', WORRY_QUICK_PICKS);
+setupQuickPicks('reasonGap', 'reasonQuickPicks', REASON_QUICK_PICKS);
 render();
 </script>
 </body>
