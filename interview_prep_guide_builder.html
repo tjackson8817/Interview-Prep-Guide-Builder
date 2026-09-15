@@ -329,14 +329,7 @@
 
       <fieldset>
         <legend>4 &middot; Output</legend>
-        <div class="field">
-          <label>Output format</label>
-          <div class="radio-row">
-            <label class="radio-opt"><input type="radio" name="outputFormat" value="docx" checked> Downloadable Word document</label>
-            <label class="radio-opt"><input type="radio" name="outputFormat" value="table"> Table in chat</label>
-          </div>
-          <p class="hint">A downloadable doc defaults on here specifically — this is a reference guide you'll want on hand right before walking in, not just something to skim once in the chat.</p>
-        </div>
+        <p class="hint" style="margin-top:0;">Results always come back as a downloadable Word document (.docx) — this is a reference guide you'll want on hand right before walking in, not just something to skim once in the chat. Requires the Code execution and file creation setting in Claude (Settings → Capabilities).</p>
       </fieldset>
 
       <div class="banner" id="storyGuardrailBanner">
@@ -601,11 +594,8 @@ function objectionSectionLines(sectionNum, worryAreas){
   ];
 }
 
-function outputFormatLines(outputFormat, docxNote, tableNote){
-  if(outputFormat === 'docx'){
-    return [`Format the result as a downloadable Word document (.docx) with clear section headings matching the structure above. ${docxNote}`];
-  }
-  return [`Present the result directly in your response, organized under the section headings above. ${tableNote}`];
+function outputFormatLines(docxNote){
+  return [`Format the result as a downloadable Word document (.docx) with clear section headings matching the structure above. ${docxNote}`];
 }
 
 function buildRecruiterPrompt(){
@@ -617,7 +607,6 @@ function buildRecruiterPrompt(){
   const location = val('location');
   const reasonGap = val('reasonGap');
   const targetSalary = val('targetSalary');
-  const outputFormat = radioVal('outputFormat');
 
   let lines = commonPreamble();
   lines.push(`I have an upcoming recruiter screen and want a real prep guide built from my actual resume and the actual job description — not generic interview advice.`);
@@ -652,9 +641,8 @@ function buildRecruiterPrompt(){
   lines.push(`- Ground the salary range in real search results with sources noted, never a guessed number.`);
   lines.push(`- Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.`);
   lines.push(``);
-  lines = lines.concat(outputFormatLines(outputFormat,
-    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer — so I have something skimmable right before the call.`,
-    `Include a short "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer.`
+  lines = lines.concat(outputFormatLines(
+    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer — so I have something skimmable right before the call.`
   ));
 
   return lines.join("\n");
@@ -669,7 +657,6 @@ function buildHiringManagerPrompt(){
   const reasonGap = val('reasonGap');
   const callLength = val('callLength') || '60';
   const platform = document.getElementById('platform').value;
-  const outputFormat = radioVal('outputFormat');
   const interviewers = hmInterviewerRows.filter(r => r.name);
 
   let lines = commonPreamble();
@@ -730,9 +717,8 @@ function buildHiringManagerPrompt(){
   lines.push(`- Every SWOT weakness and its mitigation talking point must be grounded in the actual gap map and resume — never a softened non-weakness, and never a fabricated accomplishment used to explain a gap away.`);
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
-  lines = lines.concat(outputFormatLines(outputFormat,
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`,
-    `Include a short "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches.`
+  lines = lines.concat(outputFormatLines(
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");
@@ -746,7 +732,6 @@ function buildGeneralPrompt(){
   const worryAreas = val('worryAreas');
   const reasonGap = val('reasonGap');
   const stage = radioVal('stage');
-  const outputFormat = radioVal('outputFormat');
   const interviewers = genInterviewerRows.filter(r => r.name);
 
   let lines = commonPreamble();
@@ -807,9 +792,8 @@ function buildGeneralPrompt(){
   lines.push(`- Every SWOT weakness and its mitigation talking point must be grounded in the actual gap map and resume — never a softened non-weakness, and never a fabricated accomplishment used to explain a gap away.`);
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
-  lines = lines.concat(outputFormatLines(outputFormat,
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`,
-    `Include a short "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches.`
+  lines = lines.concat(outputFormatLines(
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");

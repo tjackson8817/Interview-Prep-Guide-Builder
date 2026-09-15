@@ -57,6 +57,6 @@ Pick a mode at the top of the page — it switches the entire field set and the 
 ## Notes
 
 - This repo can be public or private — GitHub Pages on the free tier requires a public repo (or a paid plan for private-repo Pages).
-- Requires Web search in Claude for the company, interviewer, and salary research; Code execution and file creation only if you choose the downloadable Word document output.
+- Requires Web search in Claude for the company, interviewer, and salary research; Code execution and file creation is always needed, since every guide now comes back as a downloadable Word document.
 - The generated prompt opens with an explicit "execute this directly, don't ask clarifying questions" instruction, aimed at other AI tools (e.g. ChatGPT) that sometimes respond with questions instead of just running the task.
 - Interviewer lists are tracked separately per mode — switching from Hiring Manager to General/Other (or back) won't carry interviewers over between them, since they're genuinely separate lists.

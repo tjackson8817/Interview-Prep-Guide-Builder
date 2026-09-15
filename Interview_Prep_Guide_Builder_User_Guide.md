@@ -18,7 +18,7 @@ This tool is a single web page (interview_prep_guide_builder.html) that turns yo
 | Setting | Why you need it / Where to find it |
 |---|---|
 | Web search | Needed for company research, interviewer research, and (in Recruiter Screen mode) real salary market data. |
-| Code execution and file creation | Only needed if you choose the downloadable Word document output format. |
+| Code execution and file creation | Always needed — every guide now comes back as a downloadable Word document. |
 
 ## 1. How This Fits With the Other Tools
 
@@ -103,10 +103,9 @@ These apply in Hiring Manager and General/Other modes (Recruiter Screen mode has
 - **Interviewer research stays evidence-based.** A thin or empty search result for a named person is a valid, expected outcome — the guide reports it as such rather than filling the gap with a plausible-sounding personality profile.
 - **SWOT weaknesses stay honest.** A real weakness in the Candidate SWOT Analysis is never softened into a non-weakness, and its mitigation talking point is never a fabricated accomplishment used to explain the gap away — same standard as Objection Reframing. The SWOT is only built in Hiring Manager and General/Other modes, since Recruiter Screen mode stays deliberately brief and checklist-oriented.
 
-## 8. Output Format
+## 8. Output
 
-- **Downloadable Word document** (default) — a reference guide you'll want on hand right before walking in, with a one-page Quick Reference summary at the very top and full detail below it.
-- **Table in chat** — the same content, presented directly in the response instead.
+Every guide always comes back as a **downloadable Word document (.docx)** — there's no chat-table option anymore. It's a reference guide you'll want on hand right before walking in, with a one-page Quick Reference summary at the very top and full detail below it. This requires the **Code execution and file creation** setting (Settings → Capabilities) to be on; without it, Claude will fall back to a chat response.
 
 ## 9. Typical Workflow, Start to Finish
 
