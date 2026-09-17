@@ -18,7 +18,7 @@ Certifications: CISSP, GICSP.
 - Areas I'm less confident about: Limited direct hands-on time with Claroty specifically compared to Dragos/Nozomi
 - Interview type: Recruiter / phone screen
 - Location (for salary research): Dallas, TX
-- Reason I'm not currently working / leaving my current role, if applicable: Currently employed at Booz Allen Hamilton; open to this because the role offers more OT-specific practice leadership scope
+- Reason I'm not currently working / leaving my current role, if applicable: Laid off from Booz Allen Hamilton in a reduction in force — the OT cybersecurity practice softened as client budgets tightened, and roles including mine were cut. Not performance-related.
 - My own target salary range, if I have one: not given — search for market data instead
 
 Build the guide in this structure:

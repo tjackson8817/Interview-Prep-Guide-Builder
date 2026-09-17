@@ -17,7 +17,7 @@ Tom Jackson
 Certifications: CISSP, GICSP.
 - Areas I'm less confident about: Limited direct hands-on time with Claroty specifically compared to Dragos/Nozomi
 - Interview stage: Panel (multiple interviewers)
-- Reason I'm not currently working / leaving my current role, if applicable: not given — see instructions below, do not invent one
+- Reason I'm not currently working / leaving my current role, if applicable: Laid off from Booz Allen Hamilton in a reduction in force — the OT cybersecurity practice softened as client budgets tightened, and roles including mine were cut. Not performance-related.
 - Interviewers I'm meeting with:
     Alex Kim — Peer / team member
     Morgan Lee — Skip-level / executive
@@ -28,7 +28,7 @@ Build the guide in this structure:
 
 2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.
 
-3. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer (general guidance only, since I did not give you a specific reason) — I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer if it comes up — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role, aiming for 1 sentence where possible — so I can apply it to my own actual situation.
+3. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer — using the reason I gave above, draft a brief, honest, forward-looking way to phrase this if it comes up. Less is more: 1 sentence where the reason genuinely allows it, 2 sentences at most — no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company — and give me 2 short variants to choose from.
 
 4. Objection Reframing — for each concern I named above (Limited direct hands-on time with Claroty specifically compared to Dragos/Nozomi), give me a short, honest way to address it if it comes up. Less is more: 1 spoken-ready sentence per concern wherever that's genuinely enough, 2 sentences max only if the concern really needs the extra context — and give me 2 short variants to choose from for each one, framed as neutral or as a genuine advantage wherever my actual background actually supports that framing — not spin, not a dodge. Ground every reframe in something real from my resume; if a concern I named genuinely doesn't have a strong answer, say so plainly rather than manufacturing one.
 

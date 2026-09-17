@@ -7,7 +7,7 @@
 ## Quick Reference
 
 **Company:** Meridian Health Systems (placeholder) · **Role:** Director, Customer Success · **Call:** ~60 min, Microsoft Teams
-**Gap/leaving answer:** not given — general guidance only, see Section 3
+**Gap/leaving answer:** laid off in a reduction in force (soft second half, not performance-related) — two spoken-ready variants drafted, see Section 3
 **Strongest resume-to-role matches:** enterprise portfolio scale (30 accounts / $4.2M new ARR), de facto renewal ownership on top 5 accounts, executive-level relationship building
 
 ---
@@ -32,11 +32,19 @@
 
 ---
 
-## 3. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer
+## 3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer
 
-*General guidance only, since no specific reason was given — nothing here is invented on your behalf.*
+*Drafted directly from the reason you gave — laid off in a reduction in force when your last company scaled back its enterprise sales org after a soft second half; not performance-related. Two spoken-ready variants, since hiring managers tend to probe this a bit deeper than a recruiter screen would — both are built to hold up under one natural follow-up.*
 
-Keep this brief, honest, and forward-looking: 1-2 sentences, no criticism of your current employer, and a quick pivot back to genuine interest in this specific role. A useful shape to adapt once you have your own real reason in hand: state the reason factually and neutrally, then immediately connect it to why *this* opportunity specifically is the right next step — don't let the explanation of the past outweigh the case for the future.
+**Variant 1 (brief, one sentence):**
+
+> "I was let go as part of a broader restructuring when the company scaled back the enterprise sales org after a soft second half — it wasn't performance-related, and it's part of why I'm excited about a role like this one, where the book is stable and growing rather than being cut."
+
+**Variant 2 (slightly more context, two sentences):**
+
+> "My role was eliminated in a reduction in force — the company pulled back on enterprise sales headcount after a slower second half, and mine was one of several territories consolidated. I'd rather be somewhere building on a growing book than managing through another round of cuts, which is a big part of why this role caught my attention."
+
+Both stay factual and forward-looking, name the cause plainly (a business-driven RIF, not a performance issue) without over-explaining it, and use the second sentence to pivot straight into genuine interest in the role rather than dwelling on the layoff itself.
 
 ---
 
