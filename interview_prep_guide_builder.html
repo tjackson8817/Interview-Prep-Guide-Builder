@@ -228,7 +228,7 @@
           <label for="reasonGap">Why you're not currently working / leaving your current role <span class="tag">optional</span></label>
           <textarea id="reasonGap" placeholder="Your actual reason, in your own words — e.g. layoff/RIF, government contract funding cut, company restructuring, personal reasons"></textarea>
           <div class="quick-picks" id="reasonQuickPicks"></div>
-          <p class="hint">This comes up in recruiter screens, hiring-manager rounds, and panel interviews alike — not just phone screens. Left blank, the guide gives you general guidance on structuring this kind of answer instead of inventing a reason for you. Kept short by design: 1 sentence where it genuinely fits, with a couple of variants to pick from. Click a quick pick below as a starting point, then edit it to match what actually happened — these are common categories, not your actual story.</p>
+          <p class="hint">This comes up in recruiter screens, hiring-manager rounds, and panel interviews alike — not just phone screens. Left blank, the guide gives you general guidance on structuring this kind of answer instead of inventing a reason for you. Kept short by design: the guide turns this into a one-sentence gap statement (fact and cause, no excuses), one-sentence pivot options to this role, and short replies to likely follow-up questions. Click a quick pick below as a starting point, then edit it to match what actually happened — these are common categories, not your actual story.</p>
         </div>
       </fieldset>
 
@@ -380,9 +380,34 @@ const WORRY_QUICK_PICKS = [
   'Non-traditional background for this role'
 ];
 
+
+function gapAnswerSection(mode, reasonGap, company){
+  const co = company || 'this company';
+  const title = mode === 'general'
+    ? `3. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer`
+    : `3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer`;
+  if(!reasonGap){
+    return `${title} (general guidance only, since I did not give you a specific reason) — I did not give you a reason, and you should not invent one. Instead, show me how to structure this answer: a one-sentence gap statement that states the fact and the business cause and then stops (no justification, no backstory, no defensive qualifiers), followed by a one-sentence pivot to this role, plus a short list of the follow-up questions interviewers typically ask next and how to keep each reply to one sentence — so I can apply it to my own actual situation.`;
+  }
+  const followUpCount = mode === 'recruiter' ? '4-5' : '6-8';
+  const modeNote = mode === 'hm'
+    ? ' Hiring managers often probe a bit deeper than a recruiter screen does, so make the follow-ups realistic for a hiring manager.'
+    : mode === 'general'
+      ? ' In a panel or multi-round process, different interviewers may each ask a version of this, so the wording must stay consistent across every reply.'
+      : ' A recruiter screen usually asks only one or two follow-ups, so keep this set short.';
+  return `${title} — using the reason I gave above, distill it into short, professional, easy-to-pivot pieces. Present them in this order:
+   (a) Gap statement — 3 variants, each ONE sentence that states what happened and the business cause in plain professional language, e.g. "My role at [Company] was eliminated in a reduction in force due to reductions in government spending." State the fact and stop: no justification, no emotion, no extra backstory, no badmouthing a previous employer, and do not add "it wasn't performance-related" or similar defensive qualifiers — a neutral statement of fact already implies that, and volunteering it sounds like an excuse. Only use it in a follow-up reply if the question directly asks.
+   (b) Pivot statements — 3 options, each ONE sentence, that move straight from the gap statement to this role at ${co}: one general and forward-looking, one tied to specific real experience from my resume, and one tied to what this specific role or company is doing. Ground every pivot only in facts actually in my resume.
+   (c) Combined example — one gap statement plus one pivot, as a single answer I can deliver in under 10 seconds.
+   (d) Likely follow-up questions with short replies — ${followUpCount} follow-ups the interviewer might naturally ask next (e.g. why my role was selected, whether I was offered another internal role, how long I've been looking, what I've been doing since, whether others were affected, whether I'd go back), each with a ONE-sentence reply that ends on a forward-looking note. Where a reply depends on a fact I haven't given you (dates, what I've done since, whether an internal role was offered, a reference's name), use a clearly marked [bracketed placeholder] for me to fill in — never supply that fact yourself.${modeNote}
+   (e) Delivery note — 2-3 short lines: say the gap statement neutrally, the way you'd state a job title; answer only what's asked; stop talking after the pivot.
+   Keep this entire section tight — short, scannable lines, not paragraphs of explanation.`;
+}
+
 const REASON_QUICK_PICKS = [
   'Laid off / role eliminated (RIF)',
   'Company or team restructuring',
+  'Role eliminated due to government spending reductions',
   'Contract or project ended',
   'Currently employed, open to the right opportunity',
   'Relocated',
@@ -631,7 +656,7 @@ function buildRecruiterPrompt(){
   lines.push(``);
   lines.push(`2. Qualifications T-Chart — a two-column table: left column is a specific requirement or qualification pulled directly from the job description, right column is the specific matching evidence from my resume for that exact requirement, one row per major requirement. This needs to be genuinely scannable in the 30 seconds before the call.`);
   lines.push(``);
-  lines.push(`3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this. Less is more: 1 sentence where the reason genuinely allows it, 2 sentences at most — no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company — and give me 2 short variants to choose from.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role, aiming for 1 sentence where possible — so I can apply it to my own actual situation.`}`);
+  lines.push(gapAnswerSection('recruiter', reasonGap, company));
   lines.push(``);
   lines = lines.concat(objectionSectionLines(4, worryAreas));
   lines.push(`5. The Salary Question — research real, current market compensation data for this role, seniority level, and location, using actual sources (e.g. levels.fyi, Glassdoor, Payscale, Bureau of Labor Statistics data, comparable job postings with disclosed ranges) rather than a guessed number. Present a specific researched range and note your sources.${targetSalary ? ` I have my own target range in mind (given above) — compare it against what you find and flag plainly if it looks notably out of step with the market data in either direction, rather than just validating it.` : ''} Then coach the delivery: a "state a range with flexibility, don't negotiate yet" framing — e.g. "Based on my research and experience, I'm targeting $X-$Y, though I'd want to understand the full scope and comp structure before locking in a number." Make clear this is a stated-range moment, not a negotiation — that comes later, once there's an offer.`);
@@ -649,7 +674,7 @@ function buildRecruiterPrompt(){
   lines.push(`- Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer — so I have something skimmable right before the call.`
+    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and the combined gap statement + pivot as a single line — so I have something skimmable right before the call.`
   ));
 
   return lines.join("\n");
@@ -688,7 +713,7 @@ function buildHiringManagerPrompt(){
   lines.push(``);
   lines.push(`2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
   lines.push(``);
-  lines.push(`3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this if it comes up. Less is more: 1 sentence where the reason genuinely allows it, 2 sentences at most — no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company — and give me 2 short variants to choose from. Hiring managers often probe a bit deeper on this than a recruiter screen does, so make sure each variant can hold up under one natural follow-up question.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer if it comes up — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role, aiming for 1 sentence where possible — so I can apply it to my own actual situation.`}`);
+  lines.push(gapAnswerSection('hm', reasonGap, company));
   lines.push(``);
   lines = lines.concat(objectionSectionLines(4, worryAreas));
   if(interviewers.length){
@@ -725,7 +750,7 @@ function buildHiringManagerPrompt(){
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, the combined gap statement + pivot as a single line, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");
@@ -763,7 +788,7 @@ function buildGeneralPrompt(){
   lines.push(``);
   lines.push(`2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
   lines.push(``);
-  lines.push(`3. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer${reasonGap ? '' : ' (general guidance only, since I did not give you a specific reason)'} — ${reasonGap ? `using the reason I gave above, draft a brief, honest, forward-looking way to phrase this if it comes up. Less is more: 1 sentence where the reason genuinely allows it, 2 sentences at most — no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company — and give me 2 short variants to choose from.` : `I did not give you a reason, and you should not invent one. Instead, give me general guidance on how to structure this kind of answer if it comes up — brief, honest, forward-looking, no badmouthing, quick pivot to genuine interest in the role, aiming for 1 sentence where possible — so I can apply it to my own actual situation.`}`);
+  lines.push(gapAnswerSection('general', reasonGap, company));
   lines.push(``);
   lines = lines.concat(objectionSectionLines(4, worryAreas));
   if(interviewers.length){
@@ -800,7 +825,7 @@ function buildGeneralPrompt(){
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, a one-line reminder of the gap/leaving answer, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the combined gap statement + pivot as a single line, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");
