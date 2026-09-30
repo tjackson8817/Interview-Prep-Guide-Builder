@@ -30,6 +30,12 @@
   }
   header h1{margin:0 0 4px 0;font-size:22px;}
   header p{margin:0;opacity:.85;font-size:14px;}
+  header p.header-link{margin-top:8px;font-size:13px;opacity:1;}
+  header a{color:#fff;font-weight:600;text-decoration:underline;}
+  .strengths-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;}
+  .strengths-grid label{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:3px;display:block;}
+  .check-opt{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;}
+  .check-opt input{width:auto;margin-top:3px;}
   .wrap{
     display:flex;
     gap:24px;
@@ -164,6 +170,7 @@
 <header>
   <h1>Interview Prep Guide Builder</h1>
   <p>Turns your resume, the job description, and (optionally) who you're meeting with into a real, grounded prep guide — not generic interview advice.</p>
+  <p class="header-link">Want a strengths section in your guide? <a href="https://www.gallup.com/cliftonstrengths/en/253868/popular-cliftonstrengths-assessment-products.aspx" target="_blank" rel="noopener">Take the CliftonStrengths assessment at Gallup</a>, then add your top themes below.</p>
 </header>
 
 <div class="wrap">
@@ -229,6 +236,33 @@
           <textarea id="reasonGap" placeholder="Your actual reason, in your own words — e.g. layoff/RIF, government contract funding cut, company restructuring, personal reasons"></textarea>
           <div class="quick-picks" id="reasonQuickPicks"></div>
           <p class="hint">This comes up in recruiter screens, hiring-manager rounds, and panel interviews alike — not just phone screens. Left blank, the guide gives you general guidance on structuring this kind of answer instead of inventing a reason for you. Kept short by design: the guide turns this into a one-sentence gap statement (fact and cause, no excuses), one-sentence pivot options to this role, and short replies to likely follow-up questions. Click a quick pick below as a starting point, then edit it to match what actually happened — these are common categories, not your actual story.</p>
+        </div>
+      </fieldset>
+
+      <fieldset id="strengthsFields">
+        <legend>CliftonStrengths <span class="tag">optional</span></legend>
+        <p class="hint" style="margin-top:-4px;margin-bottom:14px;">If you've taken Gallup's CliftonStrengths assessment, add your top themes and the guide gets a CliftonStrengths section: for each theme, its <em>balcony</em> (the strength at its best, tied to real evidence from your resume) and its <em>basement</em> (how it can be overused or misread, and how you keep it in check), plus ready answers for "What's your greatest strength?" and "What's a weakness?" In Hiring Manager and General/Other modes, it also feeds the Candidate SWOT. Not sure what a theme means? See <a href="https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx" target="_blank" rel="noopener">CliftonStrengths 34 Themes Explained</a>. Haven't taken it? <a href="https://www.gallup.com/cliftonstrengths/en/253868/popular-cliftonstrengths-assessment-products.aspx" target="_blank" rel="noopener">CliftonStrengths Online Talent Assessment</a>.</p>
+
+        <div class="field">
+          <label>Your top 5 themes, in rank order</label>
+          <div class="strengths-grid">
+          <div><label for="strength1">#1</label><select id="strength1"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
+          <div><label for="strength2">#2</label><select id="strength2"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
+          <div><label for="strength3">#3</label><select id="strength3"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
+          <div><label for="strength4">#4</label><select id="strength4"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
+          <div><label for="strength5">#5</label><select id="strength5"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
+          </div>
+          <p class="hint">Leave these blank if you'd rather just attach your report — see the checkbox below.</p>
+        </div>
+
+        <div class="field">
+          <label for="strengthsMore">More themes or notes from your report <span class="tag">optional</span></label>
+          <textarea id="strengthsMore" placeholder="e.g. 6. Learner, 7. Relator, 8. Focus — or a line or two from your report that rings true"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="check-opt"><input type="checkbox" id="strengthsAttach"> I'll attach my CliftonStrengths PDF to the Claude message</label>
+          <p class="hint">Your Gallup results report, or a Balconies &amp; Basements sheet like the one Gallup uses in coaching. This tool doesn't read the file itself — attach it in Claude when you paste the prompt, the same way you can attach your resume.</p>
         </div>
       </fieldset>
 
@@ -580,6 +614,53 @@ function commonFacts(company, role, jobDescription, resume, worryAreas){
   return lines;
 }
 
+function strengthsData(){
+  const top = [];
+  for(let i=1;i<=5;i++){ const v = val(`strength${i}`); if(v) top.push(v); }
+  const more = val('strengthsMore');
+  const attached = document.getElementById('strengthsAttach').checked;
+  return { top, more, attached, has: !!(top.length || more || attached) };
+}
+
+const STRENGTHS_ANCHORS = {
+  top: '- My CliftonStrengths top themes, in rank order: ',
+  more: '- More CliftonStrengths themes / notes from my report: ',
+  attached: '- My CliftonStrengths report: attached to this message as a PDF'
+};
+
+function strengthsFactLines(){
+  const d = strengthsData();
+  if(!d.has) return [];
+  const lines = [];
+  if(d.top.length) lines.push(STRENGTHS_ANCHORS.top + d.top.map((t,i) => `${i+1}. ${t}`).join(', '));
+  if(d.more) lines.push(STRENGTHS_ANCHORS.more + d.more);
+  if(d.attached) lines.push(STRENGTHS_ANCHORS.attached + ` — read it for my ranked themes and any theme descriptions it includes. If you can't read the attachment, say so and work only from the themes listed here.`);
+  return lines;
+}
+
+function strengthsSectionText(sectionNum, mode){
+  const d = strengthsData();
+  const scope = mode === 'recruiter'
+    ? `my top 3 themes only — a recruiter screen won't go deeper than that`
+    : `each of my top themes (up to 5)`;
+  let t = `${sectionNum}. CliftonStrengths Talking Points — use my CliftonStrengths themes above${d.attached ? ' (and the attached report)' : ''} to give me honest, specific ways to talk about how I work. Use Gallup's own definition of each theme (https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx) — don't make up your own. Most interviewers won't know the theme names, so every spoken line should describe the behavior in plain language rather than name-dropping the theme. For ${scope}, give me:
+   (a) Balcony — one spoken-ready sentence describing this strength at its best, tied to a specific piece of evidence from my resume${mode === 'recruiter' ? '' : ' or STAR stories'} that shows it in action. If nothing in my background actually shows this theme, say so plainly rather than inventing an example.
+   (b) Basement — the way this strength is most likely to be overused or misread in this specific role, and one honest sentence on how I keep it in check. If my resume doesn't show how I manage it, give me a clearly marked [bracketed placeholder] to fill in myself rather than inventing a habit or practice.
+   (c) Best fit — which likely question this answers best (e.g. "What's your greatest strength?", "What's a weakness?", "How would your team describe you?", "How do you handle pressure?") and which specific requirement in the job description it connects to.
+   Present (a)-(c) as a compact table: Theme | Balcony | Basement | Best fit. Then give me one "greatest strength" answer and one "greatest weakness" answer built from my themes, 2 sentences each, spoken-ready. The weakness answer should use a real basement stated honestly plus what I actually do about it — not a disguised strength like "I work too hard."`;
+  if(mode !== 'recruiter'){
+    t += `
+   Finally, in 2-3 short lines, name which of my themes fit this role best and which basement is the biggest risk given the job description and company research above — and carry both into the Candidate SWOT below.`;
+  }
+  t += `
+   Keep this section tight and scannable.`;
+  return t;
+}
+
+function strengthsGuardrail(){
+  return `- Treat my CliftonStrengths themes as how I describe my own working style, not as proof of accomplishments. Every theme talking point must be tied to real evidence in my resume or my own STAR stories — never a made-up example — and never attribute a theme to me that I didn't list or that isn't in my attached report.`;
+}
+
 function starStories(){
   const stories = [];
   for(let i=1;i<=3;i++){
@@ -644,6 +725,7 @@ function buildRecruiterPrompt(){
   lines.push(`I have an upcoming recruiter screen and want a real prep guide built from my actual resume and the actual job description — not generic interview advice.`);
   lines.push(``);
   lines = lines.concat(commonFacts(company, role, jobDescription, resume, worryAreas));
+  lines = lines.concat(strengthsFactLines());
   lines.push(`- Interview type: Recruiter / phone screen`);
   if(location) lines.push(`- Location (for salary research): ${location}`);
   lines.push(`- Reason I'm not currently working / leaving my current role, if applicable: ${reasonGap || 'not given — see instructions below, do not invent one'}`);
@@ -659,22 +741,26 @@ function buildRecruiterPrompt(){
   lines.push(gapAnswerSection('recruiter', reasonGap, company));
   lines.push(``);
   lines = lines.concat(objectionSectionLines(4, worryAreas));
-  lines.push(`5. The Salary Question — research real, current market compensation data for this role, seniority level, and location, using actual sources (e.g. levels.fyi, Glassdoor, Payscale, Bureau of Labor Statistics data, comparable job postings with disclosed ranges) rather than a guessed number. Present a specific researched range and note your sources.${targetSalary ? ` I have my own target range in mind (given above) — compare it against what you find and flag plainly if it looks notably out of step with the market data in either direction, rather than just validating it.` : ''} Then coach the delivery: a "state a range with flexibility, don't negotiate yet" framing — e.g. "Based on my research and experience, I'm targeting $X-$Y, though I'd want to understand the full scope and comp structure before locking in a number." Make clear this is a stated-range moment, not a negotiation — that comes later, once there's an offer.`);
+  const sd = strengthsData();
+  let n = 5;
+  if(sd.has){ lines.push(strengthsSectionText(n++, 'recruiter')); lines.push(``); }
+  lines.push(`${n++}. The Salary Question — research real, current market compensation data for this role, seniority level, and location, using actual sources (e.g. levels.fyi, Glassdoor, Payscale, Bureau of Labor Statistics data, comparable job postings with disclosed ranges) rather than a guessed number. Present a specific researched range and note your sources.${targetSalary ? ` I have my own target range in mind (given above) — compare it against what you find and flag plainly if it looks notably out of step with the market data in either direction, rather than just validating it.` : ''} Then coach the delivery: a "state a range with flexibility, don't negotiate yet" framing — e.g. "Based on my research and experience, I'm targeting $X-$Y, though I'd want to understand the full scope and comp structure before locking in a number." Make clear this is a stated-range moment, not a negotiation — that comes later, once there's an offer.`);
   lines.push(``);
-  lines.push(`6. Standard Logistics Questions to Expect — list the standard questions a recruiter screen almost always includes (notice period/availability, work authorization, location/remote flexibility, willingness to travel, other interviews currently in process and their stage). For each, note that I'll need to supply my own actual answer — don't invent specifics like a notice period or immigration status on my behalf, just prompt me for what I need to have ready.`);
+  lines.push(`${n++}. Standard Logistics Questions to Expect — list the standard questions a recruiter screen almost always includes (notice period/availability, work authorization, location/remote flexibility, willingness to travel, other interviews currently in process and their stage). For each, note that I'll need to supply my own actual answer — don't invent specifics like a notice period or immigration status on my behalf, just prompt me for what I need to have ready.`);
   lines.push(``);
-  lines.push(`7. Keep It Tight — a short coaching note that recruiter screens reward concise, confident answers over deep technical detail — that depth is for the hiring-manager round, not this one.`);
+  lines.push(`${n++}. Keep It Tight — a short coaching note that recruiter screens reward concise, confident answers over deep technical detail — that depth is for the hiring-manager round, not this one.`);
   lines.push(``);
-  lines.push(`8. Questions to Ask the Recruiter — 3-4 specific questions appropriate for a recruiter screen: process/timeline for next steps, what's the top priority for this hire in the first 90 days, comp band confirmation. Skip deep team/strategy questions — save those for later rounds.`);
+  lines.push(`${n++}. Questions to Ask the Recruiter — 3-4 specific questions appropriate for a recruiter screen: process/timeline for next steps, what's the top priority for this hire in the first 90 days, comp band confirmation. Skip deep team/strategy questions — save those for later rounds.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
   lines.push(`- Never invent my notice period, work authorization status, or any other personal/logistics fact — prompt me to supply my own.`);
   lines.push(`- Ground the salary range in real search results with sources noted, never a guessed number.`);
   lines.push(`- Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.`);
+  if(sd.has) lines.push(strengthsGuardrail());
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and the combined gap statement + pivot as a single line — so I have something skimmable right before the call.`
+    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, ${sd.has ? 'my top CliftonStrengths themes with a one-line balcony each, ' : ''}and the combined gap statement + pivot as a single line — so I have something skimmable right before the call.`
   ));
 
   return lines.join("\n");
@@ -695,6 +781,7 @@ function buildHiringManagerPrompt(){
   lines.push(`I have an upcoming hiring manager interview and want a real prep guide built from my actual resume, the actual job description, and — where I've given you names — real research on the actual people interviewing me. Not generic interview advice.`);
   lines.push(``);
   lines = lines.concat(commonFacts(company, role, jobDescription, resume, worryAreas));
+  lines = lines.concat(strengthsFactLines());
   lines = lines.concat(starStoriesFactLines());
   lines.push(`- Interview type: Hiring Manager interview, video call via ${platform}, approximately ${callLength} minutes`);
   lines.push(`- Reason I'm not currently working / leaving my current role, if applicable: ${reasonGap || 'not given — see instructions below, do not invent one'}`);
@@ -722,24 +809,28 @@ function buildHiringManagerPrompt(){
     lines.push(`5. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
   }
   lines.push(``);
-  lines.push(`6. Candidate SWOT Analysis — build a SWOT specifically for my candidacy for this role at ${company || 'this company'}, grounded in the Company & Role Snapshot, the Resume-to-JD Gap Map, and the Interviewer Research above — not a generic SWOT template with filler in each box.`);
+  const sd = strengthsData();
+  let n = 6;
+  if(sd.has){ lines.push(strengthsSectionText(n++, 'full')); lines.push(``); }
+  lines.push(`${n++}. Candidate SWOT Analysis — build a SWOT specifically for my candidacy for this role at ${company || 'this company'}, grounded in the Company & Role Snapshot, the Resume-to-JD Gap Map, and the Interviewer Research above — not a generic SWOT template with filler in each box.`);
   lines.push(`    - Strengths: my strongest, most directly relevant qualifications for this specific role — pull from the gap map's clean matches, don't just restate my whole resume.`);
   lines.push(`    - Weaknesses: real gaps or unclear fit for this specific role, using the gap map above — don't soften a real weakness into a non-weakness, and don't invent one that isn't there.`);
   lines.push(`    - Opportunities: where this role/company's actual current situation (recent news, priorities, growth, team context from the snapshot and interviewer research above) plays to my genuine strengths — grounded in real research, not invented company circumstances.`);
   lines.push(`    - Threats: realistic external factors that could work against my candidacy for this specific role — e.g. a stated preference in the JD I don't meet, a fast-moving process, a skill named in the JD I'm light on — grounded in the actual JD and gap map. Do not invent information about other candidates or the hiring process beyond what I've told you.`);
+  if(sd.has) lines.push(`    - Use the CliftonStrengths section above where it fits: a theme can support a Strength only where my resume shows it in action, and its most role-relevant basement can inform a Weakness.`);
   lines.push(`    Then, directly under the Weaknesses list, give me 1-2 short, honest talking points for how I'd address or mitigate each weakness if it comes up in conversation — same rule as the Objection Reframing section above: grounded in something real from my resume, never a fabricated accomplishment used to explain a gap away, and never spin that oversells a genuine gap as a strength.`);
   lines.push(``);
-  lines.push(`7. Video Call Logistics Checklist — test ${platform} audio/video ahead of time, confirm lighting and background on camera, close notification-generating apps, have a backup dial-in number ready if one exists, look at the camera (not the screen) when speaking, keep water nearby.`);
+  lines.push(`${n++}. Video Call Logistics Checklist — test ${platform} audio/video ahead of time, confirm lighting and background on camera, close notification-generating apps, have a backup dial-in number ready if one exists, look at the camera (not the screen) when speaking, keep water nearby.`);
   lines.push(``);
-  lines.push(`8. Time-Boxing for a ${callLength}-Minute Call — propose a realistic cadence scaled to ${callLength} minutes (roughly: a few minutes of rapport/intro, the bulk of the time on their questions, a meaningful block reserved for my questions, and a few minutes for wrap-up/next steps), and a coaching note to keep individual answers to 90 seconds-2 minutes unless I'm explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a tightly time-boxed call.`);
+  lines.push(`${n++}. Time-Boxing for a ${callLength}-Minute Call — propose a realistic cadence scaled to ${callLength} minutes (roughly: a few minutes of rapport/intro, the bulk of the time on their questions, a meaningful block reserved for my questions, and a few minutes for wrap-up/next steps), and a coaching note to keep individual answers to 90 seconds-2 minutes unless I'm explicitly asked to go deeper, since one long answer can eat a meaningful chunk of a tightly time-boxed call.`);
   lines.push(``);
-  lines.push(storySectionText(9, 'My Top 3-4 Stories, Not a Long List') + ` Given the time limit, this should stay to 3-4 stories total, not an exhaustive list.`);
+  lines.push(storySectionText(n++, 'My Top 3-4 Stories, Not a Long List') + ` Given the time limit, this should stay to 3-4 stories total, not an exhaustive list.`);
   lines.push(``);
-  lines.push(`10. Likely Questions — a realistically sized set (not exhaustive, given the time limit) across: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific JD requirements), Culture/values (grounded in the company's actual stated values, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
+  lines.push(`${n++}. Likely Questions — a realistically sized set (not exhaustive, given the time limit) across: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific JD requirements), Culture/values (grounded in the company's actual stated values, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
   lines.push(``);
-  lines.push(`11. Questions to Ask the Hiring Manager — team structure and day-to-day, how success is measured in the first 90 days, current team priorities/challenges, management style. Tailor these using the interviewer research above where applicable, and skip generic questions like "what's the culture like."`);
+  lines.push(`${n++}. Questions to Ask the Hiring Manager — team structure and day-to-day, how success is measured in the first 90 days, current team priorities/challenges, management style. Tailor these using the interviewer research above where applicable, and skip generic questions like "what's the culture like."`);
   lines.push(``);
-  lines.push(`12. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.`);
+  lines.push(`${n++}. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
   lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
@@ -747,10 +838,11 @@ function buildHiringManagerPrompt(){
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
   lines.push(`- Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.`);
   lines.push(`- Every SWOT weakness and its mitigation talking point must be grounded in the actual gap map and resume — never a softened non-weakness, and never a fabricated accomplishment used to explain a gap away.`);
+  if(sd.has) lines.push(strengthsGuardrail());
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, the combined gap statement + pivot as a single line, and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, the combined gap statement + pivot as a single line, and the 3 strongest${sd.has ? 'my top CliftonStrengths themes with a one-line balcony each, ' : ''} resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");
@@ -770,6 +862,7 @@ function buildGeneralPrompt(){
   lines.push(`I have an upcoming interview and want a real prep guide built from my actual resume, the actual job description, and — where I've given you names — real research on the actual people interviewing me. Not generic interview advice.`);
   lines.push(``);
   lines = lines.concat(commonFacts(company, role, jobDescription, resume, worryAreas));
+  lines = lines.concat(strengthsFactLines());
   lines = lines.concat(starStoriesFactLines());
   lines.push(`- Interview stage: ${stageLabel(stage)}`);
   lines.push(`- Reason I'm not currently working / leaving my current role, if applicable: ${reasonGap || 'not given — see instructions below, do not invent one'}`);
@@ -797,24 +890,29 @@ function buildGeneralPrompt(){
     lines.push(`5. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
   }
   lines.push(``);
-  lines.push(`6. Candidate SWOT Analysis — build a SWOT specifically for my candidacy for this role at ${company || 'this company'}, grounded in the Company & Role Snapshot, the Resume-to-JD Gap Map, and the Interviewer Research above — not a generic SWOT template with filler in each box.`);
+  const sd = strengthsData();
+  let n = 6;
+  if(sd.has){ lines.push(strengthsSectionText(n++, 'full')); lines.push(``); }
+  lines.push(`${n++}. Candidate SWOT Analysis — build a SWOT specifically for my candidacy for this role at ${company || 'this company'}, grounded in the Company & Role Snapshot, the Resume-to-JD Gap Map, and the Interviewer Research above — not a generic SWOT template with filler in each box.`);
   lines.push(`    - Strengths: my strongest, most directly relevant qualifications for this specific role — pull from the gap map's clean matches, don't just restate my whole resume.`);
   lines.push(`    - Weaknesses: real gaps or unclear fit for this specific role, using the gap map above — don't soften a real weakness into a non-weakness, and don't invent one that isn't there.`);
   lines.push(`    - Opportunities: where this role/company's actual current situation (recent news, priorities, growth, team context from the snapshot and interviewer research above) plays to my genuine strengths — grounded in real research, not invented company circumstances.`);
   lines.push(`    - Threats: realistic external factors that could work against my candidacy for this specific role — e.g. a stated preference in the JD I don't meet, a fast-moving process, a skill named in the JD I'm light on — grounded in the actual JD and gap map. Do not invent information about other candidates or the hiring process beyond what I've told you.`);
+  if(sd.has) lines.push(`    - Use the CliftonStrengths section above where it fits: a theme can support a Strength only where my resume shows it in action, and its most role-relevant basement can inform a Weakness.`);
   lines.push(`    Then, directly under the Weaknesses list, give me 1-2 short, honest talking points for how I'd address or mitigate each weakness if it comes up in conversation — same rule as the Objection Reframing section above: grounded in something real from my resume, never a fabricated accomplishment used to explain a gap away, and never spin that oversells a genuine gap as a strength.`);
   lines.push(``);
-  lines.push(`7. Likely Questions — generate a realistic set across these categories, pulling specifically from the job description, the company snapshot, and the gap map above, not a generic interview-question list that could apply to any company: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific requirements stated in the JD), Culture/values (grounded in the company's actual stated values or mission, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
+  lines.push(`${n++}. Likely Questions — generate a realistic set across these categories, pulling specifically from the job description, the company snapshot, and the gap map above, not a generic interview-question list that could apply to any company: Behavioral (calibrated to the seniority level implied by the role), Role/technical (grounded in specific requirements stated in the JD), Culture/values (grounded in the company's actual stated values or mission, not invented ones), and Gap-probe (arising naturally from the Resume-to-JD gap map above).`);
   lines.push(``);
-  lines.push(storySectionText(8, 'Story Scaffolding — NOT Scripted Answers'));
+  lines.push(storySectionText(n++, 'Story Scaffolding — NOT Scripted Answers'));
   lines.push(``);
   if(interviewers.length){
-    lines.push(`9. Questions to Ask Them — for each interviewer, suggest 2-3 specific, non-generic questions grounded in the actual company/role research above, tailored to that person's likely role and vantage point. Skip "what's the culture like" and similar generic questions entirely.`);
+    lines.push(`${n}. Questions to Ask Them — for each interviewer, suggest 2-3 specific, non-generic questions grounded in the actual company/role research above, tailored to that person's likely role and vantage point. Skip "what's the culture like" and similar generic questions entirely.`);
   } else {
-    lines.push(`9. Questions to Ask Them — since no specific interviewers were named, suggest 4-5 specific, non-generic questions grounded in the actual company/role research above rather than a generic list.`);
+    lines.push(`${n}. Questions to Ask Them — since no specific interviewers were named, suggest 4-5 specific, non-generic questions grounded in the actual company/role research above rather than a generic list.`);
   }
+  n++;
   lines.push(``);
-  lines.push(`10. Logistics Checklist — a short practical checklist: what to bring or have ready (portfolio links, references, questions written down), and a one-line reminder of the interview stage given above.`);
+  lines.push(`${n++}. Logistics Checklist — a short practical checklist: what to bring or have ready (portfolio links, references, questions written down), and a one-line reminder of the interview stage given above.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
   lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
@@ -822,10 +920,11 @@ function buildGeneralPrompt(){
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
   lines.push(`- Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.`);
   lines.push(`- Every SWOT weakness and its mitigation talking point must be grounded in the actual gap map and resume — never a softened non-weakness, and never a fabricated accomplishment used to explain a gap away.`);
+  if(sd.has) lines.push(strengthsGuardrail());
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the combined gap statement + pivot as a single line, and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the combined gap statement + pivot as a single line, and the 3 strongest${sd.has ? 'my top CliftonStrengths themes with a one-line balcony each, ' : ''} resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");
@@ -933,7 +1032,8 @@ function parseLoadedPrompt(text){
   const data = {
     company:'', role:'', jobDescription:'', resume:'', worryAreas:'', reasonGap:'',
     location:'', targetSalary:'', callLength:'', platform:'', stage:'',
-    interviewers: [], stars: []
+    interviewers: [], stars: [],
+    strengthsTop: [], strengthsMore: '', strengthsAttach: false
   };
 
   let field = null;
@@ -955,6 +1055,12 @@ function parseLoadedPrompt(text){
       else { field='resume'; resumeLines=[]; }
       return;
     }
+    if(line.startsWith(STRENGTHS_ANCHORS.top)){
+      data.strengthsTop = line.slice(STRENGTHS_ANCHORS.top.length).split(',').map(x => x.trim().replace(/^\d+\.\s*/, '')).filter(Boolean);
+      field=null; return;
+    }
+    if(line.startsWith(STRENGTHS_ANCHORS.more)){ data.strengthsMore = line.slice(STRENGTHS_ANCHORS.more.length).trim(); field=null; return; }
+    if(line.startsWith(STRENGTHS_ANCHORS.attached)){ data.strengthsAttach = true; field=null; return; }
     if(line.startsWith(A.worryAreas)){ data.worryAreas = line.slice(A.worryAreas.length).trim(); field=null; return; }
     if(line.startsWith(A.reasonGap)){
       const v = line.slice(A.reasonGap.length).trim();
@@ -1029,6 +1135,11 @@ function populateForm(mode, data){
   document.getElementById('resume').value = data.resume;
   document.getElementById('worryAreas').value = data.worryAreas;
   document.getElementById('reasonGap').value = data.reasonGap;
+  for(let i=1;i<=5;i++){
+    document.getElementById(`strength${i}`).value = data.strengthsTop[i-1] || '';
+  }
+  document.getElementById('strengthsMore').value = data.strengthsMore || '';
+  document.getElementById('strengthsAttach').checked = !!data.strengthsAttach;
   ['worryAreas','reasonGap'].forEach(id => {
     document.getElementById(id).dispatchEvent(new Event('input', {bubbles:true}));
   });
