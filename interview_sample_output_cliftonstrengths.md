@@ -1,6 +1,6 @@
 # Interview Prep Guide Builder — Sample Output (with CliftonStrengths)
 
-*This is what Claude returns for the same Hiring Manager Interview prompt as `sample_prompt_objection_reframing.txt` (2 of the 3 optional STAR Stories filled in), with one addition: the optional CliftonStrengths top 5 themes are filled in. That adds Section 6, CliftonStrengths Talking Points, and feeds the Candidate SWOT in Section 7. Same fictional candidate (Sarah Chen) and placeholder company as the standard sample. Her themes (Relator, Achiever, Responsibility, Strategic, Developer) are illustrative for this sample, not results from a real assessment.*
+*This is what Claude returns for the same Hiring Manager Interview prompt as `sample_prompt_objection_reframing.txt` (2 of the 3 optional STAR Stories filled in), with the optional CliftonStrengths fields filled in: 10 themes checked, plus her ranked order. That adds Section 6, CliftonStrengths Talking Points, and feeds the Candidate SWOT in Section 7. Section 6 shows how theme selection works: the guide doesn't take her top 5. It uses the 6 themes her resume actually backs up and this role actually asks for, including her #10, and leaves out 4, including her #1, with a reason for each. Same fictional candidate (Sarah Chen) and placeholder company as the standard sample. Her themes (1. Woo, 2. Relator, 3. Achiever, 4. Competition, 5. Responsibility, 6. Strategic, 7. Developer, 8. Ideation, 9. Includer, 10. Activator) are illustrative, not results from a real assessment.*
 
 ---
 
@@ -8,7 +8,7 @@
 
 **Company:** Meridian Health Systems (placeholder) · **Role:** Director, Customer Success · **Call:** ~60 min, Microsoft Teams\
 **Gap/leaving answer:** laid off in a reduction in force (soft second half, not performance-related) — two spoken-ready variants drafted, see Section 3\
-**Top CliftonStrengths:** Relator (deep, trusted client relationships) · Achiever (sustained output under a heavy load) · Responsibility (owns commitments end to end) · Strategic (spots risk early and plans around it) · Developer (invests in other people's growth) — see Section 6\
+**CliftonStrengths selected for this role (6 of 10):** Relator (deep, trusted client relationships) · Developer (invests in other people's growth) · Responsibility (owns commitments end to end) · Achiever (sustained output under a heavy load) · Strategic (spots risk early and plans around it) · Activator (gets new things moving) — see Section 6\
 **Strongest resume-to-role matches:** enterprise portfolio scale (30 accounts / $4.2M new ARR), de facto renewal ownership on top 5 accounts, executive-level relationship building
 
 ---
@@ -77,15 +77,23 @@ Skipped — no interviewer names were given. *(No placeholder persona was invent
 
 ## 6. CliftonStrengths Talking Points
 
-*Built from the top 5 themes you listed. Definitions follow Gallup's own descriptions ([CliftonStrengths 34 Themes Explained](https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx)). The spoken lines describe the behavior in plain language instead of naming the theme, since most interviewers won't know the theme names. Every balcony is tied to something on your resume or in your STAR stories; where your background doesn't show how you manage a basement, there's a [bracketed placeholder] for you to fill in rather than an invented habit.*
+*You checked 10 themes and gave their rank. Each one was tested against two questions: does your resume or one of your STAR stories actually show it, and does this role's job description actually call for it? Six themes pass both tests and are used below, ordered by fit with this role rather than by rank. That includes your #10 (Activator) and leaves out your #1 (Woo); the reasons are listed under the table. Definitions follow Gallup's own descriptions ([CliftonStrengths 34 Themes Explained](https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx)). The spoken lines describe the behavior in plain language, since most interviewers won't know the theme names. Where your background doesn't show how you manage a basement, there's a [bracketed placeholder] for you to fill in rather than an invented habit.*
 
-| Theme | Balcony (at its best) | Basement (how it can be misread) | Best fit |
+| Theme (your rank) | Balcony (at its best) | Basement (how it can be misread) | Best fit |
 |-------|----------|----------|------|
-| **1. Relator** | "I build deep, trusted relationships with the people I work with, which is why my top five renewals ran through me even though I never had the CSM title." (De facto renewal ownership, top 5 accounts; VP/C-level relationships.) | Relying on a few strong relationships and under-investing in the rest of an account. You already counter this: when a champion left, you mapped everyone else who'd touched the product (Story 1). | "How would your clients describe you?" · JD: executive stakeholder relationships |
-| **2. Achiever** | "I sustain a high level of output over a long stretch. I closed $4.2M in new ARR in 2025 while keeping all five top renewals on track." (Story 2.) | Taking on too much and running hot; as a manager, results have to come through the team. Your weekly cadence of blocked prospecting vs. renewal time (Story 2) is real evidence you structure the load. | "How do you handle a heavy workload?" · JD: owning a $40M renewal book |
-| **3. Responsibility** | "When I commit to something, I see it through. The $650K renewal closed on time at full price after the champion left 10 weeks out." (Story 1.) | Finding it hard to hand things off or say no, which is the biggest risk for a first-time manager of 5. [How you've handed off work you'd normally own, and what happened.] | "What's a weakness?" · JD: leading a team of 5 CSMs |
-| **4. Strategic** | "I look for risk early and plan around it. I used my exec relationships to get early warning on renewal risk instead of finding out at the 11th hour." (Story 2; territory grown from $0 to $1.8M.) | Reaching a plan quickly and not bringing others along. [How you get buy-in on a plan before running with it.] | "How would you approach your first 90 days?" · JD: renewal strategy |
-| **5. Developer** | "I like helping other people get better at the job. I trained four new hires on discovery and objection handling." | Spending time on people at the expense of your own numbers. Careful here: this is peer coaching, not management authority, so don't present it as leading a team. | "You've never managed a team — how are you thinking about that?" · JD: team leadership |
+| **Relator (#2)** | "I build deep, trusted relationships with the people I work with, which is why my top five renewals ran through me even though I never had the CSM title." (De facto renewal ownership, top 5 accounts; VP/C-level relationships.) | Relying on a few strong relationships and under-investing in the rest of an account. You already counter this: when a champion left, you mapped everyone else who'd touched the product (Story 1). | "How would your clients describe you?" · JD: executive stakeholder relationships |
+| **Developer (#7)** | "I like helping other people get better at the job. I trained four new hires on discovery and objection handling." | Spending time on people at the expense of your own numbers. Careful here: this is peer coaching, not management authority, so don't present it as leading a team. | "You've never managed a team — how are you thinking about that?" · JD: leading a team of 5 CSMs |
+| **Responsibility (#5)** | "When I commit to something, I see it through. The $650K renewal closed on time at full price after the champion left 10 weeks out." (Story 1.) | Finding it hard to hand things off or say no, which is the biggest risk for a first-time manager of 5. [How you've handed off work you'd normally own, and what happened.] | "What's a weakness?" · JD: leading a team of 5 CSMs |
+| **Achiever (#3)** | "I sustain a high level of output over a long stretch. I closed $4.2M in new ARR in 2025 while keeping all five top renewals on track." (Story 2.) | Taking on too much and running hot; as a manager, results have to come through the team. Your weekly cadence of blocked prospecting vs. renewal time (Story 2) is real evidence you structure the load. | "How do you handle a heavy workload?" · JD: owning a $40M renewal book |
+| **Strategic (#6)** | "I look for risk early and plan around it. I used my exec relationships to get early warning on renewal risk instead of finding out at the 11th hour." (Story 2.) | Reaching a plan quickly and not bringing others along. [How you get buy-in on a plan before running with it.] | "How do you spot renewal risk early?" · JD: renewal strategy for the $40M book |
+| **Activator (#10)** | "When something needs to get started, I start it. I built a territory from $0 to $1.8M in ARR over three years." | Moving before a new team is ready to move with you, which matters in your first months leading CSMs who already know these accounts. [How you'd pace your first 90 days before changing things.] | "How would you approach your first 90 days?" · JD: owning the renewal book from day one |
+
+**Themes you listed that aren't used here, and why:**
+
+- **Woo (#1):** your resume shows depth with a small set of key accounts, not breadth of meeting new people. Relator describes that evidence better, and this role is about keeping existing relationships, so leading with Woo would undersell you.
+- **Competition (#4):** there's real evidence (an aggressive new-ARR target you hit), but this role is judged on the team's renewals rather than personal wins. Don't lead with it; if it comes up, frame it as holding yourself to a number.
+- **Ideation (#8):** nothing on your resume or in your STAR stories shows it yet. If you have a real example, add it as a STAR story and re-run the tool.
+- **Includer (#9):** nothing on your resume or in your STAR stories shows it yet.
 
 **"What's your greatest strength?"**
 
@@ -95,7 +103,7 @@ Skipped — no interviewer names were given. *(No placeholder persona was invent
 
 > "My instinct is to personally own every commitment, which served me well as an individual contributor but is exactly what I'll need to loosen leading a team. [What you're actually doing about it — e.g. a real example of handing something off.]"
 
-**Best fit vs. biggest risk for this role:** Relator and Developer are your strongest fit, since they back both the renewal mandate and the step into leading CSMs. The Responsibility basement is the biggest risk, because this role's results come through a team of 5. Both carry into the SWOT below.
+**Best fit vs. biggest risk for this role:** Relator and Developer are your strongest fit, since they back both the renewal mandate and the step into leading CSMs. The Responsibility basement is the biggest risk, because this role's results come through a team of 5, with Activator's basement close behind for the first 90 days. Both carry into the SWOT below.
 
 ---
 

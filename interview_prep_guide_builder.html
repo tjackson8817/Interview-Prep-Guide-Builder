@@ -32,8 +32,9 @@
   header p{margin:0;opacity:.85;font-size:14px;}
   header p.header-link{margin-top:8px;font-size:13px;opacity:1;}
   header a{color:#fff;font-weight:600;text-decoration:underline;}
-  .strengths-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;}
-  .strengths-grid label{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:3px;display:block;}
+  .strengths-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 10px;}
+  .strengths-grid label{font-size:13px;display:flex;align-items:center;gap:6px;cursor:pointer;}
+  .strengths-grid input{width:auto;margin:0;}
   .check-opt{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;}
   .check-opt input{width:auto;margin-top:3px;}
   .wrap{
@@ -170,7 +171,7 @@
 <header>
   <h1>Interview Prep Guide Builder</h1>
   <p>Turns your resume, the job description, and (optionally) who you're meeting with into a real, grounded prep guide — not generic interview advice.</p>
-  <p class="header-link">Want a strengths section in your guide? <a href="https://www.gallup.com/cliftonstrengths/en/253868/popular-cliftonstrengths-assessment-products.aspx" target="_blank" rel="noopener">Take the CliftonStrengths assessment at Gallup</a>, then add your top themes below.</p>
+  <p class="header-link">Want a strengths section in your guide? <a href="https://www.gallup.com/cliftonstrengths/en/253868/popular-cliftonstrengths-assessment-products.aspx" target="_blank" rel="noopener">Take the CliftonStrengths assessment at Gallup</a>, then check your themes below.</p>
 </header>
 
 <div class="wrap">
@@ -241,23 +242,53 @@
 
       <fieldset id="strengthsFields">
         <legend>CliftonStrengths <span class="tag">optional</span></legend>
-        <p class="hint" style="margin-top:-4px;margin-bottom:14px;">If you've taken Gallup's CliftonStrengths assessment, add your top themes and the guide gets a CliftonStrengths section: for each theme, its <em>balcony</em> (the strength at its best, tied to real evidence from your resume) and its <em>basement</em> (how it can be overused or misread, and how you keep it in check), plus ready answers for "What's your greatest strength?" and "What's a weakness?" In Hiring Manager and General/Other modes, it also feeds the Candidate SWOT. Not sure what a theme means? See <a href="https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx" target="_blank" rel="noopener">CliftonStrengths 34 Themes Explained</a>. Haven't taken it? <a href="https://www.gallup.com/cliftonstrengths/en/253868/popular-cliftonstrengths-assessment-products.aspx" target="_blank" rel="noopener">CliftonStrengths Online Talent Assessment</a>.</p>
+        <p class="hint" style="margin-top:-4px;margin-bottom:14px;">If you've taken Gallup's CliftonStrengths assessment, check the themes from your results you want considered — as many as you like, not just your top 5. The guide won't simply use your highest-ranked themes: it picks every theme your resume (and STAR stories) actually back up <em>and</em> that matters for this role, then briefly lists the ones it left out and why. For each theme it uses, you get its <em>balcony</em> (the strength at its best, tied to real evidence) and its <em>basement</em> (how it can be overused or misread, and how you keep it in check), plus ready answers for "What's your greatest strength?" and "What's a weakness?" In Hiring Manager and General/Other modes, it also feeds the Candidate SWOT. Not sure what a theme means? See <a href="https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx" target="_blank" rel="noopener">CliftonStrengths 34 Themes Explained</a>. Haven't taken it? <a href="https://www.gallup.com/cliftonstrengths/en/253868/popular-cliftonstrengths-assessment-products.aspx" target="_blank" rel="noopener">CliftonStrengths Online Talent Assessment</a>.</p>
 
         <div class="field">
-          <label>Your top 5 themes, in rank order</label>
-          <div class="strengths-grid">
-          <div><label for="strength1">#1</label><select id="strength1"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
-          <div><label for="strength2">#2</label><select id="strength2"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
-          <div><label for="strength3">#3</label><select id="strength3"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
-          <div><label for="strength4">#4</label><select id="strength4"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
-          <div><label for="strength5">#5</label><select id="strength5"><option value="">—</option><option value="Achiever">Achiever</option><option value="Activator">Activator</option><option value="Adaptability">Adaptability</option><option value="Analytical">Analytical</option><option value="Arranger">Arranger</option><option value="Belief">Belief</option><option value="Command">Command</option><option value="Communication">Communication</option><option value="Competition">Competition</option><option value="Connectedness">Connectedness</option><option value="Consistency">Consistency</option><option value="Context">Context</option><option value="Deliberative">Deliberative</option><option value="Developer">Developer</option><option value="Discipline">Discipline</option><option value="Empathy">Empathy</option><option value="Focus">Focus</option><option value="Futuristic">Futuristic</option><option value="Harmony">Harmony</option><option value="Ideation">Ideation</option><option value="Includer">Includer</option><option value="Individualization">Individualization</option><option value="Input">Input</option><option value="Intellection">Intellection</option><option value="Learner">Learner</option><option value="Maximizer">Maximizer</option><option value="Positivity">Positivity</option><option value="Relator">Relator</option><option value="Responsibility">Responsibility</option><option value="Restorative">Restorative</option><option value="Self-Assurance">Self-Assurance</option><option value="Significance">Significance</option><option value="Strategic">Strategic</option><option value="Woo">Woo</option></select></div>
+          <label>Themes to consider <span class="tag">check as many as apply</span></label>
+          <div class="strengths-grid" id="strengthsGrid">
+            <label><input type="checkbox" class="strength-theme" value="Achiever"> Achiever</label>
+            <label><input type="checkbox" class="strength-theme" value="Activator"> Activator</label>
+            <label><input type="checkbox" class="strength-theme" value="Adaptability"> Adaptability</label>
+            <label><input type="checkbox" class="strength-theme" value="Analytical"> Analytical</label>
+            <label><input type="checkbox" class="strength-theme" value="Arranger"> Arranger</label>
+            <label><input type="checkbox" class="strength-theme" value="Belief"> Belief</label>
+            <label><input type="checkbox" class="strength-theme" value="Command"> Command</label>
+            <label><input type="checkbox" class="strength-theme" value="Communication"> Communication</label>
+            <label><input type="checkbox" class="strength-theme" value="Competition"> Competition</label>
+            <label><input type="checkbox" class="strength-theme" value="Connectedness"> Connectedness</label>
+            <label><input type="checkbox" class="strength-theme" value="Consistency"> Consistency</label>
+            <label><input type="checkbox" class="strength-theme" value="Context"> Context</label>
+            <label><input type="checkbox" class="strength-theme" value="Deliberative"> Deliberative</label>
+            <label><input type="checkbox" class="strength-theme" value="Developer"> Developer</label>
+            <label><input type="checkbox" class="strength-theme" value="Discipline"> Discipline</label>
+            <label><input type="checkbox" class="strength-theme" value="Empathy"> Empathy</label>
+            <label><input type="checkbox" class="strength-theme" value="Focus"> Focus</label>
+            <label><input type="checkbox" class="strength-theme" value="Futuristic"> Futuristic</label>
+            <label><input type="checkbox" class="strength-theme" value="Harmony"> Harmony</label>
+            <label><input type="checkbox" class="strength-theme" value="Ideation"> Ideation</label>
+            <label><input type="checkbox" class="strength-theme" value="Includer"> Includer</label>
+            <label><input type="checkbox" class="strength-theme" value="Individualization"> Individualization</label>
+            <label><input type="checkbox" class="strength-theme" value="Input"> Input</label>
+            <label><input type="checkbox" class="strength-theme" value="Intellection"> Intellection</label>
+            <label><input type="checkbox" class="strength-theme" value="Learner"> Learner</label>
+            <label><input type="checkbox" class="strength-theme" value="Maximizer"> Maximizer</label>
+            <label><input type="checkbox" class="strength-theme" value="Positivity"> Positivity</label>
+            <label><input type="checkbox" class="strength-theme" value="Relator"> Relator</label>
+            <label><input type="checkbox" class="strength-theme" value="Responsibility"> Responsibility</label>
+            <label><input type="checkbox" class="strength-theme" value="Restorative"> Restorative</label>
+            <label><input type="checkbox" class="strength-theme" value="Self-Assurance"> Self-Assurance</label>
+            <label><input type="checkbox" class="strength-theme" value="Significance"> Significance</label>
+            <label><input type="checkbox" class="strength-theme" value="Strategic"> Strategic</label>
+            <label><input type="checkbox" class="strength-theme" value="Woo"> Woo</label>
           </div>
-          <p class="hint">Leave these blank if you'd rather just attach your report — see the checkbox below.</p>
+          <p class="hint" id="strengthsCountHint">Checking more themes gives the guide more to match against your resume and this role — it only uses the ones your background supports.</p>
         </div>
 
         <div class="field">
-          <label for="strengthsMore">More themes or notes from your report <span class="tag">optional</span></label>
-          <textarea id="strengthsMore" placeholder="e.g. 6. Learner, 7. Relator, 8. Focus — or a line or two from your report that rings true"></textarea>
+          <label for="strengthsMore">Your ranked order or notes from your report <span class="tag">optional</span></label>
+          <textarea id="strengthsMore" placeholder="e.g. 1. Woo, 2. Relator, 3. Achiever, 4. Competition … — or a line or two from your report that rings true"></textarea>
+          <p class="hint">Rank helps break ties, but it doesn't decide — evidence in your resume and fit with the job description do. Leave the checkboxes blank if you'd rather just attach your report.</p>
         </div>
 
         <div class="field">
@@ -615,16 +646,17 @@ function commonFacts(company, role, jobDescription, resume, worryAreas){
 }
 
 function strengthsData(){
-  const top = [];
-  for(let i=1;i<=5;i++){ const v = val(`strength${i}`); if(v) top.push(v); }
+  const themes = Array.from(document.querySelectorAll('.strength-theme:checked')).map(el => el.value);
   const more = val('strengthsMore');
   const attached = document.getElementById('strengthsAttach').checked;
-  return { top, more, attached, has: !!(top.length || more || attached) };
+  return { themes, more, attached, has: !!(themes.length || more || attached) };
 }
 
 const STRENGTHS_ANCHORS = {
-  top: '- My CliftonStrengths top themes, in rank order: ',
-  more: '- More CliftonStrengths themes / notes from my report: ',
+  themes: '- My CliftonStrengths themes to consider (as many as apply — not just my top 5): ',
+  top: '- My CliftonStrengths top themes, in rank order: ', // older prompts, still loadable
+  more: '- My CliftonStrengths ranked order / notes from my report: ',
+  moreOld: '- More CliftonStrengths themes / notes from my report: ',
   attached: '- My CliftonStrengths report: attached to this message as a PDF'
 };
 
@@ -632,25 +664,26 @@ function strengthsFactLines(){
   const d = strengthsData();
   if(!d.has) return [];
   const lines = [];
-  if(d.top.length) lines.push(STRENGTHS_ANCHORS.top + d.top.map((t,i) => `${i+1}. ${t}`).join(', '));
+  if(d.themes.length) lines.push(STRENGTHS_ANCHORS.themes + d.themes.join(', '));
   if(d.more) lines.push(STRENGTHS_ANCHORS.more + d.more);
-  if(d.attached) lines.push(STRENGTHS_ANCHORS.attached + ` — read it for my ranked themes and any theme descriptions it includes. If you can't read the attachment, say so and work only from the themes listed here.`);
+  if(d.attached) lines.push(STRENGTHS_ANCHORS.attached + ` — read it for my themes, their rank, and any theme descriptions it includes. If you can't read the attachment, say so and work only from the themes listed here.`);
   return lines;
 }
 
 function strengthsSectionText(sectionNum, mode){
   const d = strengthsData();
-  const scope = mode === 'recruiter'
-    ? `my top 3 themes only — a recruiter screen won't go deeper than that`
-    : `each of my top themes (up to 5)`;
-  let t = `${sectionNum}. CliftonStrengths Talking Points — use my CliftonStrengths themes above${d.attached ? ' (and the attached report)' : ''} to give me honest, specific ways to talk about how I work. Use Gallup's own definition of each theme (https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx) — don't make up your own. Most interviewers won't know the theme names, so every spoken line should describe the behavior in plain language rather than name-dropping the theme. For ${scope}, give me:
-   (a) Balcony — one spoken-ready sentence describing this strength at its best, tied to a specific piece of evidence from my resume${mode === 'recruiter' ? '' : ' or STAR stories'} that shows it in action. If nothing in my background actually shows this theme, say so plainly rather than inventing an example.
-   (b) Basement — the way this strength is most likely to be overused or misread in this specific role, and one honest sentence on how I keep it in check. If my resume doesn't show how I manage it, give me a clearly marked [bracketed placeholder] to fill in myself rather than inventing a habit or practice.
+  const evidence = mode === 'recruiter' ? 'my resume' : 'my resume or STAR stories';
+  let t = `${sectionNum}. CliftonStrengths Talking Points — use my CliftonStrengths themes above${d.attached ? ' (and the attached report)' : ''} to give me honest, specific ways to talk about how I work. Do NOT simply take my top-ranked themes, and do not cap the list at five. Go through every theme I listed and select each one that meets both tests: (1) it is backed by real evidence in ${evidence}, and (2) it is relevant to what this role's job description actually asks for. Use as many themes as meet both tests — no fixed number. Rank can break a tie, but evidence and role fit decide. Use Gallup's own definition of each theme (https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx) — don't make up your own. Most interviewers won't know the theme names, so every spoken line should describe the behavior in plain language rather than name-dropping the theme. For each theme you select, give me:
+   (a) Balcony — one spoken-ready sentence describing this strength at its best, tied to the specific piece of evidence from ${evidence} that shows it in action.
+   (b) Basement — the way this strength is most likely to be overused or misread in this specific role, and one honest sentence on how I keep it in check. If my background doesn't show how I manage it, give me a clearly marked [bracketed placeholder] to fill in myself rather than inventing a habit or practice.
    (c) Best fit — which likely question this answers best (e.g. "What's your greatest strength?", "What's a weakness?", "How would your team describe you?", "How do you handle pressure?") and which specific requirement in the job description it connects to.
-   Present (a)-(c) as a compact table: Theme | Balcony | Basement | Best fit. Then give me one "greatest strength" answer and one "greatest weakness" answer built from my themes, 2 sentences each, spoken-ready. The weakness answer should use a real basement stated honestly plus what I actually do about it — not a disguised strength like "I work too hard."`;
-  if(mode !== 'recruiter'){
+   Present (a)-(c) as a compact table: Theme (with its rank, if I gave one) | Balcony | Basement | Best fit, ordered by how strongly each theme fits this role — not by rank. Directly below the table, list every theme I gave you that you did not select, one short line each, with the reason (no evidence in my background, or not relevant to this role), so nothing is dropped silently. Then give me one "greatest strength" answer and one "greatest weakness" answer built from the selected themes, 2 sentences each, spoken-ready. The weakness answer should use a real basement stated honestly plus what I actually do about it — not a disguised strength like "I work too hard."`;
+  if(mode === 'recruiter'){
     t += `
-   Finally, in 2-3 short lines, name which of my themes fit this role best and which basement is the biggest risk given the job description and company research above — and carry both into the Candidate SWOT below.`;
+   A recruiter screen won't go deep, so keep each table row to a short line and keep the unused-theme list to a few words per theme.`;
+  } else {
+    t += `
+   Finally, in 2-3 short lines, name which selected themes fit this role best and which basement is the biggest risk given the job description and company research above — and carry both into the Candidate SWOT below.`;
   }
   t += `
    Keep this section tight and scannable.`;
@@ -658,7 +691,7 @@ function strengthsSectionText(sectionNum, mode){
 }
 
 function strengthsGuardrail(){
-  return `- Treat my CliftonStrengths themes as how I describe my own working style, not as proof of accomplishments. Every theme talking point must be tied to real evidence in my resume or my own STAR stories — never a made-up example — and never attribute a theme to me that I didn't list or that isn't in my attached report.`;
+  return `- Treat my CliftonStrengths themes as how I describe my own working style, not as proof of accomplishments. Every theme talking point must be tied to real evidence in my resume or my own STAR stories — never a made-up example — and never attribute a theme to me that I didn't list or that isn't in my attached report. Selecting a theme is a judgment about evidence and role fit, not about rank — show which themes you left out and why.`;
 }
 
 function starStories(){
@@ -760,7 +793,7 @@ function buildRecruiterPrompt(){
   if(sd.has) lines.push(strengthsGuardrail());
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, ${sd.has ? 'my top CliftonStrengths themes with a one-line balcony each, ' : ''}and the combined gap statement + pivot as a single line — so I have something skimmable right before the call.`
+    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, ${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''}and the combined gap statement + pivot as a single line — so I have something skimmable right before the call.`
   ));
 
   return lines.join("\n");
@@ -842,7 +875,7 @@ function buildHiringManagerPrompt(){
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, the combined gap statement + pivot as a single line, and the 3 strongest${sd.has ? 'my top CliftonStrengths themes with a one-line balcony each, ' : ''} resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, the combined gap statement + pivot as a single line, and the 3 strongest${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''} resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");
@@ -924,7 +957,7 @@ function buildGeneralPrompt(){
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the combined gap statement + pivot as a single line, and the 3 strongest${sd.has ? 'my top CliftonStrengths themes with a one-line balcony each, ' : ''} resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
+    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the combined gap statement + pivot as a single line, and the 3 strongest${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''} resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");
@@ -1033,7 +1066,7 @@ function parseLoadedPrompt(text){
     company:'', role:'', jobDescription:'', resume:'', worryAreas:'', reasonGap:'',
     location:'', targetSalary:'', callLength:'', platform:'', stage:'',
     interviewers: [], stars: [],
-    strengthsTop: [], strengthsMore: '', strengthsAttach: false
+    strengthsThemes: [], strengthsMore: '', strengthsAttach: false
   };
 
   let field = null;
@@ -1055,11 +1088,16 @@ function parseLoadedPrompt(text){
       else { field='resume'; resumeLines=[]; }
       return;
     }
+    if(line.startsWith(STRENGTHS_ANCHORS.themes)){
+      data.strengthsThemes = line.slice(STRENGTHS_ANCHORS.themes.length).split(',').map(x => x.trim()).filter(Boolean);
+      field=null; return;
+    }
     if(line.startsWith(STRENGTHS_ANCHORS.top)){
-      data.strengthsTop = line.slice(STRENGTHS_ANCHORS.top.length).split(',').map(x => x.trim().replace(/^\d+\.\s*/, '')).filter(Boolean);
+      data.strengthsThemes = line.slice(STRENGTHS_ANCHORS.top.length).split(',').map(x => x.trim().replace(/^\d+\.\s*/, '')).filter(Boolean);
       field=null; return;
     }
     if(line.startsWith(STRENGTHS_ANCHORS.more)){ data.strengthsMore = line.slice(STRENGTHS_ANCHORS.more.length).trim(); field=null; return; }
+    if(line.startsWith(STRENGTHS_ANCHORS.moreOld)){ data.strengthsMore = line.slice(STRENGTHS_ANCHORS.moreOld.length).trim(); field=null; return; }
     if(line.startsWith(STRENGTHS_ANCHORS.attached)){ data.strengthsAttach = true; field=null; return; }
     if(line.startsWith(A.worryAreas)){ data.worryAreas = line.slice(A.worryAreas.length).trim(); field=null; return; }
     if(line.startsWith(A.reasonGap)){
@@ -1135,9 +1173,9 @@ function populateForm(mode, data){
   document.getElementById('resume').value = data.resume;
   document.getElementById('worryAreas').value = data.worryAreas;
   document.getElementById('reasonGap').value = data.reasonGap;
-  for(let i=1;i<=5;i++){
-    document.getElementById(`strength${i}`).value = data.strengthsTop[i-1] || '';
-  }
+  document.querySelectorAll('.strength-theme').forEach(el => {
+    el.checked = (data.strengthsThemes || []).includes(el.value);
+  });
   document.getElementById('strengthsMore').value = data.strengthsMore || '';
   document.getElementById('strengthsAttach').checked = !!data.strengthsAttach;
   ['worryAreas','reasonGap'].forEach(id => {
@@ -1174,6 +1212,7 @@ function populateForm(mode, data){
     }
   }
 
+  updateStrengthsCount();
   render();
 }
 
@@ -1203,6 +1242,14 @@ document.getElementById('loadPromptInput').addEventListener('change', (e) => {
   reader.readAsText(file);
   e.target.value = '';
 });
+
+function updateStrengthsCount(){
+  const n = document.querySelectorAll('.strength-theme:checked').length;
+  document.getElementById('strengthsCountHint').textContent = n
+    ? `${n} theme${n===1?'':'s'} checked — the guide uses only the ones your background supports for this role, and lists the rest with a reason.`
+    : 'Checking more themes gives the guide more to match against your resume and this role — it only uses the ones your background supports.';
+}
+document.querySelectorAll('.strength-theme').forEach(el => el.addEventListener('change', updateStrengthsCount));
 
 applyMode();
 setupQuickPicks('worryAreas', 'worryQuickPicks', WORRY_QUICK_PICKS);
