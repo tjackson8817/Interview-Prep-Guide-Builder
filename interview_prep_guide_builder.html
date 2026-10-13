@@ -240,6 +240,28 @@
         </div>
       </fieldset>
 
+      <fieldset id="tmayFields">
+        <legend>"Tell Me About Yourself" Extras <span class="tag">optional</span></legend>
+        <p class="hint" style="margin-top:-4px;margin-bottom:14px;">Every guide opens with a 30-45 second "Tell Me About Yourself" answer: Early Years (~10 sec), Most Recent Role (~10 sec), and What You'll Bring to This Role (~10-15 sec). It's built from your resume either way. These fields just fill in what resumes usually leave out. Skip any of them and the guide works from your resume alone. It leaves a detail out rather than inventing it.</p>
+
+        <div class="field">
+          <label for="tmayHometown">Where you're from <span class="tag">optional</span></label>
+          <input type="text" id="tmayHometown" placeholder="e.g. Grew up in Pittsburgh, PA">
+        </div>
+
+        <div class="field">
+          <label for="tmayEducation">Education <span class="tag">optional</span></label>
+          <input type="text" id="tmayEducation" placeholder="e.g. BS, Electrical Engineering, Texas A&amp;M">
+          <p class="hint">No need for years. The answer deliberately leaves dates out of the Early Years part, so it doesn't invite age assumptions.</p>
+        </div>
+
+        <div class="field">
+          <label for="tmayFocus">The 2-3 things you most want them to remember <span class="tag">optional</span></label>
+          <textarea id="tmayFocus" placeholder="e.g. built two OT security practices from zero; full P&amp;L ownership; hands-on with Dragos and Nozomi"></textarea>
+          <p class="hint">This steers the longest part of the answer (What You'll Bring). Left blank, the guide picks the resume strengths that best match the job description.</p>
+        </div>
+      </fieldset>
+
       <fieldset id="strengthsFields">
         <legend>CliftonStrengths <span class="tag">optional</span></legend>
         <p class="hint" style="margin-top:-4px;margin-bottom:14px;">If you've taken Gallup's CliftonStrengths assessment, check the themes from your results you want considered — as many as you like, not just your top 5. The guide won't simply use your highest-ranked themes: it picks every theme your resume (and STAR stories) actually back up <em>and</em> that matters for this role, then briefly lists the ones it left out and why. For each theme it uses, you get its <em>balcony</em> (the strength at its best, tied to real evidence) and its <em>basement</em> (how it can be overused or misread, and how you keep it in check), plus ready answers for "What's your greatest strength?" and "What's a weakness?" In Hiring Manager and General/Other modes, it also feeds the Candidate SWOT. Not sure what a theme means? See <a href="https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx" target="_blank" rel="noopener">CliftonStrengths 34 Themes Explained</a>. Haven't taken it? <a href="https://www.gallup.com/cliftonstrengths/en/253868/popular-cliftonstrengths-assessment-products.aspx" target="_blank" rel="noopener">CliftonStrengths Online Talent Assessment</a>.</p>
@@ -448,24 +470,62 @@ const WORRY_QUICK_PICKS = [
 
 // "Tell Me About Yourself" — asked at the start of nearly every interview, so it
 // is Section 1 in all three modes. 30-45 seconds, three timed parts, with the
-// most time on how the resume lines up with this specific job.
-function tmaySectionText(sectionNum, mode, company){
+// most time on how the resume lines up with this specific job. The optional
+// hometown / education / focus fields only fill gaps; blank fields fall back to
+// the resume, and anything neither supplies is left out, never invented.
+function tmaySectionText(sectionNum, mode, company, reasonGap, gapSectionNum){
   const co = company || 'this company';
+  const t = tmayData();
   const modeNote = mode === 'recruiter'
     ? ' A recruiter almost always opens the screen with this question and is mainly checking fit against the basic qualifications, so keep it crisp rather than detailed.'
     : mode === 'hm'
       ? ' A hiring manager almost always opens with this, and it frames the rest of the call, so Part 3 should point straight at the strengths I most want them to dig into.'
       : ' Nearly every interviewer opens with this. In a panel or multi-round process each interviewer may ask it, so keep the core answer consistent and, at most, shift the Part 3 emphasis toward what that interviewer is likely to care about.';
+
+  const given = [];
+  if(t.hometown) given.push('where I\'m from');
+  if(t.education) given.push('my education');
+  const missing = [];
+  if(!t.hometown) missing.push('where I\'m from');
+  if(!t.education) missing.push('my education');
+  let part1Source = given.length
+    ? `Use what I gave you above for ${given.join(' and ')}.`
+    : '';
+  if(missing.length){
+    part1Source += `${part1Source ? ' ' : ''}For ${missing.join(' and ')}, use my resume if it shows it. If it isn't there, leave it out and open with my early-career foundation instead. Don't invent it, and don't leave a placeholder in the spoken answer.`;
+  }
+
+  const part3 = t.focus
+    ? `build this around the 2-3 things I said I most want the interviewer to remember (listed above), each tied to real evidence in my resume and to what this job description asks for, and how I'd apply them in this role at ${co}. If one of them isn't backed by my resume, leave it out of the answer and say so in a one-line note rather than stretching it.`
+    : `the 2-3 key things from across my resume that most directly match what this job description asks for, and how I'd apply them in this role at ${co}.`;
+
+  let extras = `   Then give me:
+   (a) The full answer — the three parts combined as one continuous spoken answer, with an estimated word count and speaking time.
+   (b) A 20-second version — Parts 2 and 3 only, compressed to about 50 words, for a panel where several people ask this in turn, or a quick networking conversation.`;
+  let letter = 'c';
+  if(reasonGap){
+    extras += `
+   (${letter}) Likely next question — since I gave you a reason for leaving or not currently working, expect a follow-up like "So what happened there?" or "Why are you looking?" right after this answer. Part 2 must NOT mention the layoff or departure. Instead, add one line here pointing me to the gap statement + pivot in Section ${gapSectionNum}, so I'm ready to go straight into it.`;
+    letter = String.fromCharCode(letter.charCodeAt(0) + 1);
+  }
+  if(missing.length){
+    extras += `
+   (${letter}) If Part 1 had to leave out ${missing.join(' or ')} because neither the fields above nor my resume had it, add one short line noting that I can fill in that optional field in the tool to round out Part 1.`;
+    letter = String.fromCharCode(letter.charCodeAt(0) + 1);
+  }
+  extras += `
+   (${letter}) Delivery note — 1-2 lines: stay under 45 seconds, don't walk through every job in order, and stop after the hook so the interviewer can steer the next question.${modeNote}`;
+
   return `${sectionNum}. "Tell Me About Yourself" (30-45 Second Answer) — this is usually the first question in any interview, so give me a short, focused, spoken-ready answer that walks the interviewer through my resume while leaning into how it lines up with this job description. Total length: 30-45 seconds spoken (roughly 75-110 words). Structure it in exactly three parts, each labeled with its target time:
-   Part 1 — Early Years (~10 seconds, ~25 words): where I'm from, my education, and my early-career foundation, only as far as my resume actually shows it. If my resume doesn't say where I'm from or where I went to school, use a clearly marked [bracketed placeholder] (e.g. [hometown], [degree, school]) for me to fill in. Never supply those facts yourself.
-   Part 2 — Most Recent Role (~10 seconds, ~25 words): what I did in my most recent job, framed around the parts of it that line up most directly with this job description.
-   Part 3 — What I'll Bring to This Role (~10-15 seconds, ~30-40 words, the longest part): the 2-3 key things from across my resume that most directly match what this job description asks for, and how I'd apply them in this role at ${co}. Most of the time goes here, and it should land on the job's top requirements rather than a general summary.
-   Then give me (a) the three parts combined as one continuous spoken answer with an estimated word count and speaking time, and (b) a 1-2 line delivery note: stay under 45 seconds, don't walk through every job in order, and stop after Part 3 so the interviewer can steer the next question.${modeNote}
-   Build it ONLY from facts actually in my resume (and my own STAR stories, if given). No invented motivations, passions, personal backstory, or accomplishments.`;
+   Part 1 — Early Years (~10 seconds, ~25 words): where I'm from, my education, and my early-career foundation. ${part1Source} No dates in Part 1: no graduation years, no "since 1998," no counting years from a first job. For a long career, describe the foundation (the field or kind of work I came up through), not the timeline, so the answer doesn't invite assumptions about age.
+   Part 2 — Most Recent Role (~10 seconds, ~25 words): what I did in my most recent job, framed around the parts of it that line up most directly with this job description. If my resume gives little detail about that job, keep Part 2 short rather than padding it with facts from elsewhere (certifications, older roles), and add a one-line note under the answer suggesting the kind of concrete, job-relevant detail I could add myself.
+   Part 3 — What I'll Bring to This Role (~10-15 seconds, ~30-40 words, the longest part): ${part3} Most of the time goes here, and it should land on the job's top requirements rather than a general summary. End Part 3 with one short hook sentence that ties my background to something specific about this role or company (from the job description or your company research), so it invites the next question — e.g. "…which is why the [specific focus] in this role stood out to me." The hook counts toward Part 3's ~40-word limit; trim the strengths list before going over it.
+${extras}
+   Build it ONLY from facts I've actually given you: my resume, my own STAR stories if given, and the optional fields above. No invented motivations, passions, personal backstory, or accomplishments.`;
 }
 
 function tmayGuardrail(){
-  return `- The "Tell Me About Yourself" answer must use only facts in my resume (or my own STAR stories). Anything it needs that isn't there, like where I'm from or where I went to school, goes in a [bracketed placeholder] for me to fill in — never filled in by you.`;
+  return `- The "Tell Me About Yourself" answer must use only facts I've given you (my resume, my own STAR stories, or the optional where-I'm-from / education / focus fields). Anything none of those supply is left out, never invented, and Part 1 never includes dates or graduation years.`;
 }
 
 function gapAnswerSection(sectionNum, mode, reasonGap, company){
@@ -664,7 +724,21 @@ function commonFacts(company, role, jobDescription, resume, worryAreas){
     lines.push(`- My resume: not pasted here — check whether I've attached it as a file to this message instead. If neither, skip the resume-dependent sections below and say plainly why.`);
   }
   if(worryAreas) lines.push(`- Areas I'm less confident about: ${worryAreas}`);
+  const t = tmayData();
+  if(t.hometown) lines.push(`${TMAY_ANCHORS.hometown}${t.hometown}`);
+  if(t.education) lines.push(`${TMAY_ANCHORS.education}${t.education}`);
+  if(t.focus) lines.push(`${TMAY_ANCHORS.focus}${t.focus}`);
   return lines;
+}
+
+const TMAY_ANCHORS = {
+  hometown: "- Where I'm from (for Tell Me About Yourself): ",
+  education: "- My education (for Tell Me About Yourself): ",
+  focus: "- The 2-3 things I most want the interviewer to remember about me: "
+};
+
+function tmayData(){
+  return { hometown: val('tmayHometown'), education: val('tmayEducation'), focus: val('tmayFocus') };
 }
 
 function strengthsData(){
@@ -789,7 +863,7 @@ function buildRecruiterPrompt(){
   lines.push(``);
   lines.push(`Build the guide in this structure:`);
   lines.push(``);
-  lines.push(tmaySectionText(1, 'recruiter', company));
+  lines.push(tmaySectionText(1, 'recruiter', company, reasonGap, 3));
   lines.push(``);
   lines.push(`2. Qualifications T-Chart — a two-column table: left column is a specific requirement or qualification pulled directly from the job description, right column is the specific matching evidence from my resume for that exact requirement, one row per major requirement. This needs to be genuinely scannable in the 30 seconds before the call.`);
   lines.push(``);
@@ -852,7 +926,7 @@ function buildHiringManagerPrompt(){
   lines.push(``);
   lines.push(`Build the guide in this structure:`);
   lines.push(``);
-  lines.push(tmaySectionText(1, 'hm', company));
+  lines.push(tmaySectionText(1, 'hm', company, reasonGap, 4));
   lines.push(``);
   lines.push(`2. Company & Role Snapshot — research ${company || 'the company'} directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.`);
   lines.push(``);
@@ -936,7 +1010,7 @@ function buildGeneralPrompt(){
   lines.push(``);
   lines.push(`Build the guide in this structure:`);
   lines.push(``);
-  lines.push(tmaySectionText(1, 'general', company));
+  lines.push(tmaySectionText(1, 'general', company, reasonGap, 4));
   lines.push(``);
   lines.push(`2. Company & Role Snapshot — research ${company || 'the company'} directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.`);
   lines.push(``);
@@ -1095,7 +1169,8 @@ function parseLoadedPrompt(text){
     company:'', role:'', jobDescription:'', resume:'', worryAreas:'', reasonGap:'',
     location:'', targetSalary:'', callLength:'', platform:'', stage:'',
     interviewers: [], stars: [],
-    strengthsThemes: [], strengthsMore: '', strengthsAttach: false
+    strengthsThemes: [], strengthsMore: '', strengthsAttach: false,
+    tmayHometown: '', tmayEducation: '', tmayFocus: ''
   };
 
   let field = null;
@@ -1128,6 +1203,9 @@ function parseLoadedPrompt(text){
     if(line.startsWith(STRENGTHS_ANCHORS.more)){ data.strengthsMore = line.slice(STRENGTHS_ANCHORS.more.length).trim(); field=null; return; }
     if(line.startsWith(STRENGTHS_ANCHORS.moreOld)){ data.strengthsMore = line.slice(STRENGTHS_ANCHORS.moreOld.length).trim(); field=null; return; }
     if(line.startsWith(STRENGTHS_ANCHORS.attached)){ data.strengthsAttach = true; field=null; return; }
+    if(line.startsWith(TMAY_ANCHORS.hometown)){ data.tmayHometown = line.slice(TMAY_ANCHORS.hometown.length).trim(); field=null; return; }
+    if(line.startsWith(TMAY_ANCHORS.education)){ data.tmayEducation = line.slice(TMAY_ANCHORS.education.length).trim(); field=null; return; }
+    if(line.startsWith(TMAY_ANCHORS.focus)){ data.tmayFocus = line.slice(TMAY_ANCHORS.focus.length).trim(); field=null; return; }
     if(line.startsWith(A.worryAreas)){ data.worryAreas = line.slice(A.worryAreas.length).trim(); field=null; return; }
     if(line.startsWith(A.reasonGap)){
       const v = line.slice(A.reasonGap.length).trim();
@@ -1202,6 +1280,9 @@ function populateForm(mode, data){
   document.getElementById('resume').value = data.resume;
   document.getElementById('worryAreas').value = data.worryAreas;
   document.getElementById('reasonGap').value = data.reasonGap;
+  document.getElementById('tmayHometown').value = data.tmayHometown || '';
+  document.getElementById('tmayEducation').value = data.tmayEducation || '';
+  document.getElementById('tmayFocus').value = data.tmayFocus || '';
   document.querySelectorAll('.strength-theme').forEach(el => {
     el.checked = (data.strengthsThemes || []).includes(el.value);
   });

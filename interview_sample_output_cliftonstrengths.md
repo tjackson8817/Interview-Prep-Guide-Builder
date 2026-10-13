@@ -6,12 +6,12 @@
 
 ## Quick Reference
 
-**Tell me about yourself (~40 sec, fill in the brackets first):**
+**Tell me about yourself (~35 sec):**
 
-> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR. Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years. That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+> "My foundation is enterprise SaaS sales, where I grew a territory from zero to $1.8 million in ARR. Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years. For this role, I'd bring hands-on renewal ownership, trusted VP- and C-level relationships, and a record of building from scratch. That's why the chance to own a $40 million renewal book stood out to me."
 
 **Company:** Meridian Health Systems (placeholder) · **Role:** Director, Customer Success · **Call:** ~60 min, Microsoft Teams\
-**Gap/leaving answer:** laid off in a reduction in force (soft second half, not performance-related) — two spoken-ready variants drafted, see Section 4\
+**Gap + pivot:** "My role was eliminated in a reduction in force when the company scaled back its enterprise sales organization. For the past two years I've owned the renewals on my five largest accounts, and this role puts that work at the center of the job." (see Section 4)\
 **CliftonStrengths selected for this role (6 of 10):** Relator (deep, trusted client relationships) · Developer (invests in other people's growth) · Responsibility (owns commitments end to end) · Achiever (sustained output under a heavy load) · Strategic (spots risk early and plans around it) · Activator (gets new things moving) — see Section 7\
 **Strongest resume-to-role matches:** enterprise portfolio scale (30 accounts / $4.2M new ARR), de facto renewal ownership on top 5 accounts, executive-level relationship building
 
@@ -19,25 +19,33 @@
 
 ## 1. "Tell Me About Yourself" (30–45 Second Answer)
 
-*Usually the first question on the call, and it frames everything after it, so most of the time goes to Part 3: the strengths you most want this hiring manager to dig into. Built only from your resume and STAR stories. Your resume doesn't say where you're from or where you went to school, so those are [bracketed placeholders] for you to fill in.*
+*Usually the first question on the call, and it frames everything after it, so most of the time goes to Part 3: the strengths you most want this hiring manager to dig into. Built only from your resume and STAR stories, since the optional Where you're from and Education fields were left blank.*
 
 **Part 1 — Early Years (~10 sec)**
 
-> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR."
+> "My foundation is enterprise SaaS sales, where I grew a territory from zero to $1.8 million in ARR."
 
 **Part 2 — Most Recent Role (~10 sec)** — aimed at this role's core mandate: owning enterprise renewals.
 
 > "Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years."
 
-**Part 3 — What I'll Bring to This Role (~15 sec, the longest part)** — the three resume strengths that line up most directly with the job description.
+**Part 3 — What I'll Bring to This Role (~15 sec, the longest part)** — the three resume strengths that line up most directly with the job description, ending on a hook tied to this role.
 
-> "That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+> "For this role, I'd bring hands-on renewal ownership, trusted VP- and C-level relationships, and a record of building from scratch. That's why the chance to own a $40 million renewal book stood out to me."
 
-**All together (~92 words, about 40 seconds):**
+**(a) The full answer (~80 words, about 35 seconds):**
 
-> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR. Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years. That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+> "My foundation is enterprise SaaS sales, where I grew a territory from zero to $1.8 million in ARR. Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years. For this role, I'd bring hands-on renewal ownership, trusted VP- and C-level relationships, and a record of building from scratch. That's why the chance to own a $40 million renewal book stood out to me."
 
-**Delivery note:** Stay under 45 seconds. Part 1 is a quick setup, not a walk through every job in order. Stop after Part 3 and let the hiring manager choose the next question; they'll usually pull on one of the three things you just named.
+**(b) 20-second version** (for a panel where several people ask, or a quick networking conversation):
+
+> "Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR, and owned renewals on my five largest. I'd bring that renewal ownership and those executive relationships here, which is why owning a $40 million renewal book stood out to me."
+
+**(c) Likely next question:** expect "So what happened there?" right after this. Part 2 deliberately doesn't mention the layoff. Go straight to the gap statement and pivot in Section 4.
+
+**(d) Part 1 note:** your resume doesn't say where you're from or where you went to school, so Part 1 leaves both out and opens with your career foundation. Fill in the optional Where you're from and Education fields in the tool to round it out.
+
+**(e) Delivery note:** stay under 45 seconds, and don't walk through every job in order. Stop after the hook and let the hiring manager choose the next question; they'll usually pull on one of the three things you just named.
 
 ---
 
@@ -65,17 +73,35 @@
 
 ## 4. The "Why Aren't You Currently Working / Why Are You Leaving" Answer
 
-*Drafted directly from the reason you gave — laid off in a reduction in force when your last company scaled back its enterprise sales org after a soft second half; not performance-related. Two spoken-ready variants, since hiring managers tend to probe this a bit deeper than a recruiter screen would — both are built to hold up under one natural follow-up.*
+*Built from the reason you gave: laid off in a reduction in force when your last company scaled back its enterprise sales org after a soft second half. State it, pivot, stop.*
 
-**Variant 1 (brief, one sentence):**
+**(a) Gap statement — pick one:**
 
-> "I was let go as part of a broader restructuring when the company scaled back the enterprise sales org after a soft second half — it wasn't performance-related, and it's part of why I'm excited about a role like this one, where the book is stable and growing rather than being cut."
+1. "My role was eliminated in a reduction in force when the company scaled back its enterprise sales organization."
+2. "My position was part of a reduction in force after the company cut enterprise sales headcount following a soft second half."
+3. "The company restructured its enterprise sales team after a slower second half, and my role was eliminated."
 
-**Variant 2 (slightly more context, two sentences):**
+**(b) Pivot — pick one:**
 
-> "My role was eliminated in a reduction in force — the company pulled back on enterprise sales headcount after a slower second half, and mine was one of several territories consolidated. I'd rather be somewhere building on a growing book than managing through another round of cuts, which is a big part of why this role caught my attention."
+1. *General:* "Now I'm looking to build on a growing book rather than a shrinking one, and this role is exactly that."
+2. *From your resume:* "For the past two years I've owned the renewals on my five largest accounts, and this role puts that work at the center of the job."
+3. *From this role:* "Leading retention on a $40 million renewal book is a direct step up from the renewal work I've already been doing."
 
-Both stay factual and forward-looking, name the cause plainly (a business-driven RIF, not a performance issue) without over-explaining it, and use the second sentence to pivot straight into genuine interest in the role rather than dwelling on the layoff itself.
+**(c) Combined (under 10 seconds):**
+
+> "My role was eliminated in a reduction in force when the company scaled back its enterprise sales organization. For the past two years I've owned the renewals on my five largest accounts, and this role puts that work at the center of the job."
+
+**(d) Likely follow-ups, one-sentence replies** (fill in the brackets yourself):
+
+- *Why was your role selected?* "It was part of a broader consolidation of [what was consolidated, e.g. territories or teams], and I'm focused now on a role where renewals are the whole job."
+- *Were you offered another role internally?* "[Yes, describe it / No, there wasn't a comparable role], so I'm putting my energy into finding the right next step."
+- *How long have you been looking?* "Since [month], and I've been selective about roles where I'd own retention, like this one."
+- *What have you been doing since?* "[What you've actually been doing], while focusing my search on customer success leadership."
+- *Were others affected?* "Yes, [roughly how many roles or which teams], and I'm looking forward to building on a growing book here."
+- *Would you go back?* "[Your honest answer], but a role like this, where renewal ownership is the core of the job, is where I want to be."
+- *Can we talk to a reference from there?* "Yes, [name, title] worked with me on my top accounts and can speak to my renewal work."
+
+**(e) Delivery note:** say the gap statement neutrally, the way you'd state a job title. Don't add "it wasn't performance-related" unless someone asks directly; volunteering it sounds defensive. Answer only what's asked, and stop talking after the pivot.
 
 ---
 
