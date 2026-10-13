@@ -1,25 +1,53 @@
 # Interview Prep Guide Builder — Sample Output (with CliftonStrengths)
 
-*This is what Claude returns for the same Hiring Manager Interview prompt as `sample_prompt_objection_reframing.txt` (2 of the 3 optional STAR Stories filled in), with the optional CliftonStrengths fields filled in: 10 themes checked, plus her ranked order. That adds Section 6, CliftonStrengths Talking Points, and feeds the Candidate SWOT in Section 7. Section 6 shows how theme selection works: the guide doesn't take her top 5. It uses the 6 themes her resume actually backs up and this role actually asks for, including her #10, and leaves out 4, including her #1, with a reason for each. Same fictional candidate (Sarah Chen) and placeholder company as the standard sample. Her themes (1. Woo, 2. Relator, 3. Achiever, 4. Competition, 5. Responsibility, 6. Strategic, 7. Developer, 8. Ideation, 9. Includer, 10. Activator) are illustrative, not results from a real assessment.*
+*This is what Claude returns for the same Hiring Manager Interview prompt as `sample_prompt_objection_reframing.txt` (2 of the 3 optional STAR Stories filled in), with the optional CliftonStrengths fields filled in: 10 themes checked, plus her ranked order. That adds Section 7, CliftonStrengths Talking Points, and feeds the Candidate SWOT in Section 8. Section 7 shows how theme selection works: the guide doesn't take her top 5. It uses the 6 themes her resume actually backs up and this role actually asks for, including her #10, and leaves out 4, including her #1, with a reason for each. Same fictional candidate (Sarah Chen) and placeholder company as the standard sample. Her themes (1. Woo, 2. Relator, 3. Achiever, 4. Competition, 5. Responsibility, 6. Strategic, 7. Developer, 8. Ideation, 9. Includer, 10. Activator) are illustrative, not results from a real assessment.*
 
 ---
 
 ## Quick Reference
 
+**Tell me about yourself (~40 sec, fill in the brackets first):**
+
+> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR. Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years. That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+
 **Company:** Meridian Health Systems (placeholder) · **Role:** Director, Customer Success · **Call:** ~60 min, Microsoft Teams\
-**Gap/leaving answer:** laid off in a reduction in force (soft second half, not performance-related) — two spoken-ready variants drafted, see Section 3\
-**CliftonStrengths selected for this role (6 of 10):** Relator (deep, trusted client relationships) · Developer (invests in other people's growth) · Responsibility (owns commitments end to end) · Achiever (sustained output under a heavy load) · Strategic (spots risk early and plans around it) · Activator (gets new things moving) — see Section 6\
+**Gap/leaving answer:** laid off in a reduction in force (soft second half, not performance-related) — two spoken-ready variants drafted, see Section 4\
+**CliftonStrengths selected for this role (6 of 10):** Relator (deep, trusted client relationships) · Developer (invests in other people's growth) · Responsibility (owns commitments end to end) · Achiever (sustained output under a heavy load) · Strategic (spots risk early and plans around it) · Activator (gets new things moving) — see Section 7\
 **Strongest resume-to-role matches:** enterprise portfolio scale (30 accounts / $4.2M new ARR), de facto renewal ownership on top 5 accounts, executive-level relationship building
 
 ---
 
-## 1. Company & Role Snapshot
+## 1. "Tell Me About Yourself" (30–45 Second Answer)
+
+*Usually the first question on the call, and it frames everything after it, so most of the time goes to Part 3: the strengths you most want this hiring manager to dig into. Built only from your resume and STAR stories. Your resume doesn't say where you're from or where you went to school, so those are [bracketed placeholders] for you to fill in.*
+
+**Part 1 — Early Years (~10 sec)**
+
+> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR."
+
+**Part 2 — Most Recent Role (~10 sec)** — aimed at this role's core mandate: owning enterprise renewals.
+
+> "Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years."
+
+**Part 3 — What I'll Bring to This Role (~15 sec, the longest part)** — the three resume strengths that line up most directly with the job description.
+
+> "That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+
+**All together (~92 words, about 40 seconds):**
+
+> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR. Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years. That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+
+**Delivery note:** Stay under 45 seconds. Part 1 is a quick setup, not a walk through every job in order. Stop after Part 3 and let the hiring manager choose the next question; they'll usually pull on one of the three things you just named.
+
+---
+
+## 2. Company & Role Snapshot
 
 *Placeholder — in a live run, this section reports real, current research (recent news, funding, leadership changes, and how this role fits into what's happening at the company right now) rather than invented detail. Since "Meridian Health Systems" is a fictional placeholder for this sample, no real research is presented here rather than fabricating plausible-sounding company facts that could be mistaken for real findings.*
 
 ---
 
-## 2. Resume-to-JD Gap Map
+## 3. Resume-to-JD Gap Map
 
 **Where you map cleanly — your strongest talking points:**
 
@@ -35,7 +63,7 @@
 
 ---
 
-## 3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer
+## 4. The "Why Aren't You Currently Working / Why Are You Leaving" Answer
 
 *Drafted directly from the reason you gave — laid off in a reduction in force when your last company scaled back its enterprise sales org after a soft second half; not performance-related. Two spoken-ready variants, since hiring managers tend to probe this a bit deeper than a recruiter screen would — both are built to hold up under one natural follow-up.*
 
@@ -51,7 +79,7 @@ Both stay factual and forward-looking, name the cause plainly (a business-driven
 
 ---
 
-## 4. Objection Reframing
+## 5. Objection Reframing
 
 *Built directly from the two concerns you named — each grounded in something real from your resume, not spin.*
 
@@ -69,13 +97,13 @@ This one is framed as neutral, not as an advantage — because it genuinely isn'
 
 ---
 
-## 5. Interviewer Research
+## 6. Interviewer Research
 
 Skipped — no interviewer names were given. *(No placeholder persona was invented to fill this gap; if you add names before your call, re-run this tool with them included.)*
 
 ---
 
-## 6. CliftonStrengths Talking Points
+## 7. CliftonStrengths Talking Points
 
 *You checked 10 themes and gave their rank. Each one was tested against two questions: does your resume or one of your STAR stories actually show it, and does this role's job description actually call for it? Six themes pass both tests and are used below, ordered by fit with this role rather than by rank. That includes your #10 (Activator) and leaves out your #1 (Woo); the reasons are listed under the table. Definitions follow Gallup's own descriptions ([CliftonStrengths 34 Themes Explained](https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx)). The spoken lines describe the behavior in plain language, since most interviewers won't know the theme names. Where your background doesn't show how you manage a basement, there's a [bracketed placeholder] for you to fill in rather than an invented habit.*
 
@@ -107,7 +135,7 @@ Skipped — no interviewer names were given. *(No placeholder persona was invent
 
 ---
 
-## 7. Candidate SWOT Analysis
+## 8. Candidate SWOT Analysis
 
 *Built from the Company & Role Snapshot, the Resume-to-JD Gap Map, the (skipped) Interviewer Research, and the CliftonStrengths Talking Points above — not a generic template.*
 
@@ -116,13 +144,13 @@ Skipped — no interviewer names were given. *(No placeholder persona was invent
 - Enterprise portfolio scale (30 accounts, $4.2M new ARR) that's directly comparable in shape to a $40M renewal book, just at a different point in scale.
 - De facto renewal ownership on your top 5 accounts for two years — the closest real-world proof point this posting has for "own a renewal book."
 - Executive-level relationship building (VP/C-level) — matches the seniority this role's stakeholder base requires.
-- Relator and Developer, backed by real evidence: the top-5 renewals ran through you because of relationships you'd built, and you trained 4 new hires. Together they're the most credible bridge you have to leading a team of CSMs (see Section 6).
+- Relator and Developer, backed by real evidence: the top-5 renewals ran through you because of relationships you'd built, and you trained 4 new hires. Together they're the most credible bridge you have to leading a team of CSMs (see Section 7).
 
 **Weaknesses**
 
 - No formal people-management experience — the role leads a team of 5, and nothing in your resume shows direct-report authority.
 - Zero healthcare or regulated-industry exposure, which the posting names as a preference.
-- The Responsibility basement (Section 6): your instinct to personally own every commitment is exactly what a first-time manager of 5 has to loosen, and nothing on your resume yet shows you delegating.
+- The Responsibility basement (Section 7): your instinct to personally own every commitment is exactly what a first-time manager of 5 has to loosen, and nothing on your resume yet shows you delegating.
 
 *How to address each if it comes up:*
 
@@ -141,7 +169,7 @@ Skipped — no interviewer names were given. *(No placeholder persona was invent
 
 ---
 
-## 8. Video Call Logistics Checklist
+## 9. Video Call Logistics Checklist
 
 Tied to Microsoft Teams specifically:
 
@@ -154,20 +182,20 @@ Tied to Microsoft Teams specifically:
 
 ---
 
-## 9. Time-Boxing for a 60-Minute Call
+## 10. Time-Boxing for a 60-Minute Call
 
 A realistic cadence for 60 minutes:
 
-- **0–5 min:** Rapport and introductions.
+- **0–5 min:** Rapport and introductions — expect "Tell me about yourself" here (Section 1).
 - **5–45 min:** Their questions — the bulk of the call.
-- **45–55 min:** Your questions (Section 12 below).
+- **45–55 min:** Your questions (Section 13 below).
 - **55–60 min:** Wrap-up and next steps.
 
 Keep individual answers to 90 seconds–2 minutes unless you're explicitly asked to go deeper — one long answer can eat a meaningful chunk of a 60-minute call.
 
 ---
 
-## 10. My Top 3–4 Stories
+## 11. My Top 3–4 Stories
 
 *You already wrote 2 of these yourself — used here exactly as given, tightened for spoken delivery. A third is pointed to (not written) from your resume to round out coverage, per the usual rule: Claude doesn't know what actually happened beyond what you tell it.*
 
@@ -193,7 +221,7 @@ Keep individual answers to 90 seconds–2 minutes unless you're explicitly asked
 
 ---
 
-## 11. Likely Questions
+## 12. Likely Questions
 
 **Behavioral:**
 
@@ -209,19 +237,19 @@ Keep individual answers to 90 seconds–2 minutes unless you're explicitly asked
 
 - *(Would be grounded in Meridian's actual stated values in a live run — not included here since this is a placeholder company.)*
 
-**Strengths/self-awareness** (answers drafted in Section 6):
+**Strengths/self-awareness** (answers drafted in Section 7):
 
 - What's your greatest strength?
 - What's a weakness you're working on?
 
-**Gap-probe** (arising directly from Section 2):
+**Gap-probe** (arising directly from Section 3):
 
 - You've never formally managed a team — how are you thinking about that transition?
 - This role sits in healthcare specifically — what's your plan for getting up to speed on the industry?
 
 ---
 
-## 12. Questions to Ask the Hiring Manager
+## 13. Questions to Ask the Hiring Manager
 
 - What does the CSM team's current structure look like, and what's working well vs. what would you want a new Director to change?
 - How is success measured for this role in the first 90 days?
@@ -230,10 +258,10 @@ Keep individual answers to 90 seconds–2 minutes unless you're explicitly asked
 
 ---
 
-## 13. Logistics Checklist
+## 14. Logistics Checklist
 
 - Notes and resume visible off-camera, but out of the way.
-- Your own questions (Section 12) written down — no printed agenda to glance at on a video call.
+- Your own questions (Section 13) written down — no printed agenda to glance at on a video call.
 - Confirm the Teams link is in your calendar and working before the call starts.
 
 ---

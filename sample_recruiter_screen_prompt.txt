@@ -18,16 +18,27 @@ Certifications: CISSP, GICSP.
 - Areas I'm less confident about: Limited direct hands-on time with Claroty specifically compared to Dragos/Nozomi
 - Interview type: Recruiter / phone screen
 - Location (for salary research): Dallas, TX
-- Reason I'm not currently working / leaving my current role, if applicable: Laid off from Booz Allen Hamilton in a reduction in force — the OT cybersecurity practice softened as client budgets tightened, and roles including mine were cut. Not performance-related.
+- Reason I'm not currently working / leaving my current role, if applicable: My role at Booz Allen Hamilton was eliminated in a reduction in force due to reductions in government spending.
 - My own target salary range, if I have one: not given — search for market data instead
 
 Build the guide in this structure:
 
-1. Tight "Tell Me About Yourself" Script — a 60-90 second spoken narrative arc built ONLY from facts actually in my resume (career chronology, why each move happened where evident, what I'm looking for next). Do not invent motivations, passions, or personal narrative details that aren't evidenced in my resume — keep it factual and professional, not a fabricated origin story.
+1. "Tell Me About Yourself" (30-45 Second Answer) — this is usually the first question in any interview, so give me a short, focused, spoken-ready answer that walks the interviewer through my resume while leaning into how it lines up with this job description. Total length: 30-45 seconds spoken (roughly 75-110 words). Structure it in exactly three parts, each labeled with its target time:
+   Part 1 — Early Years (~10 seconds, ~25 words): where I'm from, my education, and my early-career foundation, only as far as my resume actually shows it. If my resume doesn't say where I'm from or where I went to school, use a clearly marked [bracketed placeholder] (e.g. [hometown], [degree, school]) for me to fill in. Never supply those facts yourself.
+   Part 2 — Most Recent Role (~10 seconds, ~25 words): what I did in my most recent job, framed around the parts of it that line up most directly with this job description.
+   Part 3 — What I'll Bring to This Role (~10-15 seconds, ~30-40 words, the longest part): the 2-3 key things from across my resume that most directly match what this job description asks for, and how I'd apply them in this role at Schneider Electric. Most of the time goes here, and it should land on the job's top requirements rather than a general summary.
+   Then give me (a) the three parts combined as one continuous spoken answer with an estimated word count and speaking time, and (b) a 1-2 line delivery note: stay under 45 seconds, don't walk through every job in order, and stop after Part 3 so the interviewer can steer the next question. A recruiter almost always opens the screen with this question and is mainly checking fit against the basic qualifications, so keep it crisp rather than detailed.
+   Build it ONLY from facts actually in my resume (and my own STAR stories, if given). No invented motivations, passions, personal backstory, or accomplishments.
 
 2. Qualifications T-Chart — a two-column table: left column is a specific requirement or qualification pulled directly from the job description, right column is the specific matching evidence from my resume for that exact requirement, one row per major requirement. This needs to be genuinely scannable in the 30 seconds before the call.
 
-3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer — using the reason I gave above, draft a brief, honest, forward-looking way to phrase this. Less is more: 1 sentence where the reason genuinely allows it, 2 sentences at most — no badmouthing a previous employer, pivoting quickly to genuine interest in this role/company — and give me 2 short variants to choose from.
+3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer — using the reason I gave above, distill it into short, professional, easy-to-pivot pieces. Present them in this order:
+   (a) Gap statement — 3 variants, each ONE sentence that states what happened and the business cause in plain professional language, e.g. "My role at [Company] was eliminated in a reduction in force due to reductions in government spending." State the fact and stop: no justification, no emotion, no extra backstory, no badmouthing a previous employer, and do not add "it wasn't performance-related" or similar defensive qualifiers — a neutral statement of fact already implies that, and volunteering it sounds like an excuse. Only use it in a follow-up reply if the question directly asks.
+   (b) Pivot statements — 3 options, each ONE sentence, that move straight from the gap statement to this role at Schneider Electric: one general and forward-looking, one tied to specific real experience from my resume, and one tied to what this specific role or company is doing. Ground every pivot only in facts actually in my resume.
+   (c) Combined example — one gap statement plus one pivot, as a single answer I can deliver in under 10 seconds.
+   (d) Likely follow-up questions with short replies — 4-5 follow-ups the interviewer might naturally ask next (e.g. why my role was selected, whether I was offered another internal role, how long I've been looking, what I've been doing since, whether others were affected, whether I'd go back), each with a ONE-sentence reply that ends on a forward-looking note. Where a reply depends on a fact I haven't given you (dates, what I've done since, whether an internal role was offered, a reference's name), use a clearly marked [bracketed placeholder] for me to fill in — never supply that fact yourself. A recruiter screen usually asks only one or two follow-ups, so keep this set short.
+   (e) Delivery note — 2-3 short lines: say the gap statement neutrally, the way you'd state a job title; answer only what's asked; stop talking after the pivot.
+   Keep this entire section tight — short, scannable lines, not paragraphs of explanation.
 
 4. Objection Reframing — for each concern I named above (Limited direct hands-on time with Claroty specifically compared to Dragos/Nozomi), give me a short, honest way to address it if it comes up. Less is more: 1 spoken-ready sentence per concern wherever that's genuinely enough, 2 sentences max only if the concern really needs the extra context — and give me 2 short variants to choose from for each one, framed as neutral or as a genuine advantage wherever my actual background actually supports that framing — not spin, not a dodge. Ground every reframe in something real from my resume; if a concern I named genuinely doesn't have a strong answer, say so plainly rather than manufacturing one.
 
@@ -40,9 +51,10 @@ Build the guide in this structure:
 8. Questions to Ask the Recruiter — 3-4 specific questions appropriate for a recruiter screen: process/timeline for next steps, what's the top priority for this hire in the first 90 days, comp band confirmation. Skip deep team/strategy questions — save those for later rounds.
 
 CRITICAL — grounding guardrails, all non-negotiable:
+- The "Tell Me About Yourself" answer must use only facts in my resume (or my own STAR stories). Anything it needs that isn't there, like where I'm from or where I went to school, goes in a [bracketed placeholder] for me to fill in — never filled in by you.
 - Never invent a reason for a gap or departure I didn't give you.
 - Never invent my notice period, work authorization status, or any other personal/logistics fact — prompt me to supply my own.
 - Ground the salary range in real search results with sources noted, never a guessed number.
 - Every objection reframe must be grounded in something real from my resume — never a fabricated accomplishment used to explain away a concern.
 
-Format the result as a downloadable Word document (.docx) with clear section headings matching the structure above. Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, and a one-line reminder of the gap/leaving answer — so I have something skimmable right before the call.
+Format the result as a downloadable Word document (.docx) with clear section headings matching the structure above. Include a one-page "Quick Reference" summary at the very top — the combined 30-45 second "Tell Me About Yourself" answer, the T-chart, the salary range with source, and the combined gap statement + pivot as a single line — so I have something skimmable right before the call.

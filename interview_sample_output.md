@@ -1,24 +1,52 @@
 # Interview Prep Guide Builder — Sample Output
 
-*This is what Claude actually returns when the prompt in `sample_prompt_objection_reframing.txt` is run — Hiring Manager Interview mode, with 2 of the 3 optional STAR Stories filled in. Same fictional candidate as the Resume Tailoring sample (Sarah Chen), now interviewing for a Director-level role. Company name is a placeholder; in a live run, the Company & Role Snapshot section below would contain real, current research rather than the illustrative placeholder text shown here.*
+*This is what Claude actually returns when the prompt in `sample_prompt_objection_reframing.txt` is run — Hiring Manager Interview mode, with 2 of the 3 optional STAR Stories filled in. Same fictional candidate as the Resume Tailoring sample (Sarah Chen), now interviewing for a Director-level role. Company name is a placeholder; in a live run, the Company & Role Snapshot section below would contain real, current research rather than the illustrative placeholder text shown here. Section 1 shows the 30–45 second "Tell Me About Yourself" answer, with [bracketed placeholders] where the resume doesn't supply a fact.*
 
 ---
 
 ## Quick Reference
 
+**Tell me about yourself (~40 sec, fill in the brackets first):**
+
+> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR. Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years. That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+
 **Company:** Meridian Health Systems (placeholder) · **Role:** Director, Customer Success · **Call:** ~60 min, Microsoft Teams
-**Gap/leaving answer:** laid off in a reduction in force (soft second half, not performance-related) — two spoken-ready variants drafted, see Section 3
+**Gap/leaving answer:** laid off in a reduction in force (soft second half, not performance-related) — two spoken-ready variants drafted, see Section 4
 **Strongest resume-to-role matches:** enterprise portfolio scale (30 accounts / $4.2M new ARR), de facto renewal ownership on top 5 accounts, executive-level relationship building
 
 ---
 
-## 1. Company & Role Snapshot
+## 1. "Tell Me About Yourself" (30–45 Second Answer)
+
+*Usually the first question on the call, and it frames everything after it, so most of the time goes to Part 3: the strengths you most want this hiring manager to dig into. Built only from your resume and STAR stories. Your resume doesn't say where you're from or where you went to school, so those are [bracketed placeholders] for you to fill in.*
+
+**Part 1 — Early Years (~10 sec)**
+
+> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR."
+
+**Part 2 — Most Recent Role (~10 sec)** — aimed at this role's core mandate: owning enterprise renewals.
+
+> "Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years."
+
+**Part 3 — What I'll Bring to This Role (~15 sec, the longest part)** — the three resume strengths that line up most directly with the job description.
+
+> "That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+
+**All together (~92 words, about 40 seconds):**
+
+> "I'm from [hometown] and earned my [degree] at [school]. I built my career in enterprise SaaS sales, growing a territory from zero to $1.8 million in ARR. Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years. That lines up with what this role needs: renewal ownership on high-stakes accounts, trusted VP- and C-level relationships, and a record of building from scratch. I'd bring all three to protecting and growing your $40 million renewal book."
+
+**Delivery note:** Stay under 45 seconds. Part 1 is a quick setup, not a walk through every job in order. Stop after Part 3 and let the hiring manager choose the next question; they'll usually pull on one of the three things you just named.
+
+---
+
+## 2. Company & Role Snapshot
 
 *Placeholder — in a live run, this section reports real, current research (recent news, funding, leadership changes, and how this role fits into what's happening at the company right now) rather than invented detail. Since "Meridian Health Systems" is a fictional placeholder for this sample, no real research is presented here rather than fabricating plausible-sounding company facts that could be mistaken for real findings.*
 
 ---
 
-## 2. Resume-to-JD Gap Map
+## 3. Resume-to-JD Gap Map
 
 **Where you map cleanly — your strongest talking points:**
 - Enterprise account ownership at meaningful scale (30 accounts, $4.2M new ARR closed in 2025) — this role's $40M renewal book is a scale-up of exactly what you already do.
@@ -32,7 +60,7 @@
 
 ---
 
-## 3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer
+## 4. The "Why Aren't You Currently Working / Why Are You Leaving" Answer
 
 *Drafted directly from the reason you gave — laid off in a reduction in force when your last company scaled back its enterprise sales org after a soft second half; not performance-related. Two spoken-ready variants, since hiring managers tend to probe this a bit deeper than a recruiter screen would — both are built to hold up under one natural follow-up.*
 
@@ -48,7 +76,7 @@ Both stay factual and forward-looking, name the cause plainly (a business-driven
 
 ---
 
-## 4. Objection Reframing
+## 5. Objection Reframing
 
 *Built directly from the two concerns you named — each grounded in something real from your resume, not spin.*
 
@@ -66,13 +94,13 @@ This one is framed as neutral, not as an advantage — because it genuinely isn'
 
 ---
 
-## 5. Interviewer Research
+## 6. Interviewer Research
 
 Skipped — no interviewer names were given. *(No placeholder persona was invented to fill this gap; if you add names before your call, re-run this tool with them included.)*
 
 ---
 
-## 6. Candidate SWOT Analysis
+## 7. Candidate SWOT Analysis
 
 *Built from the Company & Role Snapshot, the Resume-to-JD Gap Map, and the (skipped) Interviewer Research above — not a generic template.*
 
@@ -98,7 +126,7 @@ Skipped — no interviewer names were given. *(No placeholder persona was invent
 
 ---
 
-## 7. Video Call Logistics Checklist
+## 8. Video Call Logistics Checklist
 
 Tied to Microsoft Teams specifically:
 - Test your Teams audio/video ahead of time — not just a generic mic check, actually open the app and do a real test call.
@@ -110,19 +138,19 @@ Tied to Microsoft Teams specifically:
 
 ---
 
-## 8. Time-Boxing for a 60-Minute Call
+## 9. Time-Boxing for a 60-Minute Call
 
 A realistic cadence for 60 minutes:
-- **0–5 min:** Rapport and introductions.
+- **0–5 min:** Rapport and introductions — expect "Tell me about yourself" here (Section 1).
 - **5–45 min:** Their questions — the bulk of the call.
-- **45–55 min:** Your questions (Section 11 below).
+- **45–55 min:** Your questions (Section 12 below).
 - **55–60 min:** Wrap-up and next steps.
 
 Keep individual answers to 90 seconds–2 minutes unless you're explicitly asked to go deeper — one long answer can eat a meaningful chunk of a 60-minute call.
 
 ---
 
-## 9. My Top 3–4 Stories
+## 10. My Top 3–4 Stories
 
 *You already wrote 2 of these yourself — used here exactly as given, tightened for spoken delivery. A third is pointed to (not written) from your resume to round out coverage, per the usual rule: Claude doesn't know what actually happened beyond what you tell it.*
 
@@ -145,7 +173,7 @@ Keep individual answers to 90 seconds–2 minutes unless you're explicitly asked
 
 ---
 
-## 10. Likely Questions
+## 11. Likely Questions
 
 **Behavioral:**
 - Tell me about a time you had to manage a difficult renewal conversation.
@@ -158,13 +186,13 @@ Keep individual answers to 90 seconds–2 minutes unless you're explicitly asked
 **Culture/values:**
 - *(Would be grounded in Meridian's actual stated values in a live run — not included here since this is a placeholder company.)*
 
-**Gap-probe** (arising directly from Section 2):
+**Gap-probe** (arising directly from Section 3):
 - You've never formally managed a team — how are you thinking about that transition?
 - This role sits in healthcare specifically — what's your plan for getting up to speed on the industry?
 
 ---
 
-## 11. Questions to Ask the Hiring Manager
+## 12. Questions to Ask the Hiring Manager
 
 - What does the CSM team's current structure look like, and what's working well vs. what would you want a new Director to change?
 - How is success measured for this role in the first 90 days?
@@ -173,10 +201,10 @@ Keep individual answers to 90 seconds–2 minutes unless you're explicitly asked
 
 ---
 
-## 12. Logistics Checklist
+## 13. Logistics Checklist
 
 - Notes and resume visible off-camera, but out of the way.
-- Your own questions (Section 11) written down — no printed agenda to glance at on a video call.
+- Your own questions (Section 12) written down — no printed agenda to glance at on a video call.
 - Confirm the Teams link is in your calendar and working before the call starts.
 
 ---

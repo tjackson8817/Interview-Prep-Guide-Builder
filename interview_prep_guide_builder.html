@@ -446,11 +446,33 @@ const WORRY_QUICK_PICKS = [
 ];
 
 
-function gapAnswerSection(mode, reasonGap, company){
+// "Tell Me About Yourself" — asked at the start of nearly every interview, so it
+// is Section 1 in all three modes. 30-45 seconds, three timed parts, with the
+// most time on how the resume lines up with this specific job.
+function tmaySectionText(sectionNum, mode, company){
+  const co = company || 'this company';
+  const modeNote = mode === 'recruiter'
+    ? ' A recruiter almost always opens the screen with this question and is mainly checking fit against the basic qualifications, so keep it crisp rather than detailed.'
+    : mode === 'hm'
+      ? ' A hiring manager almost always opens with this, and it frames the rest of the call, so Part 3 should point straight at the strengths I most want them to dig into.'
+      : ' Nearly every interviewer opens with this. In a panel or multi-round process each interviewer may ask it, so keep the core answer consistent and, at most, shift the Part 3 emphasis toward what that interviewer is likely to care about.';
+  return `${sectionNum}. "Tell Me About Yourself" (30-45 Second Answer) — this is usually the first question in any interview, so give me a short, focused, spoken-ready answer that walks the interviewer through my resume while leaning into how it lines up with this job description. Total length: 30-45 seconds spoken (roughly 75-110 words). Structure it in exactly three parts, each labeled with its target time:
+   Part 1 — Early Years (~10 seconds, ~25 words): where I'm from, my education, and my early-career foundation, only as far as my resume actually shows it. If my resume doesn't say where I'm from or where I went to school, use a clearly marked [bracketed placeholder] (e.g. [hometown], [degree, school]) for me to fill in. Never supply those facts yourself.
+   Part 2 — Most Recent Role (~10 seconds, ~25 words): what I did in my most recent job, framed around the parts of it that line up most directly with this job description.
+   Part 3 — What I'll Bring to This Role (~10-15 seconds, ~30-40 words, the longest part): the 2-3 key things from across my resume that most directly match what this job description asks for, and how I'd apply them in this role at ${co}. Most of the time goes here, and it should land on the job's top requirements rather than a general summary.
+   Then give me (a) the three parts combined as one continuous spoken answer with an estimated word count and speaking time, and (b) a 1-2 line delivery note: stay under 45 seconds, don't walk through every job in order, and stop after Part 3 so the interviewer can steer the next question.${modeNote}
+   Build it ONLY from facts actually in my resume (and my own STAR stories, if given). No invented motivations, passions, personal backstory, or accomplishments.`;
+}
+
+function tmayGuardrail(){
+  return `- The "Tell Me About Yourself" answer must use only facts in my resume (or my own STAR stories). Anything it needs that isn't there, like where I'm from or where I went to school, goes in a [bracketed placeholder] for me to fill in — never filled in by you.`;
+}
+
+function gapAnswerSection(sectionNum, mode, reasonGap, company){
   const co = company || 'this company';
   const title = mode === 'general'
-    ? `3. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer`
-    : `3. The "Why Aren't You Currently Working / Why Are You Leaving" Answer`;
+    ? `${sectionNum}. The "Why Aren't You Currently Working / Why You're Open to a New Role" Answer`
+    : `${sectionNum}. The "Why Aren't You Currently Working / Why Are You Leaving" Answer`;
   if(!reasonGap){
     return `${title} (general guidance only, since I did not give you a specific reason) — I did not give you a reason, and you should not invent one. Instead, show me how to structure this answer: a one-sentence gap statement that states the fact and the business cause and then stops (no justification, no backstory, no defensive qualifiers), followed by a one-sentence pivot to this role, plus a short list of the follow-up questions interviewers typically ask next and how to keep each reply to one sentence — so I can apply it to my own actual situation.`;
   }
@@ -767,11 +789,11 @@ function buildRecruiterPrompt(){
   lines.push(``);
   lines.push(`Build the guide in this structure:`);
   lines.push(``);
-  lines.push(`1. Tight "Tell Me About Yourself" Script — a 60-90 second spoken narrative arc built ONLY from facts actually in my resume (career chronology, why each move happened where evident, what I'm looking for next). Do not invent motivations, passions, or personal narrative details that aren't evidenced in my resume — keep it factual and professional, not a fabricated origin story.`);
+  lines.push(tmaySectionText(1, 'recruiter', company));
   lines.push(``);
   lines.push(`2. Qualifications T-Chart — a two-column table: left column is a specific requirement or qualification pulled directly from the job description, right column is the specific matching evidence from my resume for that exact requirement, one row per major requirement. This needs to be genuinely scannable in the 30 seconds before the call.`);
   lines.push(``);
-  lines.push(gapAnswerSection('recruiter', reasonGap, company));
+  lines.push(gapAnswerSection(3, 'recruiter', reasonGap, company));
   lines.push(``);
   lines = lines.concat(objectionSectionLines(4, worryAreas));
   const sd = strengthsData();
@@ -786,6 +808,7 @@ function buildRecruiterPrompt(){
   lines.push(`${n++}. Questions to Ask the Recruiter — 3-4 specific questions appropriate for a recruiter screen: process/timeline for next steps, what's the top priority for this hire in the first 90 days, comp band confirmation. Skip deep team/strategy questions — save those for later rounds.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
+  lines.push(tmayGuardrail());
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
   lines.push(`- Never invent my notice period, work authorization status, or any other personal/logistics fact — prompt me to supply my own.`);
   lines.push(`- Ground the salary range in real search results with sources noted, never a guessed number.`);
@@ -793,7 +816,7 @@ function buildRecruiterPrompt(){
   if(sd.has) lines.push(strengthsGuardrail());
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the T-chart, the salary range with source, ${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''}and the combined gap statement + pivot as a single line — so I have something skimmable right before the call.`
+    `Include a one-page "Quick Reference" summary at the very top — the combined 30-45 second "Tell Me About Yourself" answer, the T-chart, the salary range with source, ${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''}and the combined gap statement + pivot as a single line — so I have something skimmable right before the call.`
   ));
 
   return lines.join("\n");
@@ -829,21 +852,23 @@ function buildHiringManagerPrompt(){
   lines.push(``);
   lines.push(`Build the guide in this structure:`);
   lines.push(``);
-  lines.push(`1. Company & Role Snapshot — research ${company || 'the company'} directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.`);
+  lines.push(tmaySectionText(1, 'hm', company));
   lines.push(``);
-  lines.push(`2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
+  lines.push(`2. Company & Role Snapshot — research ${company || 'the company'} directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.`);
   lines.push(``);
-  lines.push(gapAnswerSection('hm', reasonGap, company));
+  lines.push(`3. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
   lines.push(``);
-  lines = lines.concat(objectionSectionLines(4, worryAreas));
+  lines.push(gapAnswerSection(4, 'hm', reasonGap, company));
+  lines.push(``);
+  lines = lines.concat(objectionSectionLines(5, worryAreas));
   if(interviewers.length){
-    lines.push(`5. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly ("no strong public signal found for [Name] — prepared based on their stated role instead") rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category — a Hiring Manager is more likely to probe team fit and day-to-day operating style than a peer or executive would.`);
+    lines.push(`6. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly ("no strong public signal found for [Name] — prepared based on their stated role instead") rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category — a Hiring Manager is more likely to probe team fit and day-to-day operating style than a peer or executive would.`);
   } else {
-    lines.push(`5. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
+    lines.push(`6. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
   }
   lines.push(``);
   const sd = strengthsData();
-  let n = 6;
+  let n = 7;
   if(sd.has){ lines.push(strengthsSectionText(n++, 'full')); lines.push(``); }
   lines.push(`${n++}. Candidate SWOT Analysis — build a SWOT specifically for my candidacy for this role at ${company || 'this company'}, grounded in the Company & Role Snapshot, the Resume-to-JD Gap Map, and the Interviewer Research above — not a generic SWOT template with filler in each box.`);
   lines.push(`    - Strengths: my strongest, most directly relevant qualifications for this specific role — pull from the gap map's clean matches, don't just restate my whole resume.`);
@@ -866,6 +891,7 @@ function buildHiringManagerPrompt(){
   lines.push(`${n++}. Logistics Checklist — light and video-call-appropriate: notes/resume visible off-camera but out of the way, your own questions written down since there's no printed agenda to glance at, confirmation of the platform link ahead of time.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
+  lines.push(tmayGuardrail());
   lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
   lines.push(`- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.`);
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
@@ -875,7 +901,7 @@ function buildHiringManagerPrompt(){
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, the combined gap statement + pivot as a single line, and the 3 strongest${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''} resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
+    `Include a one-page "Quick Reference" summary at the very top — the combined 30-45 second "Tell Me About Yourself" answer, the company snapshot in 2-3 sentences, the interviewer list with their roles, the call cadence, the combined gap statement + pivot as a single line, ${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''}and the 3 strongest resume-to-role matches — so I have something skimmable right before the call, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");
@@ -910,21 +936,23 @@ function buildGeneralPrompt(){
   lines.push(``);
   lines.push(`Build the guide in this structure:`);
   lines.push(``);
-  lines.push(`1. Company & Role Snapshot — research ${company || 'the company'} directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.`);
+  lines.push(tmaySectionText(1, 'general', company));
   lines.push(``);
-  lines.push(`2. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
+  lines.push(`2. Company & Role Snapshot — research ${company || 'the company'} directly: what they actually do, any recent news, funding, leadership changes, or public initiatives from roughly the last 6 months, and how this specific role fits into what's going on there right now. Keep this grounded in what you actually find; if nothing recent and notable turns up, say so rather than padding with generic "about the company" filler.`);
   lines.push(``);
-  lines.push(gapAnswerSection('general', reasonGap, company));
+  lines.push(`3. Resume-to-Job-Description Gap Map — compare my resume against the job description line by line. Identify (a) where my background maps cleanly and strongly onto stated requirements — name these specifically, they're my strongest talking points — and (b) where there's a real gap or unclear fit, framed constructively as "the interviewer may probe this because..." rather than as a list of weaknesses. Do not soften a real gap into a non-gap, and do not manufacture a gap that isn't there.`);
   lines.push(``);
-  lines = lines.concat(objectionSectionLines(4, worryAreas));
+  lines.push(gapAnswerSection(4, 'general', reasonGap, company));
+  lines.push(``);
+  lines = lines.concat(objectionSectionLines(5, worryAreas));
   if(interviewers.length){
-    lines.push(`5. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category where known.`);
+    lines.push(`6. Interviewer Research — for each named interviewer, search for their real public professional background: current role and tenure at ${company || 'the company'}, prior companies, and anything they've posted or been quoted on publicly and recently that's genuinely relevant to this conversation. CRITICAL: if search turns up little or nothing meaningful about a specific person, say so plainly rather than inventing personality traits, interests, or a likely question style to seem more personalized. Base what you *do* say on their actual role category where known.`);
   } else {
-    lines.push(`5. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
+    lines.push(`6. Interviewer Research — skip this section and say so plainly, since no interviewer names were given. Don't invent a placeholder interviewer persona to fill the gap.`);
   }
   lines.push(``);
   const sd = strengthsData();
-  let n = 6;
+  let n = 7;
   if(sd.has){ lines.push(strengthsSectionText(n++, 'full')); lines.push(``); }
   lines.push(`${n++}. Candidate SWOT Analysis — build a SWOT specifically for my candidacy for this role at ${company || 'this company'}, grounded in the Company & Role Snapshot, the Resume-to-JD Gap Map, and the Interviewer Research above — not a generic SWOT template with filler in each box.`);
   lines.push(`    - Strengths: my strongest, most directly relevant qualifications for this specific role — pull from the gap map's clean matches, don't just restate my whole resume.`);
@@ -948,6 +976,7 @@ function buildGeneralPrompt(){
   lines.push(`${n++}. Logistics Checklist — a short practical checklist: what to bring or have ready (portfolio links, references, questions written down), and a one-line reminder of the interview stage given above.`);
   lines.push(``);
   lines.push(`CRITICAL — grounding guardrails, all non-negotiable:`);
+  lines.push(tmayGuardrail());
   lines.push(`- Never invent or embellish my actual professional history, accomplishments, or the outcome of any project beyond what my resume actually states. If a story needs more specific detail than the resume provides, tell me to bring that detail myself — don't supply it.`);
   lines.push(`- Never invent detail about a named interviewer beyond what you can actually find through search. A thin or empty research result is a valid, expected outcome for many people — report it as such rather than filling the gap with plausible-sounding fabrication.`);
   lines.push(`- Never invent a reason for a gap or departure I didn't give you.`);
@@ -957,7 +986,7 @@ function buildGeneralPrompt(){
   lines.push(`- If I gave you my own STAR stories, treat them as fact the same way you treat my resume — use them as written, never add or invent additional detail, outcomes, or metrics beyond what I actually wrote.`);
   lines.push(``);
   lines = lines.concat(outputFormatLines(
-    `Include a one-page "Quick Reference" summary at the very top — the company snapshot in 2-3 sentences, the interviewer list with their roles, the combined gap statement + pivot as a single line, and the 3 strongest${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''} resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
+    `Include a one-page "Quick Reference" summary at the very top — the combined 30-45 second "Tell Me About Yourself" answer, the company snapshot in 2-3 sentences, the interviewer list with their roles, the combined gap statement + pivot as a single line, ${sd.has ? 'the CliftonStrengths themes you selected, each with a one-line balcony, ' : ''}and the 3 strongest resume-to-role matches — so I have something skimmable right before walking in, with the full detail below it for deeper prep.`
   ));
 
   return lines.join("\n");

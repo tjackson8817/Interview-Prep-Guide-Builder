@@ -17,11 +17,11 @@ This tool picks up once you've actually landed an interview — the stage none o
 
 ## Three modes, not one generic form
 
-Pick a mode at the top of the page — it switches the entire field set and the entire generated guide, not just a couple of options:
+Pick a mode at the top of the page — it switches the entire field set and the entire generated guide, not just a couple of options. Every mode opens with the same Section 1: a **30-45 second "Tell Me About Yourself" answer** in three timed parts — Early Years (~10 sec), Most Recent Role (~10 sec), and What You'll Bring to This Role (~10-15 sec, the longest part, focused on how your resume lines up with this job description). It's also repeated at the top of the Quick Reference, since it's usually the first question asked.
 
-- **Recruiter Screen** — a qualifications T-chart, a tight "tell me about yourself" script, coached answers for the gap/leaving question and the salary question (grounded in real market research, framed as a range, not a negotiation), honest objection reframing for any concerns you name, standard logistics questions, and recruiter-appropriate questions to ask.
-- **Hiring Manager Interview** — built for a real, time-boxed video call: company/role research, a resume-to-JD gap map, objection reframing, interviewer research (if named), a Candidate SWOT Analysis with honest weakness-mitigation talking points, a video-call logistics checklist tied to your actual platform, pacing scaled to your actual call length, your top 3-4 STAR-structured stories (not an exhaustive list — uses your own STAR Stories as-written if you supply them, otherwise points you to the right resume bullets), and HM-appropriate questions to ask.
-- **General / Other** — the fuller original structure (company snapshot, gap map, objection reframing, interviewer research, the same Candidate SWOT Analysis, four categories of likely questions, STAR story scaffolding, questions to ask) as a fallback for technical rounds, panels, and final rounds.
+- **Recruiter Screen** — the 30-45 second "Tell Me About Yourself" answer, a qualifications T-chart, coached answers for the gap/leaving question and the salary question (grounded in real market research, framed as a range, not a negotiation), honest objection reframing for any concerns you name, standard logistics questions, and recruiter-appropriate questions to ask.
+- **Hiring Manager Interview** — built for a real, time-boxed video call: the 30-45 second "Tell Me About Yourself" answer, company/role research, a resume-to-JD gap map, objection reframing, interviewer research (if named), a Candidate SWOT Analysis with honest weakness-mitigation talking points, a video-call logistics checklist tied to your actual platform, pacing scaled to your actual call length, your top 3-4 STAR-structured stories (not an exhaustive list — uses your own STAR Stories as-written if you supply them, otherwise points you to the right resume bullets), and HM-appropriate questions to ask.
+- **General / Other** — the fuller original structure (the 30-45 second "Tell Me About Yourself" answer, company snapshot, gap map, objection reframing, interviewer research, the same Candidate SWOT Analysis, four categories of likely questions, STAR story scaffolding, questions to ask) as a fallback for technical rounds, panels, and final rounds.
 
 ## Quick start
 
@@ -35,6 +35,7 @@ Pick a mode at the top of the page — it switches the entire field set and the 
 ## What makes this different from generic interview advice
 
 - **Never a scripted answer.** If you filled in the optional STAR Stories field, the guide uses those stories exactly as you wrote them and never embellishes them. Where a slot is unfilled, it points you to the specific resume bullet that's your strongest match and prompts STAR structure — it does not write the story for you. Claude doesn't know what actually happened in your work beyond what your resume states (or what you wrote yourself), and inventing specifics risks putting words in your mouth you'd have to walk back live.
+- **"Tell Me About Yourself" stays factual.** The 30-45 second answer is built only from your resume (and your own STAR Stories, if given). Anything it needs that your resume doesn't show, like your hometown or school, comes back as a [bracketed placeholder] for you to fill in.
 - **Interviewer research stays evidence-based.** If a named interviewer has little or no public footprint, the guide says so plainly and falls back to role-based prep instead of inventing a personality or interests to seem more personalized.
 - **SWOT weaknesses stay honest.** In Hiring Manager and General/Other modes, a real weakness in the Candidate SWOT Analysis is never softened into a non-weakness, and its mitigation talking point is never a fabricated accomplishment used to explain the gap away — same standard as objection reframing.
 - **Objection reframing stays honest, not spin.** Every reframe for a named concern is grounded in something real from your resume — if a concern genuinely doesn't have a strong answer, the guide says so rather than manufacturing one.
@@ -52,7 +53,8 @@ Pick a mode at the top of the page — it switches the entire field set and the 
 | `sample_hiring_manager_prompt.txt` | Real example of Hiring Manager mode's generated prompt. |
 | `sample_general_prompt.txt` | Real example of General/Other mode's generated prompt. |
 | `sample_prompt_objection_reframing.txt` | Real example of Hiring Manager mode's generated prompt with objection reframing and STAR Stories filled in. |
-| `interview_sample_output.md` / `.docx` | The actual guide Claude returns when the prompt above is run — shows the Candidate SWOT Analysis and STAR Stories sections in context. |
+| `interview_sample_output.md` / `.docx` | The actual guide Claude returns when the prompt above is run — shows the "Tell Me About Yourself" answer, Candidate SWOT Analysis, and STAR Stories sections in context. |
+| `interview_sample_output_cliftonstrengths.md` / `.docx` / `.doc` | The same guide with the optional CliftonStrengths fields filled in — adds the CliftonStrengths Talking Points section and feeds it into the SWOT. |
 
 ## Notes
 
