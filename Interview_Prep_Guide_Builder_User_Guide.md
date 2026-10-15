@@ -9,7 +9,7 @@ MARKETING AND CONSULTING
 **Live Tool:** [https://tjackson8817.github.io/Interview-Prep-Guide-Builder/interview_prep_guide_builder.html](https://tjackson8817.github.io/Interview-Prep-Guide-Builder/interview_prep_guide_builder.html)
 
 Created By: Tom Jackson
-August 12, 2026 (Objection Reframing section and the worry-areas field updated August 17, 2026; Candidate SWOT Analysis and the optional STAR Stories field added September 1, 2026; 30-45 second "Tell Me About Yourself" section, its optional extras (where you're from, education, what to remember), and the CliftonStrengths documentation added October 13, 2026)
+August 12, 2026 (Objection Reframing section and the worry-areas field updated August 17, 2026; Candidate SWOT Analysis and the optional STAR Stories field added September 1, 2026; 30-45 second "Tell Me About Yourself" section, its optional extras (where you're from, education, what to remember), and the CliftonStrengths documentation added October 13, 2026; "Tell Me About Yourself" output streamlined to the full answer and 20-second version October 15, 2026)
 
 This tool is a single web page (interview_prep_guide_builder.html) that turns your resume, the job description, and (optionally) who you're meeting with into a real, grounded interview prep guide. Like the other tools in this family, it runs entirely in your browser: no install, no account, nothing sent anywhere until you copy the prompt and paste it into a Claude chat yourself.
 
@@ -22,7 +22,7 @@ This tool is a single web page (interview_prep_guide_builder.html) that turns yo
 
 ## 1. How This Fits With the Other Tools
 
-Not sure what to target yet? Career Path Discovery Prompt Builder is the step before all of this. Once you know your direction: the Target Company Prompt Builder researches and ranks companies. The Job Posting Finder checks who's actively hiring. Resume & Cover Letter Tailoring fits your documents to a specific posting. Outreach Message Builder drafts your outreach. This tool picks up once you've actually landed an interview — the stage none of the others cover. Afterward, the specific things you actually discuss become the Context Notes for a genuinely grounded thank-you message back in the Outreach Message Builder. And Part 3 of your "Tell Me About Yourself" answer (Section 4) doubles as a short pitch you can reuse in the LinkedIn Profile Builder and the Outreach Message Builder.
+Not sure what to target yet? Career Path Discovery Prompt Builder is the step before all of this. Once you know your direction: the Target Company Prompt Builder researches and ranks companies. The Job Posting Finder checks who's actively hiring. Resume & Cover Letter Tailoring fits your documents to a specific posting. Outreach Message Builder drafts your outreach. This tool picks up once you've actually landed an interview — the stage none of the others cover. Afterward, the specific things you actually discuss become the Context Notes for a genuinely grounded thank-you message back in the Outreach Message Builder. And the closing "what you'd bring" lines of your "Tell Me About Yourself" answer (Section 4) double as a short pitch you can reuse in the LinkedIn Profile Builder and the Outreach Message Builder.
 
 ## 2. The Mode Toggle
 
@@ -54,7 +54,7 @@ The guide doesn't simply take your highest-ranked themes. It checks every theme 
 
 ## 4. "Tell Me About Yourself" — Section 1 in Every Mode
 
-Nearly every interview opens with "Tell me about yourself," so every guide, in all three modes, leads with a short, focused answer to it, placed right after the Quick Reference. It walks the interviewer through your resume in 30-45 seconds (roughly 75-110 words), leaning into how your background lines up with this specific job description. It's built in three timed parts:
+Nearly every interview opens with "Tell me about yourself," so every guide, in all three modes, leads with a short, focused answer to it, placed right after the Quick Reference. It walks the interviewer through your resume in 30-45 seconds (roughly 75-110 words), leaning into how your background lines up with this specific job description. It's built from three timed parts. The guide names them in a one-line "How it's built" note and then shows you the finished answer, not a separate block for each part:
 
 | Part | Time | What it covers |
 |---|---|---|
@@ -62,11 +62,12 @@ Nearly every interview opens with "Tell me about yourself," so every guide, in a
 | 2 · Most Recent Role | ~10 sec | What you did in your last job, framed around what lines up with this job description. |
 | 3 · What You'll Bring | ~10-15 sec (the longest part) | The 2-3 key things from your resume that most directly match the job description, and how you'd apply them in this role. It ends on one short hook sentence that ties your background to something specific about this role or company, so it invites the next question. |
 
-Along with the three parts, you get:
+In the guide, you get:
 
+- **Why it matters and how it's built**: a short intro and a one-line outline of the three parts and their timing, so you can see the shape of the answer.
 - **The full answer**: the three parts as one continuous answer, with a word count and speaking time. It's also repeated at the top of the Quick Reference.
-- **A 20-second version**: Parts 2 and 3 only, about 50 words. Use it in a panel where several people ask the same question in turn, or for a quick networking conversation.
-- **The likely next question** (if you gave a reason for leaving): the interviewer's next question is almost always "So what happened there?" Part 2 never mentions the layoff or departure; instead the guide points you straight to your gap statement and pivot, so you're ready for it.
+- **A 20-second version**: just your most recent role and what you'd bring, about 50 words. Use it in a panel where several people ask the same question in turn, or for a quick networking conversation.
+- **The likely next question** (if you gave a reason for leaving): the interviewer's next question is almost always "So what happened there?" The answer never mentions the layoff or departure; instead the guide points you straight to your gap statement and pivot, so you're ready for it.
 - **A delivery note**: stay under 45 seconds, don't walk through every job in order, and stop after the hook so the interviewer can steer the next question.
 
 **How the optional fields are used.** All three "Tell Me About Yourself" extras are optional, and most people will skip at least one. When a field is blank, the guide uses whatever your resume shows. If your resume doesn't show it either, the detail is left out, not invented, and not left as a blank to fill in. Part 1 then opens with your career foundation instead, and a one-line note tells you which optional field would round it out. If you fill in "the 2-3 things you most want them to remember," Part 3 is built around them, but only where your resume backs them up. Anything it can't support is left out and flagged in a note rather than stretched. When your resume says little about your most recent job, Part 2 stays short rather than being padded with unrelated facts, and a note suggests the kind of concrete detail you could add yourself.
@@ -75,7 +76,7 @@ Along with the three parts, you get:
 
 The emphasis shifts slightly by mode: crisp and qualifications-focused for a recruiter screen, pointed at the strengths you want probed for a hiring manager, and kept consistent across interviewers for panels and multi-round processes.
 
-**Reuse it elsewhere.** Part 3 is your pitch for this kind of role in about 40 words. It works well as a starting point for the About section in the LinkedIn Profile Builder and for the opening line of a message in the Outreach Message Builder, so you describe yourself the same way everywhere.
+**Reuse it elsewhere.** The closing "what you'd bring" lines of the full answer are your pitch for this kind of role in about 40 words. It works well as a starting point for the About section in the LinkedIn Profile Builder and for the opening line of a message in the Outreach Message Builder, so you describe yourself the same way everywhere.
 
 ## 5. Recruiter Screen Mode
 
@@ -151,7 +152,7 @@ Every guide always comes back as a **downloadable Word document (.docx)** — th
 3. Fill in whatever's specific to your mode, plus any optional fields that apply to you ("Tell Me About Yourself" extras, CliftonStrengths, STAR Stories).
 4. Copy the generated prompt, paste it into a new Claude chat (attach your resume/JD files here if you didn't paste the text).
 5. Review the guide — pay particular attention to anything flagged as needing your own input (a gap reason you didn't supply, an interviewer with no research found, a note under your "Tell Me About Yourself" answer about a detail you could add). Then say that answer out loud with a timer: it should land between 30 and 45 seconds.
-6. Reuse Part 3 of your "Tell Me About Yourself" answer as a starting point for your LinkedIn About section or your outreach openers, if it isn't already there.
+6. Reuse the closing "what you'd bring" lines of your "Tell Me About Yourself" answer as a starting point for your LinkedIn About section or your outreach openers, if it isn't already there.
 7. After the interview, carry the specific things you actually discussed into the Outreach Message Builder's Context Notes for a genuinely grounded thank-you message.
 
 ## 11. Quick Troubleshooting
@@ -169,7 +170,8 @@ Every guide always comes back as a **downloadable Word document (.docx)** — th
 | My STAR Stories fields aren't showing | Expected in Recruiter Screen mode — that mode doesn't use behavioral/STAR-style questions, so the field is hidden there. Switch to Hiring Manager or General/Other mode to see it. |
 | The story section still points me to a resume bullet instead of using my story | Check that you actually filled in at least one field (Situation, Task, Action, or Result) for that story — a fully blank story block is treated the same as not providing one. |
 | My "Tell Me About Yourself" answer doesn't mention where I'm from or my school | Expected when neither the optional fields nor your resume include them; the guide leaves them out rather than inventing them. Fill in the optional Where you're from and Education fields and regenerate. |
-| Part 3 of my "Tell Me About Yourself" isn't what I'd lead with | Fill in the optional "2-3 things you most want them to remember" field. Left blank, the guide picks the strengths that best match the job description. |
-| Part 3 left out one of the things I asked it to emphasize | Your resume doesn't back that item up yet. Add the supporting evidence to your resume text, or a STAR Story, and regenerate. |
-| My "Tell Me About Yourself" answer runs longer than 45 seconds | Trim Parts 1 and 2 first. Part 3 (how your background fits this job) is the part worth the extra seconds. |
+| The "what I'd bring" part of my "Tell Me About Yourself" isn't what I'd lead with | Fill in the optional "2-3 things you most want them to remember" field. Left blank, the guide picks the strengths that best match the job description. |
+| My answer left out one of the things I asked it to emphasize | Your resume doesn't back that item up yet. Add the supporting evidence to your resume text, or a STAR Story, and regenerate. |
+| I don't see Part 1, Part 2, and Part 3 broken out in my guide | By design: the guide shows the one-line "How it's built" outline, then only the full answer and the 20-second version, so you rehearse the answer as one piece. |
+| My "Tell Me About Yourself" answer runs longer than 45 seconds | Trim the early-years and most-recent-role lines first. The closing "what you'd bring" lines (how your background fits this job) are worth the extra seconds. |
 | In ChatGPT, it asks clarifying questions instead of running the task | The prompt opens with an explicit "execute this directly" instruction — restate it more bluntly as a follow-up if needed. |

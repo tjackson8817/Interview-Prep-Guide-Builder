@@ -469,7 +469,8 @@ const WORRY_QUICK_PICKS = [
 
 
 // "Tell Me About Yourself" — asked at the start of nearly every interview, so it
-// is Section 1 in all three modes. 30-45 seconds, three timed parts, with the
+// is Section 1 in all three modes. 30-45 seconds, built from three timed parts
+// (shown in the guide only as the full answer and the 20-second version), with the
 // most time on how the resume lines up with this specific job. The optional
 // hometown / education / focus fields only fill gaps; blank fields fall back to
 // the resume, and anything neither supplies is left out, never invented.
@@ -499,7 +500,8 @@ function tmaySectionText(sectionNum, mode, company, reasonGap, gapSectionNum){
     ? `build this around the 2-3 things I said I most want the interviewer to remember (listed above), each tied to real evidence in my resume and to what this job description asks for, and how I'd apply them in this role at ${co}. If one of them isn't backed by my resume, leave it out of the answer and say so in a one-line note rather than stretching it.`
     : `the 2-3 key things from across my resume that most directly match what this job description asks for, and how I'd apply them in this role at ${co}.`;
 
-  let extras = `   Then give me:
+  let extras = `   How to present it in the guide: open this section with 1-2 short lines on why this answer matters and how it's built — the three parts and their target times, on one line (Early Years ~10 sec → Most Recent Role ~10 sec → What I'll Bring ~10-15 sec, ending on the hook). Do NOT show Part 1, Part 2, and Part 3 as separate labeled sections or blocks. Show the answer only as the two versions below.
+   Then give me:
    (a) The full answer — the three parts combined as one continuous spoken answer, with an estimated word count and speaking time.
    (b) A 20-second version — Parts 2 and 3 only, compressed to about 50 words, for a panel where several people ask this in turn, or a quick networking conversation.`;
   let letter = 'c';
@@ -510,13 +512,13 @@ function tmaySectionText(sectionNum, mode, company, reasonGap, gapSectionNum){
   }
   if(missing.length){
     extras += `
-   (${letter}) If Part 1 had to leave out ${missing.join(' or ')} because neither the fields above nor my resume had it, add one short line noting that I can fill in that optional field in the tool to round out Part 1.`;
+   (${letter}) If Part 1 had to leave out ${missing.join(' or ')} because neither the fields above nor my resume had it, add one short line noting that I can fill in that optional field in the tool to round out the opening of the answer.`;
     letter = String.fromCharCode(letter.charCodeAt(0) + 1);
   }
   extras += `
    (${letter}) Delivery note — 1-2 lines: stay under 45 seconds, don't walk through every job in order, and stop after the hook so the interviewer can steer the next question.${modeNote}`;
 
-  return `${sectionNum}. "Tell Me About Yourself" (30-45 Second Answer) — this is usually the first question in any interview, so give me a short, focused, spoken-ready answer that walks the interviewer through my resume while leaning into how it lines up with this job description. Total length: 30-45 seconds spoken (roughly 75-110 words). Structure it in exactly three parts, each labeled with its target time:
+  return `${sectionNum}. "Tell Me About Yourself" (30-45 Second Answer) — this is usually the first question in any interview, so give me a short, focused, spoken-ready answer that walks the interviewer through my resume while leaning into how it lines up with this job description. Total length: 30-45 seconds spoken (roughly 75-110 words). Build it from exactly three parts, in this order, keeping each to its target time:
    Part 1 — Early Years (~10 seconds, ~25 words): where I'm from, my education, and my early-career foundation. ${part1Source} No dates in Part 1: no graduation years, no "since 1998," no counting years from a first job. For a long career, describe the foundation (the field or kind of work I came up through), not the timeline, so the answer doesn't invite assumptions about age.
    Part 2 — Most Recent Role (~10 seconds, ~25 words): what I did in my most recent job, framed around the parts of it that line up most directly with this job description. If my resume gives little detail about that job, keep Part 2 short rather than padding it with facts from elsewhere (certifications, older roles), and add a one-line note under the answer suggesting the kind of concrete, job-relevant detail I could add myself.
    Part 3 — What I'll Bring to This Role (~10-15 seconds, ~30-40 words, the longest part): ${part3} Most of the time goes here, and it should land on the job's top requirements rather than a general summary. End Part 3 with one short hook sentence that ties my background to something specific about this role or company (from the job description or your company research), so it invites the next question — e.g. "…which is why the [specific focus] in this role stood out to me." The hook counts toward Part 3's ~40-word limit; trim the strengths list before going over it.

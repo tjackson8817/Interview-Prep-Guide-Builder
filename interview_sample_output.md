@@ -18,19 +18,9 @@
 
 ## 1. "Tell Me About Yourself" (30–45 Second Answer)
 
-*Usually the first question on the call, and it frames everything after it, so most of the time goes to Part 3: the strengths you most want this hiring manager to dig into. Built only from your resume and STAR stories, since the optional Where you're from and Education fields were left blank.*
+*Usually the first question on the call, and it frames everything after it, so most of the time goes to the last part: the strengths you most want this hiring manager to dig into. Built only from your resume and STAR stories, since the optional Where you're from and Education fields were left blank.*
 
-**Part 1 — Early Years (~10 sec)**
-
-> "My foundation is enterprise SaaS sales, where I grew a territory from zero to $1.8 million in ARR."
-
-**Part 2 — Most Recent Role (~10 sec)** — aimed at this role's core mandate: owning enterprise renewals.
-
-> "Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR in 2025, and personally owned renewals on my five largest accounts for two years."
-
-**Part 3 — What I'll Bring to This Role (~15 sec, the longest part)** — the three resume strengths that line up most directly with the job description, ending on a hook tied to this role.
-
-> "For this role, I'd bring hands-on renewal ownership, trusted VP- and C-level relationships, and a record of building from scratch. That's why the chance to own a $40 million renewal book stood out to me."
+**How it's built:** Early Years (~10 sec) → Most Recent Role (~10 sec) → What You'll Bring (~10–15 sec, the longest part, ending on a hook tied to this role).
 
 **(a) The full answer (~80 words, about 35 seconds):**
 
@@ -40,9 +30,9 @@
 
 > "Most recently, I managed 30 enterprise accounts, closed $4.2 million in new ARR, and owned renewals on my five largest. I'd bring that renewal ownership and those executive relationships here, which is why owning a $40 million renewal book stood out to me."
 
-**(c) Likely next question:** expect "So what happened there?" right after this. Part 2 deliberately doesn't mention the layoff. Go straight to the gap statement and pivot in Section 4.
+**(c) Likely next question:** expect "So what happened there?" right after this. The answer deliberately doesn't mention the layoff. Go straight to the gap statement and pivot in Section 4.
 
-**(d) Part 1 note:** your resume doesn't say where you're from or where you went to school, so Part 1 leaves both out and opens with your career foundation. Fill in the optional Where you're from and Education fields in the tool to round it out.
+**(d) Opening note:** your resume doesn't say where you're from or where you went to school, so the answer leaves both out and opens with your career foundation. Fill in the optional Where you're from and Education fields in the tool to round it out.
 
 **(e) Delivery note:** stay under 45 seconds, and don't walk through every job in order. Stop after the hook and let the hiring manager choose the next question; they'll usually pull on one of the three things you just named.
 
